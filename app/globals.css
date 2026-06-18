@@ -488,10 +488,47 @@ img { max-width: 100%; display: block; }
 }
 
 /* 予約フォーム（公開） */
-.reserve-form { max-width: 560px; margin: 48px auto 0; }
-.rf-field { display: block; margin-bottom: 20px; }
-.rf-field > span { display: block; font-size: 12px; letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 7px; }
-.rf-field .admin-input, .rf-field .admin-select { width: 100%; font-family: var(--serif); }
+.reserve-form {
+  max-width: 560px;
+  margin: 44px auto 0;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px 36px 34px;
+}
+.rf-field { display: block; margin-bottom: 22px; }
+.rf-field > span {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  margin-bottom: 9px;
+}
+/* 入力欄：生成り背景に溶けないよう枠と背景をはっきりさせる */
+.reserve-form .admin-input,
+.reserve-form .admin-select,
+.reserve-form textarea.admin-input {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #ffffff;
+  border: 1px solid #d6cab2;
+  border-radius: 9px;
+  padding: 12px 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.reserve-form .admin-input:focus,
+.reserve-form .admin-select:focus,
+.reserve-form textarea.admin-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(138, 143, 106, 0.18);
+}
+.reserve-form .admin-input::placeholder { color: #b8ac95; }
+.reserve-form textarea.admin-input { resize: vertical; min-height: 84px; }
+
 .rf-row { display: flex; gap: 14px; }
 .rf-row .rf-field { flex: 1; }
 @media (max-width: 520px) { .rf-row { flex-direction: column; gap: 0; } }
