@@ -1,0 +1,10 @@
+/node_modules
+/.next
+/out
+*.pem
+.DS_Store
+.env*
+next-env.d.ts
+
+# 参考資料PDF（リポジトリには含めない）
+*.pdf
