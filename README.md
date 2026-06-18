@@ -19,4 +19,20 @@ npm run build    # 本番ビルド
 
 ## ページ構成
 
-トップ ＋ 初めての方へ / ハーブ蒸しについて / コンセプト / メニュー / スタッフ / ブログ / お客様の声 / アクセス（全9ルート）
+トップ ＋ 初めての方へ / ハーブ蒸しについて / コンセプト / メニュー / スタッフ / ブログ / お客様の声 / アクセス
+
+## 予約・管理画面（Supabase）
+
+- **公開予約フォーム** … `/reserve`（4店舗から選んで仮予約 → Supabaseに保存）
+- **管理画面** … `/admin`（ログイン後、予約を店舗・ステータスで絞り込み、対応状況の変更・削除・手動追加）
+
+### セットアップ
+
+1. `.env.example` を `.env.local` にコピーし、Supabaseの値を設定
+2. **Vercel** の Project Settings > Environment Variables に
+   `NEXT_PUBLIC_SUPABASE_URL` と `NEXT_PUBLIC_SUPABASE_ANON_KEY` を登録（登録後に再デプロイ）
+
+### データ構成（Supabase）
+
+- `herb_stores` … 店舗マスタ（4店舗）
+- `herb_reservations` … 予約データ（RLS: 匿名は作成のみ可、閲覧/更新/削除はログイン管理者のみ）

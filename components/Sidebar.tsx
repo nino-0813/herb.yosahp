@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SITE } from "@/site.config";
+import { ReserveLink } from "./ui";
 import Leaf from "./Leaf";
 
 export default function Sidebar() {
@@ -47,9 +48,7 @@ export default function Sidebar() {
           ))}
         </nav>
 
-        <a className="sidebar__cta" href={SITE.reserveUrl} target="_blank" rel="noopener noreferrer">
-          RESERVE
-        </a>
+        <ReserveLink className="sidebar__cta">RESERVE</ReserveLink>
       </aside>
     </>
   );

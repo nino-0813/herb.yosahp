@@ -15,8 +15,9 @@ export const SITE = {
     en: "warm your body, calm your mind",
     jpLines: ["厳選ハーブの蒸気で、芯から温まる。", "尾道・沼隈・福山のハーブ蒸しサロン。"],
   },
-  /** 予約導線（共通ボタンのリンク先。後でホットペッパー等のURLに） */
-  reserveUrl: "#",
+  /** 予約導線（共通ボタンのリンク先）。自サイト予約フォームは "/reserve"。
+   *  ホットペッパー等の外部URLにしたい場合はそのURLを入れてください。 */
+  reserveUrl: "/reserve",
   reserveLabel: "ご予約・お問い合わせ",
   instagramUrl: "#",
   lineUrl: "#",
