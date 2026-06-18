@@ -28,8 +28,10 @@ npm run build    # 本番ビルド
 
 ### セットアップ
 
-1. `.env.example` を `.env.local` にコピーし、Supabaseの値を設定
-2. **Vercel** の Project Settings > Environment Variables に
+1. Supabase ダッシュボード > SQL Editor で [`supabase/schema.sql`](supabase/schema.sql) を実行（テーブル・RLS・店舗マスタを作成）
+2. Authentication > Users > Add user で管理者アカウントを作成（Auto Confirm User を ON）
+3. `.env.example` を `.env.local` にコピーし、Supabaseの値を設定
+4. **Vercel** の Project Settings > Environment Variables に
    `NEXT_PUBLIC_SUPABASE_URL` と `NEXT_PUBLIC_SUPABASE_ANON_KEY` を登録（登録後に再デプロイ）
 
 ### データ構成（Supabase）
