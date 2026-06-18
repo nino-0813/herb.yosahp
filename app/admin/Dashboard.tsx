@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import AdminTabs from "./AdminTabs";
 import {
   type Reservation,
   type ReservationStatus,
@@ -20,7 +20,6 @@ export default function Dashboard({
   initialReservations: Reservation[];
   stores: Store[];
 }) {
-  const router = useRouter();
   const supabase = createClient();
 
   const [rows, setRows] = useState<Reservation[]>(initialReservations);
@@ -82,12 +81,6 @@ export default function Dashboard({
     setBusy(null);
   }
 
-  async function logout() {
-    await supabase.auth.signOut();
-    router.replace("/admin/login");
-    router.refresh();
-  }
-
   async function addReservation(data: Omit<Reservation, "id" | "created_at" | "status"> & { status: ReservationStatus }) {
     const { data: inserted, error } = await supabase
       .from("herb_reservations")
@@ -105,21 +98,14 @@ export default function Dashboard({
 
   return (
     <div className="admin">
-      <header className="admin-header">
-        <div className="admin-header__title">
-          予約管理<span>ハーブ蒸しサロン</span>
-        </div>
-        <div style={{ display: "flex", gap: 10 }}>
+      <AdminTabs />
+
+      <div className="admin-wrap">
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
           <button className="admin-btn admin-btn--primary admin-btn--sm" onClick={() => setShowAdd(true)}>
             ＋ 予約を追加
           </button>
-          <button className="admin-btn admin-btn--sm" onClick={logout}>
-            ログアウト
-          </button>
         </div>
-      </header>
-
-      <div className="admin-wrap">
         {/* stats */}
         <div className="admin-stats">
           <div className="admin-stat"><div className="admin-stat__num">{stats.today}</div><div className="admin-stat__label">本日の予約</div></div>
@@ -259,6 +245,7 @@ function AddModal({
       reserved_time: f.reserved_time,
       num_people: Number(f.num_people),
       note: f.note || null,
+      is_block: false,
       status: f.status,
     });
     if (!ok) setSaving(false);
