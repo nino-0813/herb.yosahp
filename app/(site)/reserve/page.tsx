@@ -215,7 +215,7 @@ export default function ReservePage() {
 
               <label className="rf-field">
                 <span>ご希望メニュー</span>
-                <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：ハーブ蒸し(30min)" />
+                <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：よもぎ蒸し(30min)" />
               </label>
               <label className="rf-field">
                 <span>お名前 *</span>

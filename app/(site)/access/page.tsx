@@ -6,7 +6,7 @@ export default function Access() {
     <>
       <Headline en="access" jp="店舗一覧・アクセス" />
       <div className="container">
-        <p className="lede">尾道・沼隈・福山に4店舗を展開しています。お近くのサロンをご利用ください。</p>
+        <p className="lede">福山・尾道に4店舗。どこに行っても安心できる、地域の拠り所として。お近くのサロンをご利用ください。</p>
       </div>
 
       <div className="spacer-sm" />

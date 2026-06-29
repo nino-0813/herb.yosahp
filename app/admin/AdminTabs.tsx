@@ -24,7 +24,7 @@ export default function AdminTabs() {
   return (
     <header className="admin-header">
       <div className="admin-header__title">
-        予約管理<span>ハーブ蒸しサロン</span>
+        予約管理<span>よもぎ蒸しサロン</span>
       </div>
       <nav className="admin-tabs">
         {tab("/admin", "予約一覧")}

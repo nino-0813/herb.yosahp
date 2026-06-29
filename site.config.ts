@@ -5,15 +5,15 @@
 
 export const SITE = {
   /** ロゴに表示するブランド名（筆記体ロゴ部分）*/
-  brand: "yosa",
+  brand: "ON:U",
   /** ロゴ上の小さな日本語キャプション */
-  brandCaption: "ハーブ蒸しサロン",
+  brandCaption: "Korean Herbal Steam",
   /** ブラウザタブ等に出る正式名称 */
-  fullName: "ハーブ蒸しサロン yosa",
+  fullName: "ON:U｜韓国よもぎ蒸しサロン",
   /** トップのキャッチ */
   catch: {
-    en: "warm your body, calm your mind",
-    jpLines: ["厳選ハーブの蒸気で、芯から温まる。", "尾道・沼隈・福山のハーブ蒸しサロン。"],
+    en: "Warm Your Body. Bloom Your Life.",
+    jpLines: ["身体を温め、心を整え、新しい毎日へ。", "あなたを優しく温める、韓国よもぎ蒸しサロン。"],
   },
   /** 予約導線（共通ボタンのリンク先）。自サイト予約フォームは "/reserve"。
    *  ホットペッパー等の外部URLにしたい場合はそのURLを入れてください。 */
@@ -26,12 +26,12 @@ export const SITE = {
 /** グローバルナビ（左サイドバー）の項目 */
 export const NAV = [
   { href: "/first-time", label: "初めての方へ" },
-  { href: "/about", label: "ハーブ蒸しについて" },
-  { href: "/concept", label: "コンセプト" },
+  { href: "/about", label: "よもぎ蒸しについて" },
   { href: "/menu", label: "メニュー" },
+  { href: "/voice", label: "お客様の声" },
+  { href: "/concept", label: "コンセプト" },
   { href: "/staff", label: "スタッフ" },
   { href: "/blog", label: "ブログ" },
-  { href: "/voice", label: "お客様の声" },
   { href: "/access", label: "アクセス" },
 ];
 

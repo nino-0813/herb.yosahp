@@ -283,7 +283,7 @@ function AddModal({
         </div>
         <div className="admin-field">
           <label>メニュー</label>
-          <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：ハーブ蒸し(30min)" />
+          <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：よもぎ蒸し(30min)" />
         </div>
         <div style={{ display: "flex", gap: 12 }}>
           <div className="admin-field" style={{ flex: 1 }}>

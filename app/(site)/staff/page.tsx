@@ -17,9 +17,9 @@ export default function Staff() {
       <Headline en="staff" jp="スタッフ紹介" />
       <div className="container">
         <p className="lede">
-          一人ひとりに寄り添う、心地よいおもてなしを。
+          自分たちも揺らいだ経験があるから、深く寄り添える。
           <br />
-          経験豊富なスタッフがあなたの「chill time」をサポートします。
+          裏表のない言葉で、あなたが本来の自分を取り戻す時間に寄り添います。
         </p>
       </div>
 

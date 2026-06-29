@@ -31,7 +31,7 @@ export default function AdminLogin() {
       <div className="admin-login">
         <form className="admin-login__card" onSubmit={onSubmit}>
           <h1 className="admin-login__title">管理画面ログイン</h1>
-          <p className="admin-login__sub">ハーブ蒸しサロン 予約管理</p>
+          <p className="admin-login__sub">よもぎ蒸しサロン 予約管理</p>
 
           {error && <div className="admin-error">{error}</div>}
 

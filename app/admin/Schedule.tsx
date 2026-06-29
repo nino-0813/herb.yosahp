@@ -217,7 +217,7 @@ function SlotModal({
             <div className="admin-field"><label>お客様名 *</label>
               <input className="admin-input" required value={f.customer_name} onChange={(e) => upd("customer_name", e.target.value)} /></div>
             <div className="admin-field"><label>メニュー</label>
-              <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：ハーブ蒸し(30min)" /></div>
+              <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：よもぎ蒸し(30min)" /></div>
             <div style={{ display: "flex", gap: 12 }}>
               <div className="admin-field" style={{ flex: 1 }}><label>電話</label>
                 <input className="admin-input" value={f.phone} onChange={(e) => upd("phone", e.target.value)} /></div>

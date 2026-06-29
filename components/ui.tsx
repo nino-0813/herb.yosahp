@@ -32,7 +32,7 @@ export function Headline({ en, jp, mini = false }: { en: string; jp?: string; mi
 export function CtaBand() {
   return (
     <section className="cta-band">
-      <div className="cta-band__en">reserve your chill time</div>
+      <div className="cta-band__en">warm your body, bloom your life</div>
       <div className="cta-band__jp">ご予約・お問い合わせはお気軽にどうぞ</div>
       <ReserveLink className="btn btn--solid">{SITE.reserveLabel}</ReserveLink>
     </section>
