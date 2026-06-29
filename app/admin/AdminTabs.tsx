@@ -29,6 +29,7 @@ export default function AdminTabs() {
       <nav className="admin-tabs">
         {tab("/admin", "予約一覧")}
         {tab("/admin/schedule", "スケジュール")}
+        {tab("/admin/customers", "顧客")}
       </nav>
       <button className="admin-btn admin-btn--sm" onClick={logout}>ログアウト</button>
     </header>

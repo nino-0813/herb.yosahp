@@ -8,3 +8,6 @@ next-env.d.ts
 
 # 参考資料PDF（リポジトリには含めない）
 *.pdf
+
+# build info
+*.tsbuildinfo
