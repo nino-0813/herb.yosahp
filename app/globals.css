@@ -359,6 +359,15 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--line);
   background: var(--bg-card);
 }
+.store__gallery { display: flex; flex-direction: column; gap: 4px; background: var(--line); }
+.store__photo { overflow: hidden; }
+.store__photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.store__photo:hover img { transform: scale(1.04); }
+.store__photo--lead { aspect-ratio: 16/9; }
+.store__thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px; }
+.store__thumbs .store__photo { aspect-ratio: 4/3; }
+/* サムネイルが奇数で最後の1枚が余るときは全幅に */
+.store__thumbs .store__photo:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 16/9; }
 .store__map { aspect-ratio: 16/7; width: 100%; border: 0; filter: grayscale(0.15); }
 .store__body { padding: 26px 30px; }
 .store__name { font-size: 19px; letter-spacing: 0.16em; color: var(--accent-deep); margin: 0 0 16px; }

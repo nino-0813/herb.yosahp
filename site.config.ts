@@ -48,6 +48,13 @@ export const STORES = [
     closed: "",
     tel: "",
     mapQuery: "広島県尾道市栗原町8251-2",
+    photos: [
+      "/stores/cocolu/cocolu-1.jpg",
+      "/stores/cocolu/cocolu-2.jpg",
+      "/stores/cocolu/cocolu-3.jpg",
+      "/stores/cocolu/cocolu-4.jpg",
+      "/stores/cocolu/cocolu-5.jpg",
+    ],
   },
   {
     id: "cherie-coco",
@@ -59,6 +66,14 @@ export const STORES = [
     closed: "",
     tel: "",
     mapQuery: "広島県福山市松永町5丁目11-21",
+    photos: [
+      "/stores/cherie/cherie-1.jpg",
+      "/stores/cherie/cherie-2.jpg",
+      "/stores/cherie/cherie-3.jpg",
+      "/stores/cherie/cherie-4.jpg",
+      "/stores/cherie/cherie-5.jpg",
+      "/stores/cherie/cherie-6.jpg",
+    ],
   },
   {
     id: "larimar",
@@ -70,5 +85,13 @@ export const STORES = [
     closed: "",
     tel: "",
     mapQuery: "広島県福山市新涯町5丁目36-3",
+    photos: [
+      "/stores/larimar/larimar-1.jpg",
+      "/stores/larimar/larimar-2.jpg",
+      "/stores/larimar/larimar-3.jpg",
+      "/stores/larimar/larimar-4.jpg",
+      "/stores/larimar/larimar-5.jpg",
+      "/stores/larimar/larimar-6.jpg",
+    ],
   },
 ];

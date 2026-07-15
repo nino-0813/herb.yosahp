@@ -12,6 +12,22 @@ export default function Access() {
       <div className="spacer-sm" />
       {STORES.map((s) => (
         <section className="store" key={s.id} id={s.id}>
+          {s.photos && s.photos.length > 0 && (
+            <div className="store__gallery">
+              <div className="store__photo store__photo--lead">
+                <img src={s.photos[0]} alt={`${s.name}の外観・店内`} loading="lazy" />
+              </div>
+              {s.photos.length > 1 && (
+                <div className="store__thumbs">
+                  {s.photos.slice(1).map((src, i) => (
+                    <div className="store__photo" key={src}>
+                      <img src={src} alt={`${s.name}の店内${i + 2}`} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
           <iframe
             className="store__map"
             title={`${s.name}の地図`}
