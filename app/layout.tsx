@@ -4,7 +4,7 @@ import { SITE } from "@/site.config";
 
 export const metadata: Metadata = {
   title: SITE.fullName,
-  description: `${SITE.catch.jpLines.join(" ")} あなたを優しく温める、福山・尾道の韓国よもぎ蒸しサロン ${SITE.brand}。温活・妊活・美容・自律神経まで、女性の“めぐり”とライフケアに寄り添う4店舗の合同サロンです。`,
+  description: `${SITE.catch.jpLines.join(" ")} あなたを優しく温める、福山・尾道の韓国よもぎ蒸しサロン ${SITE.brand}。温活・妊活・美容・自律神経まで、女性の“めぐり”とライフケアに寄り添う3店舗の合同サロンです。`,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

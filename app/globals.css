@@ -125,6 +125,10 @@ img { max-width: 100%; display: block; }
 }
 .hero img, .hero .ph { width: 100%; height: 100%; object-fit: cover; }
 
+/* トップの全幅バナー（文字入りビジュアルを切り抜かず全体表示） */
+.hero-full { width: 100%; overflow: hidden; }
+.hero-full img { width: 100%; height: auto; display: block; }
+
 /* placeholder image block */
 .ph {
   display: flex;

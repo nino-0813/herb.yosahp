@@ -5,8 +5,11 @@ import { SITE, STORES } from "@/site.config";
 export default function Home() {
   return (
     <>
-      <section className="hero">
-        <Ph label={`${SITE.brand} — main visual`} />
+      <section className="hero-full">
+        <img
+          src="/hero-top.jpg"
+          alt="よもぎ蒸しで、新しい健康習慣を。体を芯から温め、本来のわたしに戻る時間を。"
+        />
       </section>
 
       <div className="container">
@@ -42,7 +45,7 @@ export default function Home() {
           だからこそ、同じように密かに悩むあなたに、深く寄り添えると信じています。
         </p>
         <p className="lede lede--ink">
-          4つの小さな火が交わって、この街を芯から温めていく。
+          3つの小さな火が交わって、この街を芯から温めていく。
         </p>
         <div className="center" style={{ marginTop: 30 }}>
           <Link className="btn" href="/concept">私たちの想いを見る</Link>
@@ -78,7 +81,7 @@ export default function Home() {
 
       {/* 店舗 */}
       <Headline en="salon" jp="店舗一覧" />
-      <div className="grid-2" style={{ maxWidth: 760 }}>
+      <div className="grid-3">
         {STORES.map((s) => (
           <Link key={s.id} href="/access" className="tile" style={{ position: "relative" }}>
             <Ph label={s.name} />
@@ -86,7 +89,7 @@ export default function Home() {
         ))}
       </div>
       <div className="container">
-        <p className="lede">福山・尾道に4店舗。どこに行っても安心できる、いつもの拠り所へ。</p>
+        <p className="lede">尾道・福山に3店舗。どこに行っても安心できる、いつもの拠り所へ。</p>
         <div className="center" style={{ marginTop: 30 }}>
           <Link className="btn" href="/access">アクセス・店舗詳細</Link>
         </div>
