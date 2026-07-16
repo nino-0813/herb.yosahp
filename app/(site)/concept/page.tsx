@@ -5,8 +5,6 @@ import { SITE } from "@/site.config";
 export default function Concept() {
   return (
     <>
-      <section className="hero"><Ph label="concept" /></section>
-
       <Headline en="our roots & vision" jp="揺らぎを知るから、寄り添える。" />
 
       <div className="container">

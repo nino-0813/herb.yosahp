@@ -55,8 +55,12 @@ export default function Home() {
       {/* こだわり */}
       <div className="eyebrow">{SITE.brand}のこだわり</div>
       <div className="grid-2">
-        <div className="tile"><Ph label="厳選した薬草" /></div>
-        <div className="tile"><Ph label="完全個室" /></div>
+        <div className="tile tile--herbs">
+          <img src="/kodawari/herbs.jpg" alt="美しさを最大限に引き出すオリジナルハーブ 全11種類配合" />
+        </div>
+        <div className="tile">
+          <img src="/kodawari/treatment.jpg" alt="よもぎ蒸しの様子" />
+        </div>
       </div>
       <div className="container">
         <p className="lede">
@@ -83,8 +87,9 @@ export default function Home() {
       <Headline en="salon" jp="店舗一覧" />
       <div className="grid-3">
         {STORES.map((s) => (
-          <Link key={s.id} href="/access" className="tile" style={{ position: "relative" }}>
-            <Ph label={s.name} />
+          <Link key={s.id} href="/access" className="tile store-tile">
+            {s.cover ? <img src={s.cover} alt={s.name} /> : <Ph label={s.name} />}
+            <span className="store-tile__name">{s.name}</span>
           </Link>
         ))}
       </div>

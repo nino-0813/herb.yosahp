@@ -27,9 +27,9 @@ const WORRY = [
 ];
 
 const VOICES = [
-  { body: "完全個室でとてもリラックスできました。汗をたっぷりかいて、終わった後は体がポカポカ。冷え性なので通いたいです。", meta: "30代女性 / 尾道店" },
-  { body: "スタッフさんが体調に合わせて薬草を選んでくれました。香りに癒されて、いつの間にか眠ってしまうほど心地よかったです。", meta: "40代女性 / 福山駅前店" },
-  { body: "生理前の不調が気になって伺いました。施術後は気持ちまで軽くなった感じ。お白湯のおもてなしも嬉しかったです。", meta: "20代女性 / 沼隈店" },
+  { name: "はるちゃんさん", meta: "女性 / 50代", body: "施術中は身体が芯から温まって、日頃の疲れがスーッと取れていくのを感じました。翌朝の肌の調子にも驚き、全身がツルツルに。リラックスも美容効果も感じられて、とても贅沢な時間でした。" },
+  { name: "あいぴょんさん", meta: "女性 / 40代 / 自営業", body: "足のむくみと冷えが気になり予約。マッサージ後にハーブ蒸しをすると体がさらに軽くなり、むくみもスッキリ。その日は冷えも全く感じませんでした。続けて通おうと思います！" },
+  { name: "かなこさん", meta: "女性 / 30代前半 / 会社員", body: "一回でも驚くほど身体が軽くなって、帰りは階段の昇り降りが凄く楽に。いろいろ試しましたが温まり方が1番でした。太っていると思っていたところがむくみだった様でスッキリしました！" },
 ];
 
 const FAQ = [
@@ -42,8 +42,6 @@ const FAQ = [
 export default function FirstTime() {
   return (
     <>
-      <section className="hero"><Ph label="初めての方へ" /></section>
-
       <Headline en="for first-time guests" jp="初めての方へ" />
       <div className="container">
         <p className="lede">
@@ -155,7 +153,7 @@ export default function FirstTime() {
         <div className="voice" key={i}>
           <div className="voice__stars">{"★".repeat(5)}</div>
           <p className="voice__body">{v.body}</p>
-          <div className="voice__meta">{v.meta}</div>
+          <div className="voice__meta">{v.name}（{v.meta}）</div>
         </div>
       ))}
       <div className="center" style={{ marginTop: 30 }}>

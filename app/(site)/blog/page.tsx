@@ -11,8 +11,6 @@ const POSTS = [
 export default function Blog() {
   return (
     <>
-      <section className="hero"><Ph label="blog" /></section>
-
       <Headline en="blog" jp="ブログ" />
       <div className="container">
         <p className="lede">サロンからのお知らせ・よもぎ蒸しのコラムをお届けします。</p>

@@ -33,8 +33,6 @@ const SECTIONS: { band: string; img: string; reverse?: boolean; items: Item[] }[
 export default function Menu() {
   return (
     <>
-      <section className="hero"><Ph label="menu" /></section>
-
       <Headline en="menu" jp="メニュー" />
       <div className="container">
         <p className="lede">

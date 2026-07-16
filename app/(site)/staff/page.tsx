@@ -12,8 +12,6 @@ const STAFF = [
 export default function Staff() {
   return (
     <>
-      <section className="hero"><Ph label="salon interior" /></section>
-
       <Headline en="staff" jp="スタッフ紹介" />
       <div className="container">
         <p className="lede">
