@@ -458,6 +458,8 @@ img { max-width: 100%; display: block; }
 .store__row { display: grid; grid-template-columns: 92px 1fr; gap: 10px; font-size: 13px; padding: 7px 0; border-top: 1px solid var(--line); }
 .store__row dt { color: var(--ink-soft); letter-spacing: 0.12em; }
 .store__row dd { margin: 0; }
+.store__tel { color: var(--accent-deep); letter-spacing: 0.06em; border-bottom: 1px solid var(--line); padding-bottom: 1px; }
+.store__tel:hover { color: var(--terra); }
 
 /* buttons */
 .btn {

@@ -35,7 +35,12 @@ export default function Access() {
               {s.access && <div className="store__row"><dt>アクセス</dt><dd>{s.access}</dd></div>}
               {s.hours && <div className="store__row"><dt>営業時間</dt><dd>{s.hours}</dd></div>}
               {s.closed && <div className="store__row"><dt>定休日</dt><dd>{s.closed}</dd></div>}
-              {s.tel && <div className="store__row"><dt>電話</dt><dd>{s.tel}</dd></div>}
+              {s.tel && (
+                <div className="store__row">
+                  <dt>電話</dt>
+                  <dd><a className="store__tel" href={`tel:${s.tel.replace(/[^0-9+]/g, "")}`}>{s.tel}</a></dd>
+                </div>
+              )}
             </dl>
           </div>
         </section>

@@ -46,7 +46,7 @@ export const STORES = [
     access: "",
     hours: "",
     closed: "",
-    tel: "",
+    tel: "0848-88-9390",
     mapQuery: "広島県尾道市栗原町8251-2",
     cover: "/stores/cocolu/cocolu-1.jpg",
     photos: [
@@ -65,7 +65,7 @@ export const STORES = [
     access: "",
     hours: "",
     closed: "",
-    tel: "",
+    tel: "084-933-8432",
     mapQuery: "広島県福山市松永町5丁目11-21",
     cover: "/stores/cherie/cherie-1.jpg",
     photos: [
@@ -85,7 +85,7 @@ export const STORES = [
     access: "",
     hours: "",
     closed: "",
-    tel: "",
+    tel: "084-994-0930",
     mapQuery: "広島県福山市新涯町5丁目36-3",
     cover: "/stores/larimar/larimar-2.jpg",
     photos: [
