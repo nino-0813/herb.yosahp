@@ -26,7 +26,7 @@ export default function Home() {
         <p className="lede">
           よもぎ蒸しは、すわるだけ。
           <br />
-          選べる薬草の蒸気で体を芯から温め、
+          厳選した薬草の蒸気で体を芯から温め、
           <br />
           めぐりを整えるセルフケア。
           <br />

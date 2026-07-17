@@ -133,6 +133,44 @@ img { max-width: 100%; display: block; }
 .hero-graphic { background: #fefefc; padding: 40px 20px 24px; text-align: center; }
 .hero-graphic img { width: 100%; max-width: 600px; height: auto; display: inline-block; }
 
+/* ブログ記事（コラム） */
+.article { max-width: 720px; margin: 40px auto 0; padding: 0 28px; }
+.article__hero { text-align: center; margin: 0 0 30px; }
+.article__hero img { width: 100%; max-width: 560px; height: auto; display: inline-block; }
+.article__eyebrow { text-align: center; color: var(--accent); font-size: 12px; letter-spacing: 0.24em; margin: 0 0 18px; }
+.article__title { text-align: center; font-size: clamp(21px, 4.6vw, 29px); letter-spacing: 0.05em; line-height: 1.75; margin: 0 0 12px; color: var(--ink); font-weight: 500; }
+.article__sub { text-align: center; font-size: 15px; color: var(--accent-deep); letter-spacing: 0.08em; margin: 0 0 10px; }
+.article__date { text-align: center; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.16em; margin: 0 0 44px; }
+.article h2 { font-size: 19px; letter-spacing: 0.05em; color: var(--accent-deep); margin: 56px 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); font-weight: 500; }
+.article h3 { font-size: 15px; letter-spacing: 0.04em; color: var(--ink); margin: 30px 0 10px; font-weight: 500; }
+.article p { font-size: 14px; line-height: 2.15; color: var(--ink-soft); margin: 0 0 16px; }
+.article ul, .article ol { margin: 0 0 20px; padding-left: 1.5em; }
+.article li { font-size: 14px; line-height: 2; color: var(--ink-soft); margin-bottom: 6px; }
+.article__herblist { columns: 2; column-gap: 24px; }
+.article .steps { max-width: none; margin: 24px 0 0; padding: 0; }
+.article .faq { max-width: none; padding: 0; }
+.article__note { font-size: 12.5px; color: var(--ink-soft); background: var(--bg-soft); padding: 18px 20px; line-height: 2; margin: 22px 0; border-radius: 2px; }
+.article__cta { text-align: center; background: var(--bg-soft); padding: 44px 24px; margin: 56px 0; }
+.article__cta-title { font-size: 18px; color: var(--ink); letter-spacing: 0.08em; margin: 0 0 10px; }
+.article__cta p { color: var(--ink-soft); }
+.article__store { border: 1px solid var(--line); background: var(--bg-card); padding: 22px 26px; margin-bottom: 12px; }
+.article__store h3 { margin: 0 0 8px; color: var(--accent-deep); }
+.article__store p { margin: 4px 0; font-size: 13px; line-height: 1.9; }
+
+/* ハーブの種類（ファイン／バーニング） */
+.herb-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 760px;
+  margin: 30px auto 0;
+  padding: 0 28px;
+}
+.herb-type { background: var(--bg-card); border: 1px solid var(--line); padding: 26px 24px; }
+.herb-type__name { font-size: 16px; letter-spacing: 0.1em; color: var(--accent-deep); margin: 0 0 12px; font-weight: 500; }
+.herb-type__name::before { content: "★"; color: var(--terra); margin-right: 8px; }
+.herb-type__body { font-size: 13px; line-height: 2.1; color: var(--ink-soft); }
+
 /* ハーブ解説リスト */
 .herb-list { max-width: 680px; margin: 34px auto 0; padding: 0 28px; }
 .herb-item { padding: 26px 0; border-bottom: 1px solid var(--line); }
@@ -383,6 +421,10 @@ img { max-width: 100%; display: block; }
 }
 .post__title { font-size: 16px; letter-spacing: 0.06em; margin: 10px 0 6px; }
 .post__excerpt { font-size: 12.5px; color: var(--ink-soft); line-height: 2; }
+.post--link { transition: background 0.25s; }
+.post--link:hover { background: var(--bg-soft); }
+.post--link:hover .post__title { color: var(--accent-deep); }
+.post__more { display: inline-block; margin-top: 12px; font-size: 12px; letter-spacing: 0.12em; color: var(--accent); }
 
 /* store card */
 .store {
@@ -621,6 +663,7 @@ img { max-width: 100%; display: block; }
   /* --- カード/タイルは2列を維持（1列だと写真が巨大になる） --- */
   .grid-3 { grid-template-columns: 1fr 1fr; gap: 12px; }
   .grid-2 { grid-template-columns: 1fr; gap: 14px; max-width: 380px; }
+  .herb-types { grid-template-columns: 1fr; gap: 12px; }
   .staff-card__bio { font-size: 11px; line-height: 1.9; }
 
   /* --- メニュー：余白を詰める --- */

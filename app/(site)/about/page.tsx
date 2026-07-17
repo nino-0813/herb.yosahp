@@ -4,7 +4,7 @@ import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 const POINTS = [
   { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。" },
   { t: "めぐりを整える", b: "温熱でめぐりをサポート。冷えやむくみ、女性特有の揺らぎが気になる方の毎日のケアに。" },
-  { t: "選べるハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。" },
+  { t: "厳選したハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。" },
 ];
 
 const HERBS = [
@@ -118,6 +118,30 @@ export default function About() {
             )}
           </div>
         ))}
+      </div>
+
+      <div className="eyebrow">ハーブについて</div>
+      <div className="container">
+        <p className="lede lede--ink">ハーブは【医薬部外品（薬用）】です。</p>
+        <p className="lede">
+          厚生労働省が許可した効果に有効な成分が、
+          <br />
+          一定の濃度で配合されています。（医薬部外品＝薬用）
+        </p>
+      </div>
+      <div className="herb-types">
+        <div className="herb-type">
+          <h3 className="herb-type__name">ファインハーブ</h3>
+          <p className="herb-type__body">
+            確かな効果を実証された10種類のハーブが、肌荒れや冷えなどのお悩みにしっかりとアプローチする、スタンダードなハーブ。
+          </p>
+        </div>
+        <div className="herb-type">
+          <h3 className="herb-type__name">バーニングハーブ</h3>
+          <p className="herb-type__body">
+            温まり感がさらにアップするケイヒ（シナモン）がプラスされた、「燃やす」と名付けられた爽快なハーブ。汗をたっぷりかきたいときに！
+          </p>
+        </div>
       </div>
 
       <Headline en="blended herbs" jp="配合ハーブ（全11種類）" mini />

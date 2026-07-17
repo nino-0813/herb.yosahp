@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
 const POSTS = [
+  { date: "2026.07.16", cat: "ハーブ蒸し", title: "福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間", excerpt: "福山市・尾道市周辺でハーブ蒸しをお探しの方へ。11種類のハーブの特徴や香り、ハーブ蒸しの流れ、初めての方への説明を分かりやすくご紹介します。", href: "/herb-steam-11-herbs-fukuyama-onomichi" },
   { date: "2026.06.10", cat: "お知らせ", title: "ON:U、3店舗合同でスタートしました", excerpt: "尾道・福山の3つのサロンが「ON:U」として、ひとつの想いのもとにスタートしました。皆さまのご来店を心よりお待ちしております。" },
   { date: "2026.05.28", cat: "よもぎ蒸し", title: "梅雨のむくみ・だるさによもぎ蒸し", excerpt: "気圧の変化で不調を感じやすい季節。温活でめぐりを整えるセルフケアをご紹介します。" },
   { date: "2026.05.12", cat: "キャンペーン", title: "初回体験セットがお得な期間限定プライス", excerpt: "よもぎ蒸し＋足つぼ／うる艶パックのセットを特別価格でご案内中です。" },
@@ -17,19 +19,27 @@ export default function Blog() {
       </div>
 
       <div className="spacer-sm" />
-      {POSTS.map((p) => (
-        <article className="post" key={p.title}>
-          <div className="post__thumb"><Ph label={p.cat} /></div>
-          <div>
+      {POSTS.map((p) => {
+        const inner = (
+          <>
+            <div className="post__thumb"><Ph label={p.cat} /></div>
             <div>
-              <span className="post__date">{p.date}</span>
-              <span className="post__cat">{p.cat}</span>
+              <div>
+                <span className="post__date">{p.date}</span>
+                <span className="post__cat">{p.cat}</span>
+              </div>
+              <h2 className="post__title">{p.title}</h2>
+              <p className="post__excerpt">{p.excerpt}</p>
+              {"href" in p && p.href && <span className="post__more">続きを読む →</span>}
             </div>
-            <h2 className="post__title">{p.title}</h2>
-            <p className="post__excerpt">{p.excerpt}</p>
-          </div>
-        </article>
-      ))}
+          </>
+        );
+        return "href" in p && p.href ? (
+          <Link className="post post--link" key={p.title} href={p.href}>{inner}</Link>
+        ) : (
+          <article className="post" key={p.title}>{inner}</article>
+        );
+      })}
 
       <div className="spacer" />
       <CtaBand />

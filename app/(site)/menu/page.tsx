@@ -7,7 +7,7 @@ const SECTIONS: { band: string; img: string; reverse?: boolean; items: Item[] }[
     band: "よもぎ蒸し 単品 (30min)",
     img: "よもぎ蒸し",
     items: [
-      { name: "よもぎ蒸し", price: "¥4,000", desc: "選べる薬草で体を芯から温めるベーシックコース。初めての方にも。" },
+      { name: "よもぎ蒸し", price: "¥4,000", desc: "厳選した薬草で体を芯から温めるベーシックコース。初めての方にも。" },
       { name: "よもぎ蒸し＋追加薬草", price: "¥4,500", desc: "お悩みに合わせて薬草を追加。じっくり温まりたい方におすすめ。" },
     ],
   },
