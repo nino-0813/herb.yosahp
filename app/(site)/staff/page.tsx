@@ -1,6 +1,6 @@
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
-const STAFF = [
+export const STAFF = [
   { name: "森近 美優", roman: "MIYU MORICHIKA", role: "Esthetician", bio: "趣味：カフェ巡り、岩盤浴。心も身体もリフレッシュできる空間で素敵な時間をご提供します！" },
   { name: "津村 夏実", roman: "NATSUMI TSUMURA", role: "Esthetician", bio: "趣味：カフェ巡り、映画鑑賞。お客様に合ったコースで、身体の内側から整えられるようサポートします！" },
   { name: "陽菜", roman: "HINA", role: "Therapist", bio: "趣味：お散歩、サウナ。お一人おひとりに寄り添った施術を心がけています。" },

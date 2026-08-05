@@ -29,6 +29,26 @@ export function Headline({ en, jp, mini = false }: { en: string; jp?: string; mi
   );
 }
 
+/** 初回限定キャンペーンの告知バナー。トップ・初めての方へページなどで使用 */
+export function TrialBanner() {
+  return (
+    <div className="trial-banner">
+      <span className="trial-banner__badge">初回限定</span>
+      <p className="trial-banner__copy">
+        4店舗合同スタートを記念して、はじめての方は
+        <br />
+        ハーブ蒸し45分体験が特別価格でお試しいただけます。
+      </p>
+      <p className="trial-banner__price">
+        <del>¥6,500</del>
+        <strong>¥4,980</strong>
+        <span className="trial-banner__unit">（税込・45分）</span>
+      </p>
+      <ReserveLink className="trial-banner__btn">この価格で予約する</ReserveLink>
+    </div>
+  );
+}
+
 export function CtaBand() {
   return (
     <section className="cta-band">

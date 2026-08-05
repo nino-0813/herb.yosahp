@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Headline, CtaBand, Footer } from "@/components/ui";
 
-const VOICES = [
+export const VOICES = [
   {
     name: "はっしーちゃんさん",
     meta: "女性 / 50代 / 会社員",

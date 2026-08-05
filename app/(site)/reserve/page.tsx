@@ -5,8 +5,16 @@ import { createClient } from "@/lib/supabase/client";
 import { Headline, Footer } from "@/components/ui";
 import type { Store } from "@/lib/types";
 import { dateRange, genSlots, normTime, WEEKDAY_JP, ymd } from "@/lib/slots";
+import { MENU_SECTIONS } from "@/app/(site)/menu/page";
 
 const DAYS_AHEAD = 21;
+
+const MENU_OPTIONS = MENU_SECTIONS.flatMap((sec) =>
+  sec.items.map((it) => ({
+    value: it.badge ? `【${it.badge}】${it.name}` : it.name,
+    label: `${it.badge ? `【${it.badge}】` : ""}${it.name} — ${it.price}${it.old ? `（通常${it.old}）` : ""}`,
+  }))
+);
 
 export default function ReservePage() {
   const supabase = createClient();
@@ -214,8 +222,14 @@ export default function ReservePage() {
               </div>
 
               <label className="rf-field">
-                <span>ご希望メニュー</span>
-                <input className="admin-input" value={f.menu} onChange={(e) => upd("menu", e.target.value)} placeholder="例：よもぎ蒸し(30min)" />
+                <span>ご希望メニュー *</span>
+                <select className="admin-select" required value={f.menu} onChange={(e) => upd("menu", e.target.value)}>
+                  <option value="" disabled>選択してください</option>
+                  {MENU_OPTIONS.map((m) => (
+                    <option key={m.value} value={m.value}>{m.label}</option>
+                  ))}
+                  <option value="スタッフにおまかせ">スタッフにおまかせ</option>
+                </select>
               </label>
               <label className="rf-field">
                 <span>お名前 *</span>

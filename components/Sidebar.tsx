@@ -1,16 +1,27 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SITE } from "@/site.config";
 import { ReserveLink } from "./ui";
 import Leaf from "./Leaf";
 
+/** スマホ幅では全ページを1枚のLP（トップページ）に集約しているため、
+ *  ナビは別ページへ遷移せず、トップページ内の該当セクションへスクロールさせる。 */
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
   const close = () => setOpen(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 880px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   return (
     <>
@@ -36,16 +47,20 @@ export default function Sidebar() {
         </Link>
 
         <nav className="nav">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={close}
-              className={pathname === item.href ? "is-active" : ""}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) => {
+            const useAnchor = isMobile && item.id;
+            const href = useAnchor ? `/#${item.id}` : item.href;
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                onClick={close}
+                className={!useAnchor && pathname === item.href ? "is-active" : ""}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <ReserveLink className="sidebar__cta">RESERVE</ReserveLink>

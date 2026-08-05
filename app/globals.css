@@ -389,6 +389,22 @@ img { max-width: 100%; display: block; }
 .menu-item__price del { color: var(--ink-soft); font-size: 12px; margin-right: 8px; }
 .menu-item__desc { font-size: 12.5px; color: var(--ink-soft); line-height: 2.1; margin-top: 8px; }
 .menu-item + .menu-item { margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); }
+.menu-item--campaign {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--terra);
+  padding: 24px 22px;
+}
+.menu-item--campaign + .menu-item { border-top: 0; margin-top: 22px; padding-top: 0; }
+.menu-item__badge {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+}
 
 /* voice card */
 .voice {
@@ -503,6 +519,39 @@ img { max-width: 100%; display: block; }
 .footer__nav a:hover { color: var(--accent); }
 .footer__copy { font-size: 10px; letter-spacing: 0.16em; color: var(--ink-soft); margin-top: 24px; }
 
+/* 初回限定キャンペーンバナー */
+.trial-banner {
+  max-width: 480px;
+  margin: 40px auto 0;
+  padding: 30px 28px;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--terra);
+}
+.trial-banner__badge {
+  display: inline-block;
+  background: var(--terra);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+.trial-banner__copy { font-size: 13px; line-height: 2; color: var(--ink); letter-spacing: 0.05em; margin: 0; }
+.trial-banner__price { margin: 16px 0 20px; letter-spacing: 0.04em; }
+.trial-banner__price del { color: var(--ink-soft); font-size: 14px; margin-right: 10px; }
+.trial-banner__price strong { color: var(--terra); font-size: 30px; font-weight: 500; }
+.trial-banner__unit { display: block; font-size: 11px; color: var(--ink-soft); margin-top: 4px; letter-spacing: 0.1em; }
+.trial-banner__btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 14px 40px;
+  background: var(--terra);
+  color: #fff;
+  font-size: 12px; letter-spacing: 0.2em;
+  transition: background 0.25s;
+}
+.trial-banner__btn:hover { background: #8f5732; }
+
 /* cta band */
 .cta-band { text-align: center; padding: 90px 28px; }
 .cta-band__en { font-family: var(--script); font-size: 26px; letter-spacing: 0.12em; }
@@ -586,10 +635,71 @@ img { max-width: 100%; display: block; }
 }
 
 /* =======================================================
+   1枚LP（スマホ幅専用）— 通常は非表示、880px以下で表示に切り替え
+   ======================================================= */
+.desktop-only { display: block; }
+.mobile-only { display: none; }
+
+.lp-section { scroll-margin-top: 68px; }
+
+.lp-quicknav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 20px 26px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.lp-quicknav::-webkit-scrollbar { display: none; }
+.lp-quicknav__chip {
+  flex: none;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  background: var(--bg-card);
+  white-space: nowrap;
+}
+.lp-quicknav__chip:active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* ハーブ解説（1枚LP版）：詳細はタップで開閉 */
+.herb-item summary { cursor: pointer; }
+.herb-item summary::-webkit-details-marker { color: var(--accent); }
+.herb-item[open] .herb-item__name { color: var(--accent-deep); }
+.herb-item .herb-item__body { margin-top: 12px; }
+
+/* スマホ固定の予約導線バー */
+.lp-sticky-cta { display: none; }
+.lp-sticky-cta__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-deep);
+  color: #fff;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+/* =======================================================
    Responsive
    ======================================================= */
 @media (max-width: 880px) {
   :root { --sidebar-w: 0px; }
+  .desktop-only { display: none; }
+  .mobile-only { display: block; padding-bottom: 60px; }
+
+  .lp-sticky-cta {
+    display: block;
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    height: 56px;
+    z-index: 46;
+    box-shadow: 0 -2px 14px rgba(0,0,0,0.12);
+  }
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.32s ease;

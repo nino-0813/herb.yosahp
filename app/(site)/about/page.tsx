@@ -1,13 +1,24 @@
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
-const POINTS = [
+export const POINTS = [
   { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。" },
   { t: "めぐりを整える", b: "温熱でめぐりをサポート。冷えやむくみ、女性特有の揺らぎが気になる方の毎日のケアに。" },
   { t: "厳選したハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。" },
 ];
 
-const HERBS = [
+export const HERB_TYPES = [
+  {
+    name: "ファインハーブ",
+    body: "確かな効果を実証された10種類のハーブが、肌荒れや冷えなどのお悩みにしっかりとアプローチする、スタンダードなハーブ。",
+  },
+  {
+    name: "バーニングハーブ",
+    body: "温まり感がさらにアップするケイヒ（シナモン）がプラスされた、「燃やす」と名付けられた爽快なハーブ。汗をたっぷりかきたいときに！",
+  },
+];
+
+export const HERBS = [
   {
     name: "トウキ",
     family: "セリ科",
@@ -130,18 +141,12 @@ export default function About() {
         </p>
       </div>
       <div className="herb-types">
-        <div className="herb-type">
-          <h3 className="herb-type__name">ファインハーブ</h3>
-          <p className="herb-type__body">
-            確かな効果を実証された10種類のハーブが、肌荒れや冷えなどのお悩みにしっかりとアプローチする、スタンダードなハーブ。
-          </p>
-        </div>
-        <div className="herb-type">
-          <h3 className="herb-type__name">バーニングハーブ</h3>
-          <p className="herb-type__body">
-            温まり感がさらにアップするケイヒ（シナモン）がプラスされた、「燃やす」と名付けられた爽快なハーブ。汗をたっぷりかきたいときに！
-          </p>
-        </div>
+        {HERB_TYPES.map((t) => (
+          <div className="herb-type" key={t.name}>
+            <h3 className="herb-type__name">{t.name}</h3>
+            <p className="herb-type__body">{t.body}</p>
+          </div>
+        ))}
       </div>
 
       <Headline en="blended herbs" jp="配合ハーブ（全11種類）" mini />

@@ -1,14 +1,14 @@
 import Link from "next/link";
-import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 
-const STEPS = [
+export const STEPS = [
   { t: "ご予約", b: "Web・お電話・公式LINEからご予約いただけます。当日のご来店も空きがあれば承ります。" },
   { t: "ご来店・カウンセリング", b: "その日の体調やお悩み、心の揺らぎをお伺いし、おすすめの薬草をご提案します。お着替えをご用意しています。" },
   { t: "よもぎ蒸し", b: "専用のマントを羽織って椅子に座るだけ。よもぎなどの薬草の蒸気でゆっくりと体を温めます。" },
   { t: "アフター・お会計", b: "お白湯をご用意。火照った体をクールダウンしながら、ゆったりとお過ごしください。" },
 ];
 
-const WISH = [
+export const WISH = [
   "心も体もすっきりと目覚めたい",
   "日々を穏やかな気持ちで過ごしたい",
   "疲れにくい、軽やかな体で動きたい",
@@ -17,7 +17,7 @@ const WISH = [
   "自然体で笑顔がこぼれる毎日を送りたい",
 ];
 
-const WORRY = [
+export const WORRY = [
   "冷えがつらい／手足が冷たい",
   "自律神経の乱れを感じる",
   "ストレスが抜けず気分が落ち込みやすい",
@@ -32,7 +32,7 @@ const VOICES = [
   { name: "かなこさん", meta: "女性 / 30代前半 / 会社員", body: "一回でも驚くほど身体が軽くなって、帰りは階段の昇り降りが凄く楽に。いろいろ試しましたが温まり方が1番でした。太っていると思っていたところがむくみだった様でスッキリしました！" },
 ];
 
-const FAQ = [
+export const FAQ = [
   { q: "予約は必要ですか？", a: "事前のご予約をおすすめしています。空きがあれば当日でもご案内可能です。" },
   { q: "どんな服装で行けばいいですか？", a: "専用マントに着替えていただくので、普段着のままで大丈夫です。" },
   { q: "生理中でも利用できますか？", a: "生理中こそおすすめです。スタッフにお気軽にご相談ください。" },
@@ -52,6 +52,8 @@ export default function FirstTime() {
           ご来店からお帰りまでの流れをご紹介します。
         </p>
       </div>
+
+      <TrialBanner />
 
       <Headline en="about" jp="どんな女性が利用するお店？" />
       <div className="persona">

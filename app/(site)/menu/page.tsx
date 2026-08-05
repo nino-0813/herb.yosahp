@@ -1,13 +1,26 @@
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
-type Item = { name: string; price: string; old?: string; desc: string };
+type Item = { name: string; price: string; old?: string; desc: string; badge?: string };
 
-const SECTIONS: { band: string; img: string; reverse?: boolean; items: Item[] }[] = [
+export const MENU_SECTIONS: { band: string; img: string; reverse?: boolean; items: Item[] }[] = [
+  {
+    band: "初回限定キャンペーン",
+    img: "初回限定",
+    items: [
+      {
+        name: "よもぎ蒸し 45分体験",
+        price: "¥4,980",
+        old: "¥6,500",
+        badge: "初回限定",
+        desc: "4店舗合同スタートを記念して、初めてご来店の方だけの特別価格。通常より長い45分で、じっくりと体を芯から温めます。おひとり様1回限り。",
+      },
+    ],
+  },
   {
     band: "よもぎ蒸し 単品 (30min)",
     img: "よもぎ蒸し",
     items: [
-      { name: "よもぎ蒸し", price: "¥4,000", desc: "厳選した薬草で体を芯から温めるベーシックコース。初めての方にも。" },
+      { name: "よもぎ蒸し", price: "¥4,000", desc: "厳選した薬草で体を芯から温めるベーシックコース。" },
       { name: "よもぎ蒸し＋追加薬草", price: "¥4,500", desc: "お悩みに合わせて薬草を追加。じっくり温まりたい方におすすめ。" },
     ],
   },
@@ -42,13 +55,14 @@ export default function Menu() {
         </p>
       </div>
 
-      {SECTIONS.map((sec) => (
+      {MENU_SECTIONS.map((sec) => (
         <section key={sec.band}>
           <div className="menu-band"><h3>{sec.band}</h3></div>
           <div className={`menu-row ${sec.reverse ? "reverse" : ""}`}>
             <div>
               {sec.items.map((it) => (
-                <div className="menu-item" key={it.name}>
+                <div className={`menu-item ${it.badge ? "menu-item--campaign" : ""}`} key={it.name}>
+                  {it.badge && <span className="menu-item__badge">{it.badge}</span>}
                   <div className="menu-item__name">{it.name}</div>
                   <div className="menu-item__price">
                     {it.old && <del>{it.old}</del>}

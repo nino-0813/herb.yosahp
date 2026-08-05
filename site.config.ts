@@ -23,16 +23,18 @@ export const SITE = {
   lineUrl: "#",
 };
 
-/** グローバルナビ（左サイドバー）の項目 */
+/** グローバルナビ（左サイドバー）の項目
+ *  id を持つ項目は、スマホ幅では「/」内の同名セクションへスムーズスクロールする
+ *  （スマホは全ページを1枚のLPに集約しているため）。id がない項目（ブログ）は通常どおり別ページへ遷移する。 */
 export const NAV = [
-  { href: "/first-time", label: "初めての方へ" },
-  { href: "/about", label: "ハーブ蒸しについて" },
-  { href: "/menu", label: "メニュー" },
-  { href: "/voice", label: "お客様の声" },
-  { href: "/concept", label: "コンセプト" },
-  { href: "/staff", label: "スタッフ" },
+  { href: "/first-time", id: "first-time", label: "初めての方へ" },
+  { href: "/about", id: "about", label: "ハーブ蒸しについて" },
+  { href: "/menu", id: "menu", label: "メニュー" },
+  { href: "/voice", id: "voice", label: "お客様の声" },
+  { href: "/concept", id: "concept", label: "コンセプト" },
+  { href: "/staff", id: "staff", label: "スタッフ" },
   { href: "/blog", label: "ブログ" },
-  { href: "/access", label: "アクセス" },
+  { href: "/access", id: "access", label: "アクセス" },
 ];
 
 /** 3店舗の情報（アクセスページ・トップで使用）

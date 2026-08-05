@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
+import MobileLanding from "@/components/MobileLanding";
 
 export default function Home() {
   return (
     <>
+      {/* スマホ幅（880px以下）は全ページを集約した1枚LPを表示（globals.css の .mobile-only 参照） */}
+      <MobileLanding />
+
+      {/* デスクトップ幅は従来どおりトップページ＋各ページ導線 */}
+      <div className="desktop-only">
       <section className="hero-full">
         <img
           src="/hero-top.jpg"
@@ -33,6 +39,8 @@ export default function Home() {
           ゆらいだ心と体が、本来の自分に還る時間を。
         </p>
       </div>
+
+      <TrialBanner />
 
       {/* 私たちの想い */}
       <Headline en="our roots & vision" jp="揺らぎを知るから、寄り添える。" />
@@ -103,6 +111,7 @@ export default function Home() {
       <div className="spacer" />
       <CtaBand />
       <Footer />
+      </div>
     </>
   );
 }
