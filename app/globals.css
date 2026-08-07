@@ -129,19 +129,17 @@ img { max-width: 100%; display: block; }
 .hero-full { width: 100%; overflow: hidden; }
 .hero-full img { width: 100%; height: auto; display: block; }
 
-/* スマホ版ヒーロー：スクロールなしで画像全体が収まるように表示（固定ヘッダー分を差し引く） */
+/* スマホ版ヒーロー：画像本来の縦横比のまま幅いっぱいに表示（レターボックスなし・切り抜きなし） */
 .hero-mobile-full {
   width: 100%;
-  height: calc(100vh - 80px);
-  height: calc(100svh - 80px);
+  aspect-ratio: 864 / 1821;
   overflow: hidden;
   background: #f6f0e4;
 }
 .hero-mobile-full img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center top;
+  object-fit: cover;
   display: block;
 }
 
