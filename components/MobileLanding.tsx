@@ -65,7 +65,7 @@ export default function MobileLanding() {
           <div className="persona__col">
             <div className="persona__top">
               <h3 className="persona__head">人生をできるだけ<br />軽くしたい</h3>
-              <div className="persona__photo"><Ph label="なりたい姿" /></div>
+              <div className="persona__photo"><img src="/persona/wish.jpg" alt="なりたい姿" /></div>
             </div>
             <ul className="persona__list">
               {WISH.map((w) => (
@@ -77,7 +77,7 @@ export default function MobileLanding() {
           <div className="persona__col persona__col--pain">
             <div className="persona__top">
               <h3 className="persona__head">女性特有の悩みを<br />なんとかしたい</h3>
-              <div className="persona__photo"><Ph label="今のお悩み" /></div>
+              <div className="persona__photo"><img src="/persona/worry.jpg" alt="今のお悩み" /></div>
             </div>
             <ul className="persona__list">
               {WORRY.map((w) => (
@@ -113,7 +113,7 @@ export default function MobileLanding() {
         </div>
         <div className="spacer-sm" />
         <div className="feature">
-          <div className="feature__img"><Ph label="よもぎ蒸し" /></div>
+          <div className="feature__img"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
           <div>
             <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
             <p className="feature__body">
@@ -155,27 +155,34 @@ export default function MobileLanding() {
 
         <div className="eyebrow">ハーブ蒸しの魅力</div>
         <div className="container">
-          {POINTS.map((p, i) => (
-            <div className="feature" key={p.t} style={{ marginBottom: 40 }}>
-              {i % 2 === 0 ? (
-                <>
-                  <div className="feature__img"><Ph label={p.t} /></div>
-                  <div>
-                    <h3 className="feature__title">{p.t}</h3>
-                    <p className="feature__body">{p.b}</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div>
-                    <h3 className="feature__title">{p.t}</h3>
-                    <p className="feature__body">{p.b}</p>
-                  </div>
-                  <div className="feature__img"><Ph label={p.t} /></div>
-                </>
-              )}
-            </div>
-          ))}
+          {POINTS.map((p, i) => {
+            const img = p.img ? (
+              <div className="feature__img tile--herbs"><img src={p.img} alt={p.t} /></div>
+            ) : (
+              <div className="feature__img"><Ph label={p.t} /></div>
+            );
+            const text = (
+              <div>
+                <h3 className="feature__title">{p.t}</h3>
+                <p className="feature__body">{p.b}</p>
+              </div>
+            );
+            return (
+              <div className="feature" key={p.t} style={{ marginBottom: 40 }}>
+                {i % 2 === 0 ? (
+                  <>
+                    {img}
+                    {text}
+                  </>
+                ) : (
+                  <>
+                    {text}
+                    {img}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="container">

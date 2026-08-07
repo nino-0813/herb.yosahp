@@ -60,7 +60,7 @@ export default function FirstTime() {
         <div className="persona__col">
           <div className="persona__top">
             <h3 className="persona__head">人生をできるだけ<br />軽くしたい</h3>
-            <div className="persona__photo"><Ph label="なりたい姿" /></div>
+            <div className="persona__photo"><img src="/persona/wish.jpg" alt="なりたい姿" /></div>
           </div>
           <ul className="persona__list">
             {WISH.map((w) => (
@@ -72,7 +72,7 @@ export default function FirstTime() {
         <div className="persona__col persona__col--pain">
           <div className="persona__top">
             <h3 className="persona__head">女性特有の悩みを<br />なんとかしたい</h3>
-            <div className="persona__photo"><Ph label="今のお悩み" /></div>
+            <div className="persona__photo"><img src="/persona/worry.jpg" alt="今のお悩み" /></div>
           </div>
           <ul className="persona__list">
             {WORRY.map((w) => (
@@ -119,7 +119,7 @@ export default function FirstTime() {
       </div>
       <div className="spacer-sm" />
       <div className="feature">
-        <div className="feature__img"><Ph label="よもぎ蒸し" /></div>
+        <div className="feature__img"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
         <div>
           <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
           <p className="feature__body">
