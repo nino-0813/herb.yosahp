@@ -113,7 +113,7 @@ export default function MobileLanding() {
         </div>
         <div className="spacer-sm" />
         <div className="feature">
-          <div className="feature__img"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
+          <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
           <div>
             <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
             <p className="feature__body">
@@ -157,7 +157,7 @@ export default function MobileLanding() {
         <div className="container">
           {POINTS.map((p, i) => {
             const img = p.img ? (
-              <div className="feature__img tile--herbs"><img src={p.img} alt={p.t} /></div>
+              <div className={`feature__img ${p.fit === "contain" ? "tile--herbs" : ""}`}><img src={p.img} alt={p.t} /></div>
             ) : (
               <div className="feature__img"><Ph label={p.t} /></div>
             );

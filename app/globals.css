@@ -271,6 +271,10 @@ img { max-width: 100%; display: block; }
 .feature__body { font-size: 13px; line-height: 2.3; color: var(--ink-soft); }
 .feature.reverse .feature__img { order: 2; }
 
+/* 全体を見せたいイラスト等：切り抜かず縮小して収める */
+.feature__img--illustration { background: #f8f2e3; }
+.feature__img--illustration img { object-fit: contain; }
+
 /* gallery grid */
 .grid-3 {
   display: grid;

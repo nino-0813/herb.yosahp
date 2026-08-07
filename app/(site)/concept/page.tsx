@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+import { Headline, CtaBand, Footer } from "@/components/ui";
 import { SITE } from "@/site.config";
 
 export default function Concept() {
@@ -41,12 +41,6 @@ export default function Concept() {
           <br />
           {SITE.brand}は、美容師としての使命の進化からはじまりました。
         </p>
-      </div>
-
-      <div className="spacer" />
-      <div className="grid-2">
-        <div className="tile"><Ph label="美容・外見 — 髪を整える" /></div>
-        <div className="tile"><Ph label="よもぎ蒸し・内面 — 体を温める" /></div>
       </div>
 
       <Headline en="our words" jp="裏表のない、本当の言葉。" mini />

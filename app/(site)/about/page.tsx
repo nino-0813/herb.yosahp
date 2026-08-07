@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
 export const POINTS = [
-  { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。" },
-  { t: "めぐりを整える", b: "温熱でめぐりをサポート。冷えやむくみ、女性特有の揺らぎが気になる方の毎日のケアに。" },
-  { t: "厳選したハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。", img: "/kodawari/herbs.jpg" },
+  { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。", img: "/kodawari/shin.jpg" },
+  { t: "めぐりを整える", b: "温熱でめぐりをサポート。冷えやむくみ、女性特有の揺らぎが気になる方の毎日のケアに。", img: "/kodawari/megumi.jpg" },
+  { t: "厳選したハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。", img: "/kodawari/herbs.jpg", fit: "contain" as const },
 ];
 
 export const HERB_TYPES = [
@@ -110,7 +110,7 @@ export default function About() {
       <div className="container">
         {POINTS.map((p, i) => {
           const img = p.img ? (
-            <div className={`feature__img ${p.img ? "tile--herbs" : ""}`}><img src={p.img} alt={p.t} /></div>
+            <div className={`feature__img ${p.fit === "contain" ? "tile--herbs" : ""}`}><img src={p.img} alt={p.t} /></div>
           ) : (
             <div className="feature__img"><Ph label={p.t} /></div>
           );

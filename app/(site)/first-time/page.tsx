@@ -119,7 +119,7 @@ export default function FirstTime() {
       </div>
       <div className="spacer-sm" />
       <div className="feature">
-        <div className="feature__img"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
+        <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
         <div>
           <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
           <p className="feature__body">
