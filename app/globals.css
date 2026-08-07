@@ -129,6 +129,21 @@ img { max-width: 100%; display: block; }
 .hero-full { width: 100%; overflow: hidden; }
 .hero-full img { width: 100%; height: auto; display: block; }
 
+/* スマホ版ヒーロー：初回表示で画面いっぱいに表示（固定ヘッダー分を差し引く） */
+.hero-mobile-full {
+  width: 100%;
+  height: calc(100vh - 80px);
+  height: calc(100svh - 80px);
+  overflow: hidden;
+}
+.hero-mobile-full img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
 /* 図版ヒーロー（ハーブ全体図などを切り抜かず中央に全体表示） */
 .hero-graphic { background: #fefefc; padding: 40px 20px 24px; text-align: center; }
 .hero-graphic img { width: 100%; max-width: 600px; height: auto; display: inline-block; }

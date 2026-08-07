@@ -14,7 +14,7 @@ export default function Home() {
       <section className="hero-full">
         <img
           src="/hero-top.jpg"
-          alt="よもぎ蒸しで、新しい健康習慣を。体を芯から温め、本来のわたしに戻る時間を。"
+          alt="私を整える、わたしの時間。よもぎ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
         />
       </section>
 
