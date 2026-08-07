@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Headline, Footer } from "@/components/ui";
 import type { Store } from "@/lib/types";
@@ -17,7 +17,14 @@ const MENU_OPTIONS = MENU_SECTIONS.flatMap((sec) =>
 );
 
 export default function ReservePage() {
-  const supabase = createClient();
+  // Supabase未設定（環境変数未設定など）でもページ全体がクラッシュしないようにする
+  const supabase = useMemo(() => {
+    try {
+      return createClient();
+    } catch {
+      return null;
+    }
+  }, []);
   const [stores, setStores] = useState<Store[]>([]);
   const [storeId, setStoreId] = useState("");
   const [date, setDate] = useState<string>("");
@@ -32,15 +39,21 @@ export default function ReservePage() {
 
   const store = stores.find((s) => s.id === storeId);
 
-  // 店舗読み込み
+  // 店舗読み込み（販売期間外の店舗は除外）
   useEffect(() => {
+    if (!supabase) return;
     supabase
       .from("herb_stores")
       .select("*")
       .eq("active", true)
       .order("sort_order")
       .then(({ data }) => {
-        const list = (data ?? []) as Store[];
+        const today = ymd(new Date());
+        const list = ((data ?? []) as Store[]).filter((s) => {
+          if (s.sale_start_date && today < s.sale_start_date) return false;
+          if (s.sale_end_date && today > s.sale_end_date) return false;
+          return true;
+        });
         setStores(list);
         setStoreId((prev) => prev || list[0]?.id || "");
       });
@@ -50,7 +63,7 @@ export default function ReservePage() {
   // 店舗・日付が変わったら空き件数を取得
   const loadCounts = useCallback(
     async (sid: string, d: string) => {
-      if (!sid || !d) return;
+      if (!sid || !d || !supabase) return;
       setLoadingSlots(true);
       const { data } = await supabase.rpc("herb_slot_counts", {
         p_store: sid,
@@ -80,6 +93,10 @@ export default function ReservePage() {
       setError("ご希望の時間枠を選んでください。");
       return;
     }
+    if (!supabase) {
+      setError("送信に失敗しました。お手数ですがお電話でもご連絡ください。");
+      return;
+    }
     setSaving(true);
     setError("");
     const { error } = await supabase.from("herb_reservations").insert({
@@ -101,6 +118,23 @@ export default function ReservePage() {
     }
     setDone(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  if (!supabase) {
+    return (
+      <>
+        <Headline en="reservation" jp="ご予約フォーム" />
+        <div className="container">
+          <p className="lede lede--ink">
+            現在、予約フォームをご利用いただけません。
+            <br />
+            お手数ですがお電話にてご予約ください。
+          </p>
+        </div>
+        <div className="spacer-lg" />
+        <Footer />
+      </>
+    );
   }
 
   if (done) {
@@ -142,18 +176,24 @@ export default function ReservePage() {
           <div className="rf-step">
             <span className="rf-step__no">1</span>店舗を選ぶ
           </div>
-          <div className="rf-stores">
-            {stores.map((s) => (
-              <button
-                type="button"
-                key={s.id}
-                className={`rf-store ${storeId === s.id ? "is-on" : ""}`}
-                onClick={() => { setStoreId(s.id); setDate(""); setTime(""); }}
-              >
-                {s.name}
-              </button>
-            ))}
-          </div>
+          {stores.length === 0 ? (
+            <p className="rf-loading">
+              現在ご予約いただける店舗がありません。恐れ入りますが、お電話にてお問い合わせください。
+            </p>
+          ) : (
+            <div className="rf-stores">
+              {stores.map((s) => (
+                <button
+                  type="button"
+                  key={s.id}
+                  className={`rf-store ${storeId === s.id ? "is-on" : ""}`}
+                  onClick={() => { setStoreId(s.id); setDate(""); setTime(""); }}
+                >
+                  {s.name}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* STEP 2 日付 */}
           <div className="rf-step">

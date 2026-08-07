@@ -4,7 +4,7 @@ import { SITE, STORES, NAV } from "@/site.config";
 import { POINTS, HERB_TYPES, HERBS } from "@/app/(site)/about/page";
 import { STEPS, WISH, WORRY, FAQ } from "@/app/(site)/first-time/page";
 import { VOICES } from "@/app/(site)/voice/page";
-import { STAFF } from "@/app/(site)/staff/page";
+import { OWNERS } from "@/app/(site)/staff/page";
 import { MENU_SECTIONS } from "@/app/(site)/menu/page";
 
 /**
@@ -225,7 +225,7 @@ export default function MobileLanding() {
         {MENU_SECTIONS.map((sec) => (
           <section key={sec.band}>
             <div className="menu-band"><h3>{sec.band}</h3></div>
-            <div className={`menu-row ${sec.reverse ? "reverse" : ""}`}>
+            <div className="menu-row menu-row--single">
               <div>
                 {sec.items.map((it) => (
                   <div className={`menu-item ${it.badge ? "menu-item--campaign" : ""}`} key={it.name}>
@@ -239,10 +239,12 @@ export default function MobileLanding() {
                   </div>
                 ))}
               </div>
-              <div className="menu-row__img"><Ph label={sec.img} /></div>
             </div>
           </section>
         ))}
+        <div className="center" style={{ marginTop: 26 }}>
+          <ReserveLink className="btn btn--solid">予約する</ReserveLink>
+        </div>
       </section>
 
       {/* ── お客様の声 ───────────────────── */}
@@ -261,9 +263,9 @@ export default function MobileLanding() {
         ))}
       </section>
 
-      {/* ── スタッフ ───────────────────── */}
+      {/* ── 各店舗のオーナー ───────────────────── */}
       <section id="staff" className="lp-section">
-        <Headline en="staff" jp="スタッフ紹介" />
+        <Headline en="owners" jp="各店舗のオーナー" />
         <div className="container">
           <p className="lede">
             自分たちも揺らいだ経験があるから、深く寄り添える。
@@ -271,8 +273,8 @@ export default function MobileLanding() {
             裏表のない言葉で、あなたが本来の自分を取り戻す時間に寄り添います。
           </p>
         </div>
-        <div className="grid-3">
-          {STAFF.map((s) => (
+        <div className="grid-2 owners-grid">
+          {OWNERS.map((s) => (
             <div className="staff-card" key={s.roman}>
               <div className="staff-card__photo"><Ph label={s.name} /></div>
               <div className="staff-card__name">{s.name}</div>

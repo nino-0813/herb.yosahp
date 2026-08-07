@@ -10,6 +10,8 @@ export type Store = {
   slot_minutes: number;    // 予約枠の長さ（分）
   capacity: number;        // 同時受付件数
   closed_weekdays: number[]; // 定休曜日 0=日..6=土
+  sale_start_date: string | null; // 販売開始日 "YYYY-MM-DD"（未設定なら即時開始）
+  sale_end_date: string | null;   // 販売終了日 "YYYY-MM-DD"（未設定なら無期限）
 };
 
 export type Reservation = {

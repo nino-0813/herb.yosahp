@@ -129,17 +129,18 @@ img { max-width: 100%; display: block; }
 .hero-full { width: 100%; overflow: hidden; }
 .hero-full img { width: 100%; height: auto; display: block; }
 
-/* スマホ版ヒーロー：初回表示で画面いっぱいに表示（固定ヘッダー分を差し引く） */
+/* スマホ版ヒーロー：スクロールなしで画像全体が収まるように表示（固定ヘッダー分を差し引く） */
 .hero-mobile-full {
   width: 100%;
   height: calc(100vh - 80px);
   height: calc(100svh - 80px);
   overflow: hidden;
+  background: #f6f0e4;
 }
 .hero-mobile-full img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   display: block;
 }
@@ -376,6 +377,7 @@ img { max-width: 100%; display: block; }
 .persona__col--pain .persona__list li::before { color: var(--terra); }
 
 /* staff card */
+.owners-grid { max-width: 640px; }
 .staff-card { text-align: left; }
 .staff-card__photo { aspect-ratio: 4/5; overflow: hidden; margin-bottom: 14px; }
 .staff-card__photo .ph { width: 100%; height: 100%; }
@@ -402,6 +404,7 @@ img { max-width: 100%; display: block; }
   padding: 26px 28px;
 }
 .menu-row.reverse .menu-row__img { order: 2; }
+.menu-row--single { grid-template-columns: 1fr; max-width: 620px; }
 .menu-row__img { aspect-ratio: 4/3; overflow: hidden; }
 .menu-item__name { font-size: 15px; letter-spacing: 0.08em; margin-bottom: 6px; }
 .menu-item__price { color: var(--terra); font-size: 17px; letter-spacing: 0.05em; }
@@ -1072,6 +1075,27 @@ img { max-width: 100%; display: block; }
   background: var(--a-card); font-size: 13px; cursor: pointer;
 }
 .sch-modetabs button.is-on { background: var(--a-accent); color: #fff; border-color: var(--a-accent); }
+
+/* 店舗設定（admin/stores） */
+.store-settings { display: flex; flex-direction: column; gap: 18px; }
+.store-settings__card { background: var(--a-card); border: 1px solid var(--a-line); border-radius: 12px; padding: 22px 24px; }
+.store-settings__head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-bottom: 18px; }
+.store-settings__name { font-size: 15px; font-weight: 600; max-width: 260px; }
+.store-settings__active { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--a-soft); }
+.store-settings__row { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-bottom: 16px; }
+.store-settings__row .admin-field { min-width: 140px; }
+.store-settings__weekdays { display: flex; gap: 8px; flex-wrap: wrap; }
+.store-settings__wd {
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 12px; border: 1px solid var(--a-line); border-radius: 999px;
+  font-size: 13px; cursor: pointer; background: var(--a-card);
+}
+.store-settings__wd.is-off { background: #fbeeec; border-color: #e7cdc9; color: #b4453a; }
+.store-settings__actions { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 18px; }
+.store-settings__sale { background: #f7f8f6; border: 1px dashed var(--a-line); border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; }
+.store-settings__sale-title { font-size: 12.5px; font-weight: 600; color: var(--a-ink); margin-bottom: 10px; }
+.store-settings__sale-row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 18px; }
+.store-settings__sale-note { font-size: 11.5px; color: var(--a-soft); margin-top: 8px; }
 
 @media (max-width: 640px) {
   .admin-header { flex-wrap: wrap; gap: 10px; }

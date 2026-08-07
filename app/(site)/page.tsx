@@ -82,9 +82,9 @@ export default function Home() {
       <Headline en="menu" jp="メニュー" />
       <div className="container">
         <p className="lede">
-          よもぎ蒸し単品から、フェイシャルや足つぼとのセットまで。
+          いまは初回限定の45分体験のみのシンプルなメニュー。
           <br />
-          初めての方向けの体験コースもご用意しています。
+          初めての方が安心して試せる特別価格でご用意しています。
         </p>
         <div className="center" style={{ marginTop: 36 }}>
           <Link className="btn" href="/menu">メニューを見る</Link>

@@ -40,8 +40,8 @@ export function TrialBanner() {
         ハーブ蒸し45分体験が特別価格でお試しいただけます。
       </p>
       <p className="trial-banner__price">
-        <del>¥6,500</del>
-        <strong>¥4,980</strong>
+        <del>¥5,980</del>
+        <strong>¥4,000</strong>
         <span className="trial-banner__unit">（税込・45分）</span>
       </p>
       <ReserveLink className="trial-banner__btn">この価格で予約する</ReserveLink>

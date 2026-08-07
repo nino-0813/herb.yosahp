@@ -32,7 +32,7 @@ export const NAV = [
   { href: "/menu", id: "menu", label: "メニュー" },
   { href: "/voice", id: "voice", label: "お客様の声" },
   { href: "/concept", id: "concept", label: "コンセプト" },
-  { href: "/staff", id: "staff", label: "スタッフ" },
+  { href: "/staff", id: "staff", label: "オーナー" },
   { href: "/blog", label: "ブログ" },
   { href: "/access", id: "access", label: "アクセス" },
 ];

@@ -20,6 +20,10 @@ alter table public.herb_stores add column if not exists slot_minutes    int     
 alter table public.herb_stores add column if not exists capacity        int     not null default 1;    -- 同時に受けられる件数（個室/ベッド数）
 alter table public.herb_stores add column if not exists closed_weekdays int[]   not null default '{}'; -- 定休曜日 0=日 .. 6=土
 
+-- 販売期間（キャンペーン等の受付期間。NULLならその方向に無期限）
+alter table public.herb_stores add column if not exists sale_start_date date; -- 未設定なら即時開始
+alter table public.herb_stores add column if not exists sale_end_date   date; -- 未設定なら無期限
+
 -- 予約
 create table if not exists public.herb_reservations (
   id            uuid primary key default gen_random_uuid(),
@@ -45,12 +49,13 @@ create index if not exists herb_reservations_store_date_idx
 create index if not exists herb_reservations_status_idx
   on public.herb_reservations (status);
 
--- 4店舗（必要に応じて名前を編集）
-insert into public.herb_stores (id, name, sort_order) values
-  ('onomichi',        '尾道店',     1),
-  ('numakuma',        '沼隈店',     2),
-  ('fukuyama-ekimae', '福山駅前店', 3),
-  ('fukuyama-2',      '福山〇〇店', 4)
+-- 4店舗（新規セットアップ時のみ挿入。既存行は変更しません。
+--   店舗名や営業時間などは管理画面の「店舗設定」タブからいつでも編集できます）
+insert into public.herb_stores (id, name, sort_order, slot_minutes) values
+  ('cocolu',      'cocolu hairsalon',   1, 45),
+  ('cherie-coco', 'Cherie CoCo',        2, 45),
+  ('larimar',     'YOSA PARK Larimar',  3, 45),
+  ('store-4',     '4店舗目（準備中）',   4, 45)
 on conflict (id) do nothing;
 
 -- RLS 有効化
