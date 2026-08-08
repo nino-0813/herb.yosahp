@@ -81,7 +81,7 @@ export const STORES = [
   },
   {
     id: "larimar",
-    name: "YOSA PARK Larimar",
+    name: "YOSA PARK Larimar（新涯店）",
     owner: "花岡 樹里",
     address: "〒721-0955 広島県福山市新涯町5丁目36-3 村上ビル205",
     access: "",
@@ -101,7 +101,7 @@ export const STORES = [
   },
   {
     id: "larimar-numakuma",
-    name: "Larimar",
+    name: "Larimar（沼隈店）",
     owner: "高戸 真理",
     address: "〒720-0311 広島県福山市沼隈町草深2156-7",
     access: "",

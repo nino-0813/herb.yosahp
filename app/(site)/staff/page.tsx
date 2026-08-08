@@ -19,14 +19,14 @@ export const OWNERS = [
   {
     name: "花岡 樹里",
     roman: "JURI HANAOKA",
-    role: "YOSA PARK Larimar",
+    role: "YOSA PARK Larimar（新涯店）",
     bio: "福山市新涯町のYOSA PARK Larimarのオーナー。冷えやむくみ、女性特有の揺らぎに寄り添う温活ケアをお届けします。",
     photo: "/stores/larimar/larimar-2.jpg",
   },
   {
     name: "高戸 真理",
     roman: "MARI TAKATO",
-    role: "Larimar",
+    role: "Larimar（沼隈店）",
     bio: "福山市沼隈町のLarimarのオーナー。落ち着いた個室で、よもぎ蒸しと水素・酸素発生器によるケアをお届けします。",
     photo: "/stores/larimar-numakuma/larimar-numakuma-2.jpg",
   },
