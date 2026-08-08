@@ -53,7 +53,7 @@ export default function Home() {
           だからこそ、同じように密かに悩むあなたに、深く寄り添えると信じています。
         </p>
         <p className="lede lede--ink">
-          3つの小さな火が交わって、この街を芯から温めていく。
+          4つの小さな火が交わって、この街を芯から温めていく。
         </p>
         <div className="center" style={{ marginTop: 30 }}>
           <Link className="btn" href="/concept">私たちの想いを見る</Link>
@@ -102,7 +102,7 @@ export default function Home() {
         ))}
       </div>
       <div className="container">
-        <p className="lede">尾道・福山に3店舗。どこに行っても安心できる、いつもの拠り所へ。</p>
+        <p className="lede">尾道・福山に4店舗。どこに行っても安心できる、いつもの拠り所へ。</p>
         <div className="center" style={{ marginTop: 30 }}>
           <Link className="btn" href="/access">アクセス・店舗詳細</Link>
         </div>

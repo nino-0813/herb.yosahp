@@ -276,7 +276,7 @@ export default function MobileLanding() {
         <div className="grid-2 owners-grid">
           {OWNERS.map((s) => (
             <div className="staff-card" key={s.roman}>
-              <div className="staff-card__photo"><Ph label={s.name} /></div>
+              <div className="staff-card__photo"><img src={s.photo} alt={`${s.role}／${s.name}`} /></div>
               <div className="staff-card__name">{s.name}</div>
               <div className="staff-card__roman">{s.roman}</div>
               <div className="staff-card__role">{s.role}</div>
@@ -315,7 +315,7 @@ export default function MobileLanding() {
       <section id="access" className="lp-section">
         <Headline en="access" jp="店舗一覧・アクセス" />
         <div className="container">
-          <p className="lede">尾道・福山に3店舗。どこに行っても安心できる、地域の拠り所として。お近くのサロンをご利用ください。</p>
+          <p className="lede">尾道・福山に4店舗。どこに行っても安心できる、地域の拠り所として。お近くのサロンをご利用ください。</p>
         </div>
         <div className="spacer-sm" />
         {STORES.map((s) => (

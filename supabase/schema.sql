@@ -52,11 +52,14 @@ create index if not exists herb_reservations_status_idx
 -- 4店舗（新規セットアップ時のみ挿入。既存行は変更しません。
 --   店舗名や営業時間などは管理画面の「店舗設定」タブからいつでも編集できます）
 insert into public.herb_stores (id, name, sort_order, slot_minutes) values
-  ('cocolu',      'cocolu hairsalon',   1, 45),
-  ('cherie-coco', 'Cherie CoCo',        2, 45),
-  ('larimar',     'YOSA PARK Larimar',  3, 45),
-  ('store-4',     '4店舗目（準備中）',   4, 45)
+  ('cocolu',           'cocolu hairsalon',   1, 45),
+  ('cherie-coco',      'Cherie CoCo',        2, 45),
+  ('larimar',          'YOSA PARK Larimar',  3, 45),
+  ('larimar-numakuma', 'Larimar',            4, 45)
 on conflict (id) do nothing;
+
+-- 既に「4店舗目（準備中）」で登録済みの環境向け：実店舗名に更新
+update public.herb_stores set name = 'Larimar' where id = 'store-4' and name = '4店舗目（準備中）';
 
 -- RLS 有効化
 alter table public.herb_stores       enable row level security;

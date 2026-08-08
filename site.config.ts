@@ -37,8 +37,8 @@ export const NAV = [
   { href: "/access", id: "access", label: "アクセス" },
 ];
 
-/** 3店舗の情報（アクセスページ・トップで使用）
- *  ※ 営業時間・定休日・電話は未確定のため空欄。分かり次第そのまま追記すれば表示されます。 */
+/** 4店舗の情報（アクセスページ・トップで使用）
+ *  ※ 営業時間・定休日は未確定のため空欄。分かり次第そのまま追記すれば表示されます。 */
 export const STORES = [
   {
     id: "cocolu",
@@ -97,6 +97,23 @@ export const STORES = [
       "/stores/larimar/larimar-4.jpg",
       "/stores/larimar/larimar-5.jpg",
       "/stores/larimar/larimar-6.jpg",
+    ],
+  },
+  {
+    id: "larimar-numakuma",
+    name: "Larimar",
+    owner: "高戸 真理",
+    address: "〒720-0311 広島県福山市沼隈町草深2156-7",
+    access: "",
+    hours: "",
+    closed: "",
+    tel: "080-1637-3923",
+    mapQuery: "広島県福山市沼隈町草深2156-7",
+    cover: "/stores/larimar-numakuma/larimar-numakuma-1.jpg",
+    photos: [
+      "/stores/larimar-numakuma/larimar-numakuma-1.jpg",
+      "/stores/larimar-numakuma/larimar-numakuma-2.jpg",
+      "/stores/larimar-numakuma/larimar-numakuma-3.jpg",
     ],
   },
 ];
