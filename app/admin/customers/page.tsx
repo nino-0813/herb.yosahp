@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Store } from "@/lib/types";
+import { getAdminScope, scopedIds } from "@/lib/auth";
 import Customers, { type CustomerStatus, type CustomerSummary } from "../Customers";
 
 export const dynamic = "force-dynamic";
@@ -43,11 +44,22 @@ type CustomerRow = {
 
 export default async function CustomersPage() {
   const supabase = await createClient();
+  const scope = await getAdminScope();
+
+  let customersQuery = supabase
+    .from("onu_customers")
+    .select("line_user_id, display_name, main_purpose, tags, store_id");
+  let storesQuery = supabase.from("herb_stores").select("*").order("sort_order");
+  if (!scope.isSuperAdmin) {
+    const ids = scopedIds(scope.storeIds);
+    customersQuery = customersQuery.in("store_id", ids);
+    storesQuery = storesQuery.in("id", ids);
+  }
 
   const [{ data: customers }, { data: visits }, { data: stores }] = await Promise.all([
-    supabase.from("onu_customers").select("line_user_id, display_name, main_purpose, tags, store_id"),
+    customersQuery,
     supabase.from("onu_visits").select("line_user_id, visited_on").order("visited_on", { ascending: true }),
-    supabase.from("herb_stores").select("*").order("sort_order"),
+    storesQuery,
   ]);
 
   // ユーザーごとの来店日（昇順）をまとめる

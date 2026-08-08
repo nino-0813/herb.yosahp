@@ -24,6 +24,16 @@ alter table public.herb_stores add column if not exists closed_weekdays int[]   
 alter table public.herb_stores add column if not exists sale_start_date date; -- 未設定なら即時開始
 alter table public.herb_stores add column if not exists sale_end_date   date; -- 未設定なら無期限
 
+-- 店舗オーナーの個別ログイン対応：この店舗を管理できるSupabase Authユーザー
+alter table public.herb_stores add column if not exists owner_user_id uuid references auth.users(id);
+
+-- 全店舗を管理できる運営者（サイト管理者）
+create table if not exists public.herb_super_admins (
+  user_id    uuid primary key references auth.users(id),
+  note       text,
+  created_at timestamptz not null default now()
+);
+
 -- 予約
 create table if not exists public.herb_reservations (
   id            uuid primary key default gen_random_uuid(),
@@ -62,36 +72,69 @@ on conflict (id) do nothing;
 update public.herb_stores set name = 'Larimar' where id = 'store-4' and name = '4店舗目（準備中）';
 
 -- RLS 有効化
-alter table public.herb_stores       enable row level security;
-alter table public.herb_reservations enable row level security;
+alter table public.herb_stores        enable row level security;
+alter table public.herb_reservations  enable row level security;
+alter table public.herb_super_admins  enable row level security;
+
+-- 自分がsuper adminかどうかは自分自身の行だけ読める（権限判定に使用）
+drop policy if exists herb_super_admins_self_read on public.herb_super_admins;
+create policy herb_super_admins_self_read on public.herb_super_admins
+  for select to authenticated using (user_id = auth.uid());
 
 -- 店舗一覧は誰でも読める（予約フォームの店舗選択・営業時間設定の取得用）
 drop policy if exists herb_stores_public_read on public.herb_stores;
 create policy herb_stores_public_read on public.herb_stores
   for select using (true);
 
--- 店舗設定の更新はログイン管理者のみ
+-- 店舗設定の更新：super adminは全店舗、オーナーは自分の店舗のみ
 drop policy if exists herb_stores_admin_update on public.herb_stores;
 create policy herb_stores_admin_update on public.herb_stores
-  for update to authenticated using (true) with check (true);
+  for update to authenticated using (
+    owner_user_id = auth.uid()
+    or exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+  ) with check (
+    owner_user_id = auth.uid()
+    or exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+  );
 
 -- 予約は匿名でも作成できる（公開フォーム）
 drop policy if exists herb_reservations_anon_insert on public.herb_reservations;
 create policy herb_reservations_anon_insert on public.herb_reservations
   for insert with check (true);
 
--- 閲覧・更新・削除はログイン済み管理者のみ
+-- 閲覧・更新・削除：super adminは全店舗、オーナーは自分の店舗の予約のみ
 drop policy if exists herb_reservations_admin_select on public.herb_reservations;
 create policy herb_reservations_admin_select on public.herb_reservations
-  for select to authenticated using (true);
+  for select to authenticated using (
+    exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+    or exists (select 1 from public.herb_stores s where s.id = herb_reservations.store_id and s.owner_user_id = auth.uid())
+  );
 
 drop policy if exists herb_reservations_admin_update on public.herb_reservations;
 create policy herb_reservations_admin_update on public.herb_reservations
-  for update to authenticated using (true) with check (true);
+  for update to authenticated using (
+    exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+    or exists (select 1 from public.herb_stores s where s.id = herb_reservations.store_id and s.owner_user_id = auth.uid())
+  ) with check (
+    exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+    or exists (select 1 from public.herb_stores s where s.id = herb_reservations.store_id and s.owner_user_id = auth.uid())
+  );
 
 drop policy if exists herb_reservations_admin_delete on public.herb_reservations;
 create policy herb_reservations_admin_delete on public.herb_reservations
-  for delete to authenticated using (true);
+  for delete to authenticated using (
+    exists (select 1 from public.herb_super_admins sa where sa.user_id = auth.uid())
+    or exists (select 1 from public.herb_stores s where s.id = herb_reservations.store_id and s.owner_user_id = auth.uid())
+  );
+
+-- ============================================================
+-- 運営者（ninomiya.8130@gmail.com）をsuper adminとして登録
+-- 別のメールアドレスを運営者にする場合は、Supabase Dashboard の
+-- Authentication > Users でそのユーザーのUIDを確認し、下のUUIDを置き換えてください。
+-- ============================================================
+insert into public.herb_super_admins (user_id, note)
+values ('b13c3020-36a0-44f3-bcb6-654a32138552', 'ninomiya.8130@gmail.com')
+on conflict (user_id) do nothing;
 
 -- ============================================================
 -- 空き状況を返す関数（個人情報は返さず「件数」だけを公開）
