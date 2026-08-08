@@ -21,6 +21,8 @@ export const SITE = {
   reserveLabel: "ご予約・お問い合わせ",
   instagramUrl: "#",
   lineUrl: "#",
+  /** Google Analytics 4 測定ID（GA4管理画面 > データストリーム で確認できます） */
+  gaId: "G-L86S9D6KPD",
 };
 
 /** グローバルナビ（左サイドバー）の項目

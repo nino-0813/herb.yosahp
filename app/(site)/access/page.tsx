@@ -1,4 +1,5 @@
 import { Headline, CtaBand, Footer } from "@/components/ui";
+import TelLink from "@/components/TelLink";
 import { STORES } from "@/site.config";
 
 export default function Access() {
@@ -38,7 +39,7 @@ export default function Access() {
               {s.tel && (
                 <div className="store__row">
                   <dt>電話</dt>
-                  <dd><a className="store__tel" href={`tel:${s.tel.replace(/[^0-9+]/g, "")}`}>{s.tel}</a></dd>
+                  <dd><TelLink className="store__tel" tel={s.tel} storeId={s.id} /></dd>
                 </div>
               )}
             </dl>

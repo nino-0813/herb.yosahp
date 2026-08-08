@@ -51,7 +51,7 @@ export default function Menu() {
         </section>
       ))}
       <div className="center" style={{ marginTop: 26 }}>
-        <ReserveLink className="btn btn--solid">予約する</ReserveLink>
+        <ReserveLink className="btn btn--solid" eventLabel="menu_page">予約する</ReserveLink>
       </div>
 
       <div className="spacer" />

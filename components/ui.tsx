@@ -1,14 +1,27 @@
+"use client";
+
 import Link from "next/link";
 import { NAV, SITE } from "@/site.config";
+import { gaEvent } from "@/lib/gtag";
 
-/** 予約リンク。/reserve など内部はLink、http... の外部は別タブで開く */
-export function ReserveLink({ className, children }: { className?: string; children: React.ReactNode }) {
+/** 予約リンク。/reserve など内部はLink、http... の外部は別タブで開く
+ *  eventLabel を渡すと、どのCTA経由でクリックされたかをGA4に送信する */
+export function ReserveLink({
+  className,
+  children,
+  eventLabel = "unknown",
+}: {
+  className?: string;
+  children: React.ReactNode;
+  eventLabel?: string;
+}) {
   const url = SITE.reserveUrl;
+  const onClick = () => gaEvent("click_reserve_cta", { label: eventLabel });
   if (url.startsWith("/")) {
-    return <Link className={className} href={url}>{children}</Link>;
+    return <Link className={className} href={url} onClick={onClick}>{children}</Link>;
   }
   return (
-    <a className={className} href={url} target="_blank" rel="noopener noreferrer">
+    <a className={className} href={url} target="_blank" rel="noopener noreferrer" onClick={onClick}>
       {children}
     </a>
   );
@@ -44,7 +57,7 @@ export function TrialBanner() {
         <strong>¥4,000</strong>
         <span className="trial-banner__unit">（税込・45分）</span>
       </p>
-      <ReserveLink className="trial-banner__btn">この価格で予約する</ReserveLink>
+      <ReserveLink className="trial-banner__btn" eventLabel="trial_banner">この価格で予約する</ReserveLink>
     </div>
   );
 }
@@ -54,7 +67,7 @@ export function CtaBand() {
     <section className="cta-band">
       <div className="cta-band__en">warm your body, bloom your life</div>
       <div className="cta-band__jp">ご予約・お問い合わせはお気軽にどうぞ</div>
-      <ReserveLink className="btn btn--solid">{SITE.reserveLabel}</ReserveLink>
+      <ReserveLink className="btn btn--solid" eventLabel="cta_band">{SITE.reserveLabel}</ReserveLink>
     </section>
   );
 }

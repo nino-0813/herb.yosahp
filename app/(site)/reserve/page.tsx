@@ -6,6 +6,7 @@ import { Headline, Footer } from "@/components/ui";
 import type { Store } from "@/lib/types";
 import { dateRange, genSlots, normTime, WEEKDAY_JP, ymd } from "@/lib/slots";
 import { MENU_SECTIONS } from "@/app/(site)/menu/page";
+import { gaEvent } from "@/lib/gtag";
 
 const DAYS_AHEAD = 21;
 
@@ -114,8 +115,10 @@ export default function ReservePage() {
     if (error) {
       setError("送信に失敗しました。お手数ですがお電話でもご連絡ください。");
       setSaving(false);
+      gaEvent("reservation_error", { store_id: storeId });
       return;
     }
+    gaEvent("submit_reservation", { store_id: storeId, menu: f.menu });
     setDone(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -187,7 +190,7 @@ export default function ReservePage() {
                   type="button"
                   key={s.id}
                   className={`rf-store ${storeId === s.id ? "is-on" : ""}`}
-                  onClick={() => { setStoreId(s.id); setDate(""); setTime(""); }}
+                  onClick={() => { setStoreId(s.id); setDate(""); setTime(""); gaEvent("select_store", { store_id: s.id }); }}
                 >
                   {s.name}
                 </button>
@@ -210,7 +213,7 @@ export default function ReservePage() {
                   key={key}
                   disabled={isClosed}
                   className={`rf-date ${date === key ? "is-on" : ""} ${isClosed ? "is-closed" : ""} ${wd === 0 ? "is-sun" : ""} ${wd === 6 ? "is-sat" : ""}`}
-                  onClick={() => setDate(key)}
+                  onClick={() => { setDate(key); gaEvent("select_date", { store_id: storeId }); }}
                 >
                   <span className="rf-date__md">{d.getMonth() + 1}/{d.getDate()}</span>
                   <span className="rf-date__wd">{isClosed ? "休" : WEEKDAY_JP[wd]}</span>
@@ -239,7 +242,7 @@ export default function ReservePage() {
                         key={t}
                         disabled={full}
                         className={`rf-slot ${time === t ? "is-on" : ""} ${full ? "is-full" : ""}`}
-                        onClick={() => setTime(t)}
+                        onClick={() => { setTime(t); gaEvent("select_time", { store_id: storeId, time: t }); }}
                       >
                         <span className="rf-slot__t">{t}</span>
                         <span className="rf-slot__mark">{full ? "×" : "○"}</span>

@@ -63,7 +63,7 @@ export default function Sidebar() {
           })}
         </nav>
 
-        <ReserveLink className="sidebar__cta">RESERVE</ReserveLink>
+        <ReserveLink className="sidebar__cta" eventLabel="sidebar">RESERVE</ReserveLink>
       </aside>
     </>
   );

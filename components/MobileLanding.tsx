@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer, ReserveLink, TrialBanner } from "./ui";
+import TelLink from "./TelLink";
 import { SITE, STORES, NAV } from "@/site.config";
 import { POINTS, HERB_TYPES, HERBS } from "@/app/(site)/about/page";
 import { STEPS, WISH, WORRY, FAQ } from "@/app/(site)/first-time/page";
@@ -243,7 +244,7 @@ export default function MobileLanding() {
           </section>
         ))}
         <div className="center" style={{ marginTop: 26 }}>
-          <ReserveLink className="btn btn--solid">予約する</ReserveLink>
+          <ReserveLink className="btn btn--solid" eventLabel="menu_page_mobile">予約する</ReserveLink>
         </div>
       </section>
 
@@ -346,7 +347,7 @@ export default function MobileLanding() {
                 {s.tel && (
                   <div className="store__row">
                     <dt>電話</dt>
-                    <dd><a className="store__tel" href={`tel:${s.tel.replace(/[^0-9+]/g, "")}`}>{s.tel}</a></dd>
+                    <dd><TelLink className="store__tel" tel={s.tel} storeId={s.id} /></dd>
                   </div>
                 )}
               </dl>
@@ -381,7 +382,7 @@ export default function MobileLanding() {
 
       {/* ── スマホ固定の予約導線 ───────────────────── */}
       <div className="lp-sticky-cta">
-        <ReserveLink className="lp-sticky-cta__btn">{SITE.reserveLabel}</ReserveLink>
+        <ReserveLink className="lp-sticky-cta__btn" eventLabel="sticky_cta_mobile">{SITE.reserveLabel}</ReserveLink>
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { SITE } from "@/site.config";
+import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
   title: SITE.fullName,
@@ -18,7 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
+        {children}
+      </body>
     </html>
   );
 }
