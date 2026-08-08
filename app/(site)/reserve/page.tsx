@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/client";
 import { Headline, Footer } from "@/components/ui";
 import type { Store } from "@/lib/types";
 import { dateRange, genSlots, normTime, WEEKDAY_JP, ymd } from "@/lib/slots";
-import { MENU_SECTIONS } from "@/app/(site)/menu/page";
+import { MENU_SECTIONS } from "@/lib/menu";
 import { gaEvent } from "@/lib/gtag";
 
 const DAYS_AHEAD = 21;

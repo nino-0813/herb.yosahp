@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import { Headline, CtaBand, Footer } from "@/components/ui";
+
+const TITLE = "オーナー紹介｜各店舗のオーナー";
+const DESC = "尾道・福山4店舗、それぞれのオーナーをご紹介。自分たちも揺らいだ経験があるから、深く寄り添える。韓国よもぎ蒸しサロンON:U。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/staff" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 /** 各店舗のオーナー紹介 */
 export const OWNERS = [

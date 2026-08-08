@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Headline, CtaBand, Footer } from "@/components/ui";
+
+const TITLE = "お客様の声｜よもぎ蒸し体験談";
+const DESC = "実際にご来店いただいたお客様の口コミ・体験談をご紹介。冷え・むくみ改善、リラックス効果など。福山・尾道の韓国よもぎ蒸しサロンON:U。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/voice" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 export const VOICES = [
   {

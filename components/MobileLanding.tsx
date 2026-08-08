@@ -6,7 +6,7 @@ import { POINTS, HERB_TYPES, HERBS } from "@/app/(site)/about/page";
 import { STEPS, WISH, WORRY, FAQ } from "@/app/(site)/first-time/page";
 import { VOICES } from "@/app/(site)/voice/page";
 import { OWNERS } from "@/app/(site)/staff/page";
-import { MENU_SECTIONS } from "@/app/(site)/menu/page";
+import { MENU_SECTIONS } from "@/lib/menu";
 
 /**
  * スマホ幅（880px以下）専用の1枚LP。

@@ -1,22 +1,16 @@
+import type { Metadata } from "next";
 import { Headline, CtaBand, Footer, ReserveLink } from "@/components/ui";
+import { MENU_SECTIONS } from "@/lib/menu";
 
-type Item = { name: string; price: string; old?: string; desc: string; badge?: string };
+const TITLE = "メニュー・料金｜初回限定¥4,000";
+const DESC = "よもぎ蒸しの料金案内。初回限定45分体験は通常¥5,980→¥4,000。福山・尾道の韓国よもぎ蒸しサロンON:U、4店舗共通メニュー。";
 
-export const MENU_SECTIONS: { band: string; img: string; reverse?: boolean; items: Item[] }[] = [
-  {
-    band: "初回限定キャンペーン",
-    img: "初回限定",
-    items: [
-      {
-        name: "よもぎ蒸し 45分体験",
-        price: "¥4,000",
-        old: "¥5,980",
-        badge: "初回限定",
-        desc: "4店舗合同スタートを記念して、初めてご来店の方だけの特別価格。じっくり45分、体を芯から温めます。おひとり様1回限り。",
-      },
-    ],
-  },
-];
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/menu" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 export default function Menu() {
   return (

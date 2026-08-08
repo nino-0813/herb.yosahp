@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
 import MobileLanding from "@/components/MobileLanding";
+
+const TITLE = "よもぎ蒸し 福山・尾道｜韓国よもぎ蒸しサロン";
+const DESC = "福山・尾道に4店舗の韓国よもぎ蒸しサロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 export default function Home() {
   return (

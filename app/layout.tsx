@@ -5,8 +5,15 @@ import { SITE } from "@/site.config";
 import Analytics from "@/components/Analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.siteUrl),
   title: SITE.fullName,
   description: `${SITE.catch.jpLines.join(" ")} あなたを優しく温める、福山・尾道の韓国よもぎ蒸しサロン ${SITE.brand}。温活・妊活・美容・自律神経まで、女性の“めぐり”とライフケアに寄り添う4店舗の合同サロンです。`,
+  openGraph: {
+    siteName: SITE.fullName,
+    locale: "ja_JP",
+    type: "website",
+    images: ["/hero-top.jpg"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

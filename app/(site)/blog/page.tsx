@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+
+const TITLE = "ブログ｜よもぎ蒸しコラム・お知らせ";
+const DESC = "よもぎ蒸しのコラムやサロンからのお知らせ。福山・尾道の韓国よもぎ蒸しサロンON:U。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/blog" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 const POSTS = [
   { date: "2026.07.16", cat: "ハーブ蒸し", title: "福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間", excerpt: "福山市・尾道市周辺でハーブ蒸しをお探しの方へ。11種類のハーブの特徴や香り、ハーブ蒸しの流れ、初めての方への説明を分かりやすくご紹介します。", href: "/herb-steam-11-herbs-fukuyama-onomichi" },

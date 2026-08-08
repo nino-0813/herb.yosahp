@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
+
+const TITLE = "初めての方へ｜よもぎ蒸しが初めてでも安心";
+const DESC = "よもぎ蒸しが初めての方向けのガイド。ご来店の流れ、よくある質問、初回限定45分体験¥4,000のご案内。福山・尾道の韓国よもぎ蒸しサロンON:U。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/first-time" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 export const STEPS = [
   { t: "ご予約", b: "Web・お電話・公式LINEからご予約いただけます。当日のご来店も空きがあれば承ります。" },

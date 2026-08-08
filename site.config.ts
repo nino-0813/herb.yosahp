@@ -10,6 +10,8 @@ export const SITE = {
   brandCaption: "Korean Herbal Steam",
   /** ブラウザタブ等に出る正式名称 */
   fullName: "ON:U｜韓国よもぎ蒸しサロン",
+  /** 本番サイトのURL（末尾スラッシュなし）。サイトマップ・構造化データ・OGP画像解決に使用 */
+  siteUrl: "https://www.yomogimushi-onu.jp",
   /** トップのキャッチ */
   catch: {
     en: "Warm Your Body. Bloom Your Life.",

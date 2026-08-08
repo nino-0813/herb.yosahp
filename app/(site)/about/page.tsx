@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+
+const TITLE = "ハーブ蒸しについて｜11種類のハーブと効果";
+const DESC = "よもぎ蒸し・ハーブ蒸しの効果と、11種類の配合ハーブをご紹介。冷え改善・めぐり・美肌に。福山・尾道の韓国よもぎ蒸しサロンON:U。";
+
+export const metadata: Metadata = {
+  title: TITLE,
+  description: DESC,
+  alternates: { canonical: "/about" },
+  openGraph: { title: TITLE, description: DESC },
+};
 
 export const POINTS = [
   { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。", img: "/kodawari/shin.jpg" },
