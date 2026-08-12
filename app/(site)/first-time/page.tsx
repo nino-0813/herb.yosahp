@@ -130,7 +130,7 @@ export default function FirstTime() {
       </div>
       <div className="spacer-sm" />
       <div className="feature">
-        <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
+        <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し 専用マントを着て蒸気を浴びるだけ、体の中からじんわり温めて巡りをサポート。冷え・むくみ・フェムケア・腸活・ストレス・美肌・妊活・ダイエット。体の中からあたためる。" /></div>
         <div>
           <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
           <p className="feature__body">
