@@ -297,19 +297,6 @@ export default function MobileLanding() {
             <br />
             年齢や忙しさの中で立ち止まり、本当の健康と向き合ったこと。
           </p>
-          <p className="lede lede--ink">
-            巧みなセールスはいりません。私たちが体感した「良さ」を、そのままの言葉でお伝えする。
-            <br />
-            特別な場所ではなく、いつもの場所で安心して「揺らげる」場所を。
-          </p>
-        </div>
-        <div className="eyebrow">私たちを形作るキーワード</div>
-        <div className="container">
-          <p className="lede">
-            顔なじみの安心感　／　内側と外側の統合　／　裏表のない言葉
-            <br />
-            自らも潤う働き方　／　波及していく健康
-          </p>
         </div>
       </section>
 
@@ -323,20 +310,26 @@ export default function MobileLanding() {
         {STORES.map((s) => (
           <section className="store" key={s.id}>
             {s.photos && s.photos.length > 0 && (
-              <div className="store__gallery">
-                {s.photos.map((src, i) => (
-                  <div className="store__slide" key={src}>
-                    <img src={src} alt={`${s.name}の店内${i + 1}`} loading="lazy" />
-                  </div>
-                ))}
+              <div className="store__section">
+                <span className="store__label">店内フォト</span>
+                <div className="store__gallery">
+                  {s.photos.map((src, i) => (
+                    <div className="store__slide" key={src}>
+                      <img src={src} alt={`${s.name}の店内${i + 1}`} loading="lazy" />
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
-            <iframe
-              className="store__map"
-              title={`${s.name}の地図`}
-              loading="lazy"
-              src={`https://maps.google.com/maps?q=${encodeURIComponent(s.mapQuery)}&output=embed`}
-            />
+            <div className="store__section">
+              <span className="store__label">地図</span>
+              <iframe
+                className="store__map"
+                title={`${s.name}の地図`}
+                loading="lazy"
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(s.mapQuery)}&output=embed`}
+              />
+            </div>
             <div className="store__body">
               <h2 className="store__name">{s.name}</h2>
               <dl>

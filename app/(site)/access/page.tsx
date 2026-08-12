@@ -55,20 +55,26 @@ export default function Access() {
       {STORES.map((s) => (
         <section className="store" key={s.id} id={s.id}>
           {s.photos && s.photos.length > 0 && (
-            <div className="store__gallery">
-              {s.photos.map((src, i) => (
-                <div className="store__slide" key={src}>
-                  <img src={src} alt={`${s.name}の店内${i + 1}`} loading="lazy" />
-                </div>
-              ))}
+            <div className="store__section">
+              <span className="store__label">店内フォト</span>
+              <div className="store__gallery">
+                {s.photos.map((src, i) => (
+                  <div className="store__slide" key={src}>
+                    <img src={src} alt={`${s.name}の店内${i + 1}`} loading="lazy" />
+                  </div>
+                ))}
+              </div>
             </div>
           )}
-          <iframe
-            className="store__map"
-            title={`${s.name}の地図`}
-            loading="lazy"
-            src={`https://maps.google.com/maps?q=${encodeURIComponent(s.mapQuery)}&output=embed`}
-          />
+          <div className="store__section">
+            <span className="store__label">地図</span>
+            <iframe
+              className="store__map"
+              title={`${s.name}の地図`}
+              loading="lazy"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(s.mapQuery)}&output=embed`}
+            />
+          </div>
           <div className="store__body">
             <h2 className="store__name">{s.name}</h2>
             <dl>
