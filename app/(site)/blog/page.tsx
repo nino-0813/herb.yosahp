@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
 const TITLE = "ブログ｜よもぎ蒸し（ハーブ蒸し）コラム・お知らせ";
-const DESC = "よもぎ蒸し（ハーブ蒸し）のコラムやサロンからのお知らせ。福山・尾道の韓国ハーブ蒸しサロンON:U。";
+const DESC = "よもぎ蒸し（ハーブ蒸し）のコラムやサロンからのお知らせ。福山・尾道のハーブ蒸しサロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,

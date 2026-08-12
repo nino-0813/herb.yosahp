@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
 const TITLE = "ハーブ蒸し（よもぎ蒸し）について｜11種類のハーブと効果";
-const DESC = "よもぎ蒸し・ハーブ蒸しの効果と、11種類の配合ハーブをご紹介。冷え改善・めぐり・美肌に。福山・尾道の韓国ハーブ蒸しサロンON:U。";
+const DESC = "よもぎ蒸し・ハーブ蒸しの効果と、11種類の配合ハーブをご紹介。冷え改善・めぐり・美肌に。福山・尾道のハーブ蒸しサロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,

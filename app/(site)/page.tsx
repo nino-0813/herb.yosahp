@@ -4,8 +4,8 @@ import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
 import MobileLanding from "@/components/MobileLanding";
 
-const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜韓国ハーブ蒸しサロン";
-const DESC = "福山・尾道に4店舗の韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
+const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜ハーブ蒸しサロン";
+const DESC = "福山・尾道に4店舗のよもぎ蒸し（ハーブ蒸し）サロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
 
 export const metadata: Metadata = {
   title: TITLE,

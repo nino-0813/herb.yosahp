@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Headline, CtaBand, Footer } from "@/components/ui";
 
 const TITLE = "オーナー紹介｜各店舗のオーナー";
-const DESC = "尾道・福山4店舗、それぞれのオーナーをご紹介。自分たちも揺らいだ経験があるから、深く寄り添える。韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。";
+const DESC = "尾道・福山4店舗、それぞれのオーナーをご紹介。自分たちも揺らいだ経験があるから、深く寄り添える。よもぎ蒸し（ハーブ蒸し）サロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,

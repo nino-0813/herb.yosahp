@@ -4,7 +4,7 @@ import TelLink from "@/components/TelLink";
 import { SITE, STORES } from "@/site.config";
 
 const TITLE = "店舗一覧・アクセス｜尾道・福山4店舗";
-const DESC = "尾道・福山の4店舗（cocolu hairsalon / Cherie CoCo / YOSA PARK Larimar / Larimar）の住所・電話・地図。韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。";
+const DESC = "尾道・福山の4店舗（cocolu hairsalon / Cherie CoCo / YOSA PARK Larimar / Larimar）の住所・電話・地図。よもぎ蒸し（ハーブ蒸し）サロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,

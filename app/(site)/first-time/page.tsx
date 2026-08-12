@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 
 const TITLE = "初めての方へ｜よもぎ蒸し（ハーブ蒸し）が初めてでも安心";
-const DESC = "よもぎ蒸し（ハーブ蒸し）が初めての方向けのガイド。ご来店の流れ、よくある質問、初回限定45分体験¥4,000のご案内。福山・尾道の韓国ハーブ蒸しサロンON:U。";
+const DESC = "よもぎ蒸し（ハーブ蒸し）が初めての方向けのガイド。ご来店の流れ、よくある質問、初回限定45分体験¥4,000のご案内。福山・尾道のハーブ蒸しサロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,

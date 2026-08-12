@@ -3,7 +3,7 @@ import { Headline, CtaBand, Footer, ReserveLink } from "@/components/ui";
 import { MENU_SECTIONS } from "@/lib/menu";
 
 const TITLE = "メニュー・料金｜初回限定¥4,000";
-const DESC = "よもぎ蒸し（ハーブ蒸し）の料金案内。初回限定45分体験は通常¥5,980→¥4,000。福山・尾道の韓国ハーブ蒸しサロンON:U、4店舗共通メニュー。";
+const DESC = "よもぎ蒸し（ハーブ蒸し）の料金案内。初回限定45分体験は通常¥5,980→¥4,000。福山・尾道のハーブ蒸しサロンON:U、4店舗共通メニュー。";
 
 export const metadata: Metadata = {
   title: TITLE,

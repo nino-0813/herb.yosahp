@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Headline, CtaBand, Footer } from "@/components/ui";
 
 const TITLE = "お客様の声｜よもぎ蒸し（ハーブ蒸し）体験談";
-const DESC = "実際にご来店いただいたお客様の口コミ・体験談をご紹介。冷え・むくみ改善、リラックス効果など。福山・尾道の韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。";
+const DESC = "実際にご来店いただいたお客様の口コミ・体験談をご紹介。冷え・むくみ改善、リラックス効果など。福山・尾道のよもぎ蒸し（ハーブ蒸し）サロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,
