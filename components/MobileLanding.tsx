@@ -194,6 +194,7 @@ export default function MobileLanding() {
             <div className="herb-type" key={t.name}>
               <h3 className="herb-type__name">{t.name}</h3>
               <p className="herb-type__body">{t.body}</p>
+              {"option" in t && t.option && <p className="herb-type__option">{t.option}</p>}
             </div>
           ))}
         </div>

@@ -26,6 +26,7 @@ export const HERB_TYPES = [
   {
     name: "バーニングハーブ",
     body: "温まり感がさらにアップするケイヒ（シナモン）がプラスされた、「燃やす」と名付けられた爽快なハーブ。汗をたっぷりかきたいときに！",
+    option: "初回限定メニューでも、+¥500でオプション変更できます（ご予約時に選択可）。",
   },
 ];
 
@@ -163,6 +164,7 @@ export default function About() {
           <div className="herb-type" key={t.name}>
             <h3 className="herb-type__name">{t.name}</h3>
             <p className="herb-type__body">{t.body}</p>
+            {"option" in t && t.option && <p className="herb-type__option">{t.option}</p>}
           </div>
         ))}
       </div>

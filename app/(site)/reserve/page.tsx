@@ -34,6 +34,7 @@ export default function ReservePage() {
   const [time, setTime] = useState<string>("");
 
   const [f, setF] = useState({ customer_name: "", phone: "", email: "", menu: "", note: "" });
+  const [burningHerb, setBurningHerb] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
@@ -100,12 +101,13 @@ export default function ReservePage() {
     }
     setSaving(true);
     setError("");
+    const menu = burningHerb ? `${f.menu}＋バーニングハーブ変更(+¥500)` : f.menu;
     const { error } = await supabase.from("herb_reservations").insert({
       store_id: storeId,
       customer_name: f.customer_name,
       phone: f.phone || null,
       email: f.email || null,
-      menu: f.menu || null,
+      menu: menu || null,
       reserved_date: date,
       reserved_time: time,
       num_people: 1,
@@ -118,7 +120,7 @@ export default function ReservePage() {
       gaEvent("reservation_error", { store_id: storeId });
       return;
     }
-    gaEvent("submit_reservation", { store_id: storeId, menu: f.menu });
+    gaEvent("submit_reservation", { store_id: storeId, menu, burning_herb: burningHerb });
     setDone(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -273,6 +275,17 @@ export default function ReservePage() {
                   ))}
                   <option value="スタッフにおまかせ">スタッフにおまかせ</option>
                 </select>
+              </label>
+              <label className="rf-checkbox">
+                <input
+                  type="checkbox"
+                  checked={burningHerb}
+                  onChange={(e) => setBurningHerb(e.target.checked)}
+                />
+                <span>
+                  バーニングハーブに変更する（+¥500）
+                  <span className="rf-checkbox__note">温まり感アップ、汗をたっぷりかきたい方に</span>
+                </span>
               </label>
               <label className="rf-field">
                 <span>お名前 *</span>
