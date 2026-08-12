@@ -23,7 +23,7 @@ export default function MobileLanding() {
       <section className="hero-mobile-full">
         <img
           src="/hero-mobile.jpg"
-          alt="私を整える、わたしの時間。よもぎ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
+          alt="私を整える、わたしの時間。ハーブ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
         />
       </section>
 
@@ -55,7 +55,7 @@ export default function MobileLanding() {
         <Headline en="for first-time guests" jp="初めての方へ" />
         <div className="container">
           <p className="lede">
-            よもぎ蒸しが初めての方も、どうぞご安心ください。
+            ハーブ蒸しが初めての方も、どうぞご安心ください。
             <br />
             特別な場所ではなく、いつもの場所で気軽に。
           </p>
@@ -102,10 +102,10 @@ export default function MobileLanding() {
           </p>
         </div>
 
-        <Headline en="our answer" jp="だから、よもぎ蒸し。" />
+        <Headline en="our answer" jp="だから、ハーブ蒸し。" />
         <div className="container">
           <p className="lede">
-            よもぎ蒸しは、椅子に座るだけ。
+            ハーブ蒸しは、椅子に座るだけ。
             <br />
             厳選した薬草の蒸気で下半身から体の芯までじんわり温め、
             <br />
@@ -114,7 +114,7 @@ export default function MobileLanding() {
         </div>
         <div className="spacer-sm" />
         <div className="feature">
-          <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
+          <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
           <div>
             <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
             <p className="feature__body">
@@ -370,7 +370,7 @@ export default function MobileLanding() {
 
       {/* ── ブログ導線 ───────────────────── */}
       <div className="container">
-        <p className="lede">サロンからのお知らせ・よもぎ蒸しのコラムはブログでご紹介しています。</p>
+        <p className="lede">サロンからのお知らせ・ハーブ蒸しのコラムはブログでご紹介しています。</p>
         <div className="center" style={{ marginTop: 24 }}>
           <Link className="btn" href="/blog">ブログを見る</Link>
         </div>

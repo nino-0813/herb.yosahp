@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Headline, CtaBand, Footer } from "@/components/ui";
 
 const TITLE = "オーナー紹介｜各店舗のオーナー";
-const DESC = "尾道・福山4店舗、それぞれのオーナーをご紹介。自分たちも揺らいだ経験があるから、深く寄り添える。韓国よもぎ蒸しサロンON:U。";
+const DESC = "尾道・福山4店舗、それぞれのオーナーをご紹介。自分たちも揺らいだ経験があるから、深く寄り添える。韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -17,7 +17,7 @@ export const OWNERS = [
     name: "渡辺 宏恵",
     roman: "HIROE WATANABE",
     role: "cocolu hairsalon",
-    bio: "尾道市栗原町の美容室cocoluのオーナー。髪を整える外見のケアと、よもぎ蒸しで内側から整えるケアの両方に寄り添います。",
+    bio: "尾道市栗原町の美容室cocoluのオーナー。髪を整える外見のケアと、ハーブ蒸しで内側から整えるケアの両方に寄り添います。",
     photo: "/stores/cocolu/cocolu-1.jpg",
   },
   {
@@ -38,7 +38,7 @@ export const OWNERS = [
     name: "高戸 真理",
     roman: "MARI TAKATO",
     role: "Larimar（沼隈店）",
-    bio: "福山市沼隈町のLarimarのオーナー。落ち着いた個室で、よもぎ蒸しと水素・酸素発生器によるケアをお届けします。",
+    bio: "福山市沼隈町のLarimarのオーナー。落ち着いた個室で、ハーブ蒸しと水素・酸素発生器によるケアをお届けします。",
     photo: "/stores/larimar-numakuma/larimar-numakuma-2.jpg",
   },
 ];

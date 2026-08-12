@@ -6,7 +6,7 @@ export const MENU_SECTIONS: { band: string; img: string; reverse?: boolean; item
     img: "初回限定",
     items: [
       {
-        name: "よもぎ蒸し 45分体験",
+        name: "ハーブ蒸し 45分体験",
         price: "¥4,000",
         old: "¥5,980",
         badge: "初回限定",

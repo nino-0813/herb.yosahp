@@ -7,7 +7,7 @@ import Analytics from "@/components/Analytics";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.siteUrl),
   title: SITE.fullName,
-  description: `${SITE.catch.jpLines.join(" ")} あなたを優しく温める、福山・尾道の韓国よもぎ蒸しサロン ${SITE.brand}。温活・妊活・美容・自律神経まで、女性の“めぐり”とライフケアに寄り添う4店舗の合同サロンです。`,
+  description: `${SITE.catch.jpLines.join(" ")} 福山・尾道の韓国よもぎ蒸し（ハーブ蒸し）サロン${SITE.brand}。温活・妊活・美容・自律神経まで、女性の“めぐり”とライフケアに寄り添う4店舗の合同サロンです。`,
   openGraph: {
     siteName: SITE.fullName,
     locale: "ja_JP",

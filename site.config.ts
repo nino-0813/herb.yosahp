@@ -9,13 +9,13 @@ export const SITE = {
   /** ロゴ上の小さな日本語キャプション */
   brandCaption: "Korean Herbal Steam",
   /** ブラウザタブ等に出る正式名称 */
-  fullName: "ON:U｜韓国よもぎ蒸しサロン",
+  fullName: "ON:U｜韓国よもぎ蒸し（ハーブ蒸し）サロン",
   /** 本番サイトのURL（末尾スラッシュなし）。サイトマップ・構造化データ・OGP画像解決に使用 */
   siteUrl: "https://www.yomogimushi-onu.jp",
   /** トップのキャッチ */
   catch: {
     en: "Warm Your Body. Bloom Your Life.",
-    jpLines: ["身体を温め、心を整え、新しい毎日へ。", "あなたを優しく温める、韓国よもぎ蒸しサロン。"],
+    jpLines: ["身体を温め、心を整え、新しい毎日へ。", "あなたを優しく温める、韓国ハーブ蒸しサロン。"],
   },
   /** 予約導線（共通ボタンのリンク先）。自サイト予約フォームは "/reserve"。
    *  ホットペッパー等の外部URLにしたい場合はそのURLを入れてください。 */

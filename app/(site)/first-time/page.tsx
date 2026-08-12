@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 
-const TITLE = "初めての方へ｜よもぎ蒸しが初めてでも安心";
-const DESC = "よもぎ蒸しが初めての方向けのガイド。ご来店の流れ、よくある質問、初回限定45分体験¥4,000のご案内。福山・尾道の韓国よもぎ蒸しサロンON:U。";
+const TITLE = "初めての方へ｜よもぎ蒸し（ハーブ蒸し）が初めてでも安心";
+const DESC = "よもぎ蒸し（ハーブ蒸し）が初めての方向けのガイド。ご来店の流れ、よくある質問、初回限定45分体験¥4,000のご案内。福山・尾道の韓国ハーブ蒸しサロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export const STEPS = [
   { t: "ご予約", b: "Web・お電話・公式LINEからご予約いただけます。当日のご来店も空きがあれば承ります。" },
   { t: "ご来店・カウンセリング", b: "その日の体調やお悩み、心の揺らぎをお伺いし、おすすめの薬草をご提案します。お着替えをご用意しています。" },
-  { t: "よもぎ蒸し", b: "専用のマントを羽織って椅子に座るだけ。よもぎなどの薬草の蒸気でゆっくりと体を温めます。" },
+  { t: "ハーブ蒸し", b: "専用のマントを羽織って椅子に座るだけ。よもぎなどの薬草の蒸気でゆっくりと体を温めます。" },
   { t: "アフター・お会計", b: "お白湯をご用意。火照った体をクールダウンしながら、ゆったりとお過ごしください。" },
 ];
 
@@ -47,7 +47,7 @@ export const FAQ = [
   { q: "予約は必要ですか？", a: "事前のご予約をおすすめしています。空きがあれば当日でもご案内可能です。" },
   { q: "どんな服装で行けばいいですか？", a: "専用マントに着替えていただくので、普段着のままで大丈夫です。" },
   { q: "生理中でも利用できますか？", a: "生理中こそおすすめです。スタッフにお気軽にご相談ください。" },
-  { q: "所要時間はどれくらいですか？", a: "初回体験は着替え・カウンセリングを含めて60分程度が目安です（よもぎ蒸しは45分）。" },
+  { q: "所要時間はどれくらいですか？", a: "初回体験は着替え・カウンセリングを含めて60分程度が目安です（ハーブ蒸しは45分）。" },
 ];
 
 export default function FirstTime() {
@@ -56,7 +56,7 @@ export default function FirstTime() {
       <Headline en="for first-time guests" jp="初めての方へ" />
       <div className="container">
         <p className="lede">
-          よもぎ蒸しが初めての方も、どうぞご安心ください。
+          ハーブ蒸しが初めての方も、どうぞご安心ください。
           <br />
           特別な場所ではなく、いつもの場所で気軽に。
           <br />
@@ -117,11 +117,11 @@ export default function FirstTime() {
         </p>
       </div>
 
-      {/* ③ 解決の提示：だから、よもぎ蒸し */}
-      <Headline en="our answer" jp="だから、よもぎ蒸し。" />
+      {/* ③ 解決の提示：だから、ハーブ蒸し */}
+      <Headline en="our answer" jp="だから、ハーブ蒸し。" />
       <div className="container">
         <p className="lede">
-          よもぎ蒸しは、椅子に座るだけ。
+          ハーブ蒸しは、椅子に座るだけ。
           <br />
           よもぎなどの薬草の蒸気で下半身から体の芯までじんわり温め、
           <br />
@@ -130,7 +130,7 @@ export default function FirstTime() {
       </div>
       <div className="spacer-sm" />
       <div className="feature">
-        <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="よもぎ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
+        <div className="feature__img feature__img--illustration"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し 冷え・むくみ・美肌・ストレス・子宮ケア・妊活。体の中からあたためる。" /></div>
         <div>
           <h3 className="feature__title">外見と内面は、ひとつの円を描く</h3>
           <p className="feature__body">

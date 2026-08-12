@@ -4,7 +4,7 @@ import { Headline, CtaBand, Footer } from "@/components/ui";
 import { SITE } from "@/site.config";
 
 const TITLE = "コンセプト｜揺らぎを知るから、寄り添える。";
-const DESC = "ON:Uが大切にしている想い。外見と内面、両方が揃った「本当の健康」を届けたい。福山・尾道の韓国よもぎ蒸しサロン。";
+const DESC = "ON:Uが大切にしている想い。外見と内面、両方が揃った「本当の健康」を届けたい。福山・尾道の韓国よもぎ蒸し（ハーブ蒸し）サロン。";
 
 export const metadata: Metadata = {
   title: TITLE,

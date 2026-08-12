@@ -4,8 +4,8 @@ import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
 import MobileLanding from "@/components/MobileLanding";
 
-const TITLE = "よもぎ蒸し 福山・尾道｜韓国よもぎ蒸しサロン";
-const DESC = "福山・尾道に4店舗の韓国よもぎ蒸しサロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
+const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜韓国ハーブ蒸しサロン";
+const DESC = "福山・尾道に4店舗の韓国よもぎ蒸し（ハーブ蒸し）サロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -25,7 +25,7 @@ export default function Home() {
       <section className="hero-full">
         <img
           src="/hero-top.jpg"
-          alt="私を整える、わたしの時間。よもぎ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
+          alt="私を整える、わたしの時間。ハーブ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
         />
       </section>
 
@@ -41,7 +41,7 @@ export default function Home() {
         </p>
         <div className="spacer-sm" />
         <p className="lede">
-          よもぎ蒸しは、すわるだけ。
+          ハーブ蒸しは、すわるだけ。
           <br />
           厳選した薬草の蒸気で体を芯から温め、
           <br />
@@ -78,7 +78,7 @@ export default function Home() {
           <img src="/kodawari/herbs.jpg" alt="美しさを最大限に引き出すオリジナルハーブ 全11種類配合" />
         </div>
         <div className="tile">
-          <img src="/kodawari/treatment.jpg" alt="よもぎ蒸しの様子" />
+          <img src="/kodawari/treatment.jpg" alt="ハーブ蒸しの様子" />
         </div>
       </div>
       <div className="container">
