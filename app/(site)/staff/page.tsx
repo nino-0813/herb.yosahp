@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/staff" },
-  openGraph: { title: TITLE, description: DESC },
+  openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] },
 };
 
 /** 各店舗のオーナー紹介 */

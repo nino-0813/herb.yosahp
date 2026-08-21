@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/access" },
-  openGraph: { title: TITLE, description: DESC },
+  openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] },
 };
 
 /** "〒729-0104 広島県福山市松永町5丁目11-21" のような文字列から郵便番号・番地部分を分離する */

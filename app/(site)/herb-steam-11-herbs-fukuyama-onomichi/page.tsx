@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/herb-steam-11-herbs-fukuyama-onomichi" },
-  openGraph: { title: TITLE, description: DESC, type: "article" },
+  openGraph: { title: TITLE, description: DESC, type: "article", images: ["/og-image.jpg"] },
 };
 
 const HERBS = [

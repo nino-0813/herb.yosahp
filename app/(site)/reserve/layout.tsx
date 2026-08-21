@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/reserve" },
-  openGraph: { title: TITLE, description: DESC },
+  openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] },
 };
 
 export default function ReserveLayout({ children }: { children: React.ReactNode }) {

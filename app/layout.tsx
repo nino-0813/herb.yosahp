@@ -12,7 +12,11 @@ export const metadata: Metadata = {
     siteName: SITE.fullName,
     locale: "ja_JP",
     type: "website",
-    images: ["/hero-top.jpg"],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 1200, alt: SITE.fullName }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-image.jpg"],
   },
 };
 

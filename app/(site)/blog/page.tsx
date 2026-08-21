@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/blog" },
-  openGraph: { title: TITLE, description: DESC },
+  openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] },
 };
 
 const POSTS = [
