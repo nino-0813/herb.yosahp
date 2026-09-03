@@ -914,7 +914,7 @@ img { max-width: 100%; display: block; }
   animation: hero-crossfade 24s ease-in-out infinite;
   will-change: opacity, transform;
 }
-.aun-hero__slides img:nth-child(1) { animation-delay: 0s; object-position: center; }
+.aun-hero__slides img:nth-child(1) { animation-delay: 0s; object-position: center 48%; }
 .aun-hero__slides img:nth-child(2) { animation-delay: 6s; object-position: center; }
 .aun-hero__slides img:nth-child(3) { animation-delay: 12s; object-position: center; }
 .aun-hero__slides img:nth-child(4) { animation-delay: 18s; object-position: center 58%; }
@@ -1101,7 +1101,7 @@ img { max-width: 100%; display: block; }
   .aun-title { display: block; margin-bottom: 38px; }
   .aun-title span { display: block; margin-bottom: 14px; }
   .aun-hero { height: 690px; min-height: 0; }
-  .aun-hero__slides img:nth-child(1) { object-position: 42% center; }
+  .aun-hero__slides img:nth-child(1) { object-position: 38% center; }
   .aun-hero__slides img:nth-child(2) { object-position: center; }
   .aun-hero__slides img:nth-child(3) { object-position: 62% center; }
   .aun-hero__slides img:nth-child(4) { object-position: center; }

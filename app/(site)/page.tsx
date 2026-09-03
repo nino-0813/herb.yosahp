@@ -17,7 +17,7 @@ export default function Home() {
   return <div className="aun-home">
     <section className="aun-hero">
       <div className="aun-hero__slides" aria-label="ON:Uのハーブ蒸しとサロンの風景">
-        <img src="/hero/slides/01-steam-treatment.png" alt="蒸気に包まれてハーブ蒸しを体験する女性" />
+        <img src="/hero/slides/01-steam-treatment.jpg" alt="ハーブ蒸しを体験する女性" />
         <img src="/hero/slides/02-herbal-steam.png" alt="ハーブの蒸気が立ち上るイメージ" />
         <img src="/hero/slides/03-tomonoura.png" alt="夕暮れの鞆の浦と常夜燈" />
         <img src="/stores/larimar/larimar-2.jpg" alt="YOSA PARK Larimar 新涯店の店内" />
