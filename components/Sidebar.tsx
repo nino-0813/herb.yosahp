@@ -61,6 +61,16 @@ export default function Sidebar() {
           })}
         </nav>
 
+        <ReserveLink className="header-reserve" eventLabel="header_reserve">
+          <svg className="header-reserve__calendar" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" />
+          </svg>
+          <span>予約する</span>
+          <svg className="header-reserve__arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 6 6 6-6 6" />
+          </svg>
+        </ReserveLink>
+
       </aside>
 
       <ReserveLink className="floating-reserve" eventLabel="floating_reserve">

@@ -1534,25 +1534,41 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
 .shell { overflow: clip; }
 .main { margin-left: 0; padding-top: 98px; }
 .sidebar {
-  position: fixed; inset: 0 0 auto 0; width: 100%; height: 98px;
-  padding: 0 clamp(28px, 5vw, 76px); display: flex; flex-direction: row;
+  position: fixed; inset: 32px clamp(24px, 4.3vw, 80px) auto; width: auto; height: 78px;
+  padding: 0 30px 0 34px; display: flex; flex-direction: row;
   align-items: center; justify-content: space-between; gap: 36px;
-  background: rgba(248, 246, 243, .91); border-bottom: 1px solid rgba(114,98,78,.18);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); z-index: 100;
+  background: rgba(255, 255, 255, .84); border: 1px solid rgba(255,255,255,.55); border-radius: 18px;
+  box-shadow: 0 13px 30px rgba(30,36,29,.13);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); z-index: 100;
 }
-.logo { margin: 0; display: flex; flex-direction: column; align-items: center; min-width: 106px; }
+.main:has(.aun-home) { padding-top: 0; }
+.logo { margin: 0; display: flex; flex-direction: column; align-items: center; min-width: 122px; }
 .logo__caption { order: 2; padding: 0; margin-top: 4px; color: #72624e; font: 400 9px/1 "Zen Kaku Gothic Antique", sans-serif; letter-spacing: .28em; }
 .logo__mark { display: block; }
 .logo__name { color: #171817; font: 500 34px/.8 "EB Garamond", serif; letter-spacing: .12em; }
-.nav { flex-direction: row; align-items: center; justify-content: flex-end; gap: clamp(18px, 2vw, 36px); }
-.nav a { position: relative; padding: 36px 0 31px; font: 400 12px/1 "Zen Old Mincho", serif; letter-spacing: .11em; opacity: 1; }
-.nav a::after { content: ""; position: absolute; left: 50%; bottom: 24px; width: 0; height: 1px; background: #57702e; transform: translateX(-50%); transition: width .3s ease; }
+.nav { flex: 1; flex-direction: row; align-items: center; justify-content: flex-end; gap: clamp(15px, 1.55vw, 30px); }
+.nav a { position: relative; padding: 31px 0 28px; white-space: nowrap; font: 400 12px/1 "Zen Old Mincho", serif; letter-spacing: .1em; opacity: 1; }
+.nav a::after { content: ""; position: absolute; left: 50%; bottom: 20px; width: 0; height: 1px; background: #57702e; transform: translateX(-50%); transition: width .3s ease; }
 .nav a:hover::after, .nav a.is-active::after { width: 100%; }
 .sidebar__cta { display: none; }
 
+.header-reserve {
+  flex: none; min-width: 164px; height: 42px; padding: 0 8px 0 20px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  color: #fff; border-radius: 999px;
+  background: linear-gradient(180deg, #ef873d 0%, #c95d37 100%);
+  box-shadow: 0 7px 16px rgba(174,88,71,.24);
+  font: 500 13px/1 "Zen Old Mincho", serif; letter-spacing: .1em;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.header-reserve:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(174,88,71,.3); }
+.header-reserve svg { fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.header-reserve__calendar { width: 17px; height: 17px; }
+.header-reserve__arrow { width: 27px; height: 27px; margin-left: 2px; padding: 4px; border: 1px solid rgba(255,255,255,.9); border-radius: 50%; }
+
 .floating-reserve {
   position: fixed; right: 38px; bottom: 38px; width: 154px; height: 154px;
-  display: grid; place-items: center; overflow: hidden; border-radius: 50%;
+  display: none; place-items: center; overflow: hidden; border-radius: 50%;
   color: #fff; background: linear-gradient(145deg, #bfa679, #72624e);
   box-shadow: 0 15px 38px rgba(23,24,23,.28); z-index: 120;
   transition: transform .3s ease, box-shadow .3s ease;
@@ -1619,6 +1635,7 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
 @media (max-width: 1120px) {
   .nav { gap: 16px; }
   .nav a { font-size: 11px; }
+  .header-reserve { min-width: 142px; padding-left: 14px; }
 }
 
 @media (max-width: 880px) {
@@ -1627,12 +1644,13 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
   .mobile-bar__name { font: 500 29px/1 "EB Garamond", serif; letter-spacing: .12em; }
   .hamburger { width: 48px; height: 48px; }
   .hamburger span { background: #344815; }
-  .sidebar { inset: 0 0 0 auto; width: min(86vw, 390px); height: 100dvh; padding: 100px 42px 50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; background: #344815; border: 0; transform: translateX(101%); transition: transform .45s cubic-bezier(.22,.7,.2,1); }
+  .sidebar { inset: 0 0 0 auto; width: min(86vw, 390px); height: 100dvh; padding: 100px 42px 50px; flex-direction: column; justify-content: flex-start; align-items: flex-start; background: #344815; border: 0; border-radius: 0; transform: translateX(101%); transition: transform .45s cubic-bezier(.22,.7,.2,1); }
   .sidebar.open { transform: translateX(0); }
   .sidebar .logo { display: flex; align-items: flex-start; }
   .sidebar .logo__caption, .sidebar .logo__name, .sidebar .nav a { color: #fdfdfd; }
   .sidebar .nav { flex-direction: column; align-items: flex-start; gap: 0; width: 100%; }
   .sidebar .nav a { width: 100%; padding: 15px 0; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .sidebar .header-reserve { width: 100%; min-height: 48px; margin-top: 24px; }
   .drawer-backdrop.show { background: rgba(23,24,23,.55); backdrop-filter: blur(3px); }
   .floating-reserve { display: none; }
   .floating-reserve__ring { inset: 4%; width: 92%; height: 92%; }
