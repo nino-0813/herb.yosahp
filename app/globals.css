@@ -937,7 +937,7 @@ img { max-width: 100%; display: block; }
 .aun-about__copy h3 { margin: 0 0 34px; color: #344815; font: 500 clamp(29px, 3.5vw, 46px)/1.7 "Zen Old Mincho", serif; letter-spacing: .12em; }
 .aun-about__copy p { max-width: 680px; margin: auto; color: #596446; font-size: 14px; line-height: 2.45; letter-spacing: .08em; }
 .aun-wordmark { width: calc(100% + 180px); margin-left: -90px; overflow: hidden; color: rgba(255,255,255,.92); }
-.aun-wordmark > div { display: flex; width: max-content; animation: onu-marquee 22s linear infinite; will-change: transform; }
+.aun-wordmark > div { display: flex; width: max-content; animation: onu-marquee 44s linear infinite; will-change: transform; }
 .aun-wordmark span { flex: none; padding-right: 8vw; font: 400 clamp(92px, 13vw, 200px)/.9 "EB Garamond", serif; letter-spacing: .04em; }
 @keyframes onu-marquee { to { transform: translateX(-50%); } }
 
