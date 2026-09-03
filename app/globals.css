@@ -790,6 +790,105 @@ img { max-width: 100%; display: block; }
   .persona { grid-template-columns: 1fr; gap: 56px; max-width: 460px; }
 }
 
+/* Refined introductory offer card */
+.trial-banner {
+  display: grid;
+  grid-template-columns: auto minmax(250px, 1fr) auto;
+  grid-template-areas:
+    "badge copy price"
+    "badge copy action";
+  align-items: center;
+  column-gap: clamp(28px, 5vw, 72px);
+  row-gap: 18px;
+  width: min(calc(100% - 48px), 1040px);
+  max-width: none;
+  margin: 90px auto 0;
+  padding: clamp(42px, 6vw, 68px);
+  text-align: left;
+  color: #344815;
+  background: linear-gradient(120deg, rgba(255,255,255,.96), rgba(242,237,228,.96));
+  border: 1px solid rgba(191,166,121,.72);
+  box-shadow: 0 24px 65px rgba(52,72,21,.1);
+}
+.trial-banner::before {
+  inset: auto -5% -60% auto;
+  width: 48%;
+  height: 170%;
+  background: url('/reference/smoke-brush.webp') right bottom/contain no-repeat;
+  opacity: .09;
+  mix-blend-mode: multiply;
+}
+.trial-banner::after {
+  content: "SPECIAL OFFER";
+  position: absolute;
+  left: 34px;
+  bottom: 22px;
+  color: rgba(114,98,78,.22);
+  font: 400 10px/1 "EB Garamond", serif;
+  letter-spacing: .28em;
+}
+.trial-banner__badge {
+  grid-area: badge;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  min-width: 76px;
+  margin: 0;
+  padding: 12px 18px;
+  color: #fdfdfd;
+  background: #72624e;
+  border: 0;
+  writing-mode: vertical-rl;
+  font: 500 12px/1 "Zen Old Mincho", serif;
+  letter-spacing: .32em;
+}
+.trial-banner__copy {
+  grid-area: copy;
+  max-width: 440px;
+  margin: 0;
+  color: #344815;
+  font: 500 clamp(15px, 1.5vw, 18px)/2.05 "Zen Old Mincho", serif;
+  letter-spacing: .08em;
+}
+.trial-banner__price { grid-area: price; margin: 0; white-space: nowrap; }
+.trial-banner__price del { color: #8a8174; font-size: 13px; }
+.trial-banner__price strong { color: #ae5847; font: 400 clamp(46px, 5vw, 66px)/1 "EB Garamond", serif; }
+.trial-banner__unit { color: #72624e; text-align: right; }
+.trial-banner__btn {
+  grid-area: action;
+  min-height: 52px;
+  padding: 13px 30px;
+  color: #fdfdfd;
+  background: #57702e;
+  border: 1px solid #57702e;
+  font-size: 11px;
+}
+.trial-banner__btn:hover { color: #344815; background: transparent; }
+
+@media (max-width: 760px) {
+  .trial-banner {
+    grid-template-columns: 1fr;
+    grid-template-areas: "badge" "copy" "price" "action";
+    gap: 22px;
+    width: calc(100% - 36px);
+    margin-top: 64px;
+    padding: 36px 28px 32px;
+    text-align: center;
+  }
+  .trial-banner__badge {
+    justify-self: center;
+    min-width: 0;
+    padding: 7px 22px;
+    writing-mode: horizontal-tb;
+  }
+  .trial-banner__copy { max-width: 100%; font-size: 14px; line-height: 2; }
+  .trial-banner__price { white-space: normal; }
+  .trial-banner__price strong { font-size: 52px; }
+  .trial-banner__unit { text-align: center; }
+  .trial-banner__btn { width: 100%; }
+  .trial-banner::after { display: none; }
+}
+
 /* PDF reference composition - homepage */
 .aun-home { background: #f5f6f1; }
 .aun-section { position: relative; padding: clamp(90px, 10vw, 150px) clamp(24px, 6vw, 90px); }
@@ -1364,14 +1463,9 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
 .lede--ink { color: #171817; font-family: "Zen Old Mincho", serif; font-size: 17px; }
 .lede--catch { font-size: clamp(23px, 3vw, 34px); line-height: 2; letter-spacing: .1em; }
 
-.trial-banner { position: relative; overflow: hidden; margin-top: 100px; padding: 86px 24px; color: #fdfdfd; background: #344815; border: 0; }
-.trial-banner::before { content: ""; position: absolute; inset: 0; background: url('/reference/smoke-brush.webp') right center/54% auto no-repeat; opacity: .23; mix-blend-mode: screen; }
 .trial-banner > * { position: relative; z-index: 1; }
-.trial-banner__badge { color: #fdfdfd; border-color: #bfa679; background: transparent; border-radius: 0; padding: 7px 20px; }
-.trial-banner__copy { font-family: "Zen Old Mincho", serif; }
-.trial-banner__price strong { color: #fdfdfd; font-family: "EB Garamond", serif; font-weight: 400; font-size: 54px; }
-.trial-banner__btn, .btn { border-radius: 0; border: 1px solid #bfa679; background: transparent; color: inherit; padding: 15px 36px; font-family: "Zen Old Mincho", serif; transition: color .3s, background .3s, transform .3s; }
-.trial-banner__btn:hover, .btn:hover { color: #344815; background: #fdfdfd; transform: translateY(-2px); }
+.btn { border-radius: 0; border: 1px solid #bfa679; background: transparent; color: inherit; padding: 15px 36px; font-family: "Zen Old Mincho", serif; transition: color .3s, background .3s, transform .3s; }
+.btn:hover { color: #344815; background: #fdfdfd; transform: translateY(-2px); }
 
 .grid-2, .grid-3 { max-width: 1280px; gap: 0; padding: 0 clamp(20px, 4vw, 60px); }
 .tile { border-radius: 0; overflow: hidden; background: #e8ebe6; }
@@ -1431,7 +1525,5 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
   .lp-quicknav { background: #e8ebe6; border-block: 0; padding: 30px 20px; gap: 8px; }
   .lp-quicknav__chip { border: 1px solid #c8d4bd; border-radius: 0; background: rgba(255,255,255,.6); color: #344815; }
   .persona__photo { border-radius: 100px 100px 0 0; overflow: hidden; }
-  .trial-banner { margin-top: 70px; padding: 66px 22px; }
-  .trial-banner__price strong { font-size: 45px; }
   .feature__img { border-radius: 110px 110px 8px 8px; }
 }
