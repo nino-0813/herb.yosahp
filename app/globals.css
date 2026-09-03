@@ -974,6 +974,43 @@ img { max-width: 100%; display: block; }
 .aun-reasons__grid h3 { margin: 17px 0 8px; color: #344815; font: 500 17px/1.55 "Zen Old Mincho", serif; letter-spacing: .08em; }
 .aun-reasons__grid p { margin: 0; color: #596446; font-size: 11px; line-height: 2; }
 
+.aun-recommend {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(200,212,189,.28), transparent 24%),
+    radial-gradient(circle at 94% 85%, rgba(214,199,168,.3), transparent 25%),
+    #faf9f6;
+}
+.aun-recommend__panel {
+  position: relative;
+  max-width: 1260px;
+  margin: auto;
+  padding: clamp(14px, 2vw, 26px);
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(214,199,168,.46);
+  box-shadow: 0 28px 80px rgba(52,72,21,.1);
+}
+.aun-recommend__panel > img { width: 100%; height: auto; display: block; }
+.aun-recommend__action { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 30px clamp(18px, 4vw, 54px) 18px; }
+.aun-recommend__action p { margin: 0; color: #596446; font: 400 13px/2 "Zen Old Mincho", serif; }
+.aun-recommend__action a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+  min-width: 250px;
+  min-height: 56px;
+  padding: 14px 28px;
+  color: #fff;
+  background: #57702e;
+  border: 1px solid #57702e;
+  font: 500 12px/1 "Zen Old Mincho", serif;
+  letter-spacing: .16em;
+  transition: color .25s, background .25s, transform .25s;
+}
+.aun-recommend__action a:hover { color: #344815; background: transparent; transform: translateY(-2px); }
+.aun-recommend__action a span { font-family: sans-serif; font-size: 16px; }
+
 .aun-charm { overflow: hidden; min-height: 750px; padding-block: 130px; background: radial-gradient(circle at 75% 35%, #667150, #344815 70%); color: #fdfdfd; }
 .aun-charm__inner { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 90px; max-width: 1110px; margin: auto; }
 .aun-charm__copy > span { display: block; margin-bottom: 35px; color: rgba(255,255,255,.24); font: 400 52px/1.05 "EB Garamond", serif; }
@@ -1051,6 +1088,10 @@ img { max-width: 100%; display: block; }
   .aun-reasons__grid { grid-template-columns: 1fr 1fr; gap: 38px 15px; }
   .aun-reasons__grid article > span { font-size: 30px; }
   .aun-reasons__grid h3 { font-size: 14px; }
+  .aun-recommend { padding-inline: 14px; }
+  .aun-recommend__panel { padding: 8px; }
+  .aun-recommend__action { flex-direction: column; padding: 25px 14px 16px; text-align: center; }
+  .aun-recommend__action a { width: 100%; min-width: 0; }
   .aun-charm__inner { display: block; }
   .aun-charm__copy > span { font-size: 42px; }
   .aun-charm__collage { height: 430px; margin-top: 55px; }

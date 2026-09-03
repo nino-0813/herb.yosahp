@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer, ReserveLink } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
-import { POINTS } from "./about/page";
 import { MENU_SECTIONS } from "@/lib/menu";
 
 const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜ハーブ蒸しサロン";
@@ -29,15 +28,15 @@ export default function Home() {
       <Link href="/concept" className="aun-concept-card"><img src="/kodawari/treatment.jpg" alt="ON:Uのコンセプト" /><span><small>BRAND CONCEPT</small><strong>揺らぎを知るから、寄り添える。</strong><em>詳しく見る →</em></span></Link>
     </section>
 
-    <section className="aun-reasons aun-section"><div className="aun-reasons__panel">
-      <SectionTitle en="REASON">{SITE.brand}が選ばれる理由</SectionTitle><p className="aun-reasons__intro">忙しい毎日の中でも、安心して立ち寄れる場所であるために。</p>
-      <div className="aun-reasons__grid">
-        {POINTS.map((p, i) => <article key={p.t}><span>0{i + 1}</span><img src={p.img} alt={p.t} /><h3>{p.t}</h3><p>{p.b}</p></article>)}
-        <article><span>04</span><img src="/stores/cocolu/cocolu-1.jpg" alt="完全個室" /><h3>心ほどける完全個室</h3><p>誰にも気兼ねなく、ゆっくりと自分の心と体に向き合えます。</p></article>
-        <article><span>05</span><img src="/staff/watanabe.jpg" alt="寄り添うスタッフ" /><h3>一人ひとりに寄り添う</h3><p>その日の体調やお悩みをうかがい、あなたに合う過ごし方をご提案します。</p></article>
-        <article><span>06</span><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し" /><h3>気軽に続けられる</h3><p>特別な準備は必要ありません。いつもの場所で、頑張らないセルフケアを。</p></article>
-      </div><Link className="aun-more" href="/about">ハーブ蒸しについて →</Link>
-    </div></section>
+    <section className="aun-recommend aun-section">
+      <div className="aun-recommend__panel">
+        <img src="/recommend/for-first-time.png" width="1615" height="974" loading="lazy" alt="乾燥、冷え、首や肩のこり、気分の浮き沈みなどが気になる方へ" />
+        <div className="aun-recommend__action">
+          <p>ハーブ蒸しが初めての方も、どうぞご安心ください。</p>
+          <Link href="/first-time">初めての方へ <span>→</span></Link>
+        </div>
+      </div>
+    </section>
 
     <section className="aun-charm aun-section"><div className="aun-charm__inner">
       <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM" light>ハーブ蒸しの魅力</SectionTitle><p>11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
