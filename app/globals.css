@@ -976,10 +976,11 @@ img { max-width: 100%; display: block; }
 
 .aun-recommend {
   overflow: hidden;
-  background:
-    radial-gradient(circle at 8% 15%, rgba(200,212,189,.28), transparent 24%),
-    radial-gradient(circle at 94% 85%, rgba(214,199,168,.3), transparent 25%),
-    #faf9f6;
+  background-image: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.42)), url('/backgrounds/botanical-white.png');
+  background-position: center 45%;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: botanical-background-drift 18s ease-in-out infinite alternate;
 }
 .aun-recommend__panel {
   position: relative;
@@ -1038,8 +1039,14 @@ img { max-width: 100%; display: block; }
 .aun-voices__grid--images img:hover, .voice-image-grid img:hover { transform: translateY(-5px); box-shadow: 0 20px 42px rgba(78,49,31,.2); }
 .voice-image-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 3vw, 36px); max-width: 1040px; margin: 35px auto 0; padding: 0 28px; }
 
-.aun-menu { background: linear-gradient(rgba(52,72,21,.58), rgba(52,72,21,.84)), url('/kodawari/treatment.jpg') center/cover fixed; }
-.aun-menu .aun-title span, .aun-menu .aun-title h2, .aun-menu .aun-more { color: #fff; }
+.aun-menu {
+  background-image: linear-gradient(rgba(255,255,255,.32), rgba(248,246,241,.55)), url('/backgrounds/botanical-white.png');
+  background-position: center 55%;
+  background-size: cover;
+  background-attachment: fixed;
+  animation: botanical-background-drift 20s ease-in-out infinite alternate-reverse;
+}
+.aun-menu .aun-title span, .aun-menu .aun-title h2, .aun-menu .aun-more { color: #344815; }
 .aun-menu__cards { display: grid; grid-template-columns: minmax(280px, 390px); justify-content: center; gap: 14px; max-width: 980px; margin: auto; }
 .aun-menu__cards article { padding: 45px 30px; text-align: center; background: rgba(253,253,253,.95); }
 .aun-menu__cards small { color: #bfa679; font: 500 9px/1 "EB Garamond", serif; letter-spacing: .16em; }
@@ -1049,6 +1056,11 @@ img { max-width: 100%; display: block; }
 .aun-menu__cards hr { width: 35px; margin: 25px auto; border: 0; border-top: 1px solid #bfa679; }
 .aun-menu__cards p { min-height: 95px; color: #596446; font-size: 10px; line-height: 1.9; }
 .aun-menu__cards a { color: #57702e; font-size: 10px; border-bottom: 1px solid #bfa679; padding-bottom: 6px; }
+
+@keyframes botanical-background-drift {
+  from { background-position: center 43%; }
+  to { background-position: center 57%; }
+}
 
 .aun-news { background: #e8ebe6; }
 .aun-news__list { max-width: 820px; margin: auto; }
@@ -1098,10 +1110,14 @@ img { max-width: 100%; display: block; }
   .aun-voices__grid, .aun-menu__cards { grid-template-columns: 1fr; }
   .aun-voices__grid--images { grid-template-columns: 1fr 1fr; }
   .voice-image-grid { grid-template-columns: 1fr; padding: 0 20px; }
-  .aun-menu { background-attachment: scroll; }
+  .aun-recommend, .aun-menu { background-attachment: scroll; background-size: auto 112%; }
   .aun-menu__cards article { padding: 38px 25px; }
   .aun-menu__cards p { min-height: 0; }
   .aun-news__list a { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aun-recommend, .aun-menu { animation: none; }
 }
 
 @media (max-width: 600px) {
