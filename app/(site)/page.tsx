@@ -29,8 +29,7 @@ export default function Home() {
     <section className="aun-about aun-section">
       <SectionTitle en="ABOUT US">私たちについて</SectionTitle>
       <div className="aun-about__copy"><h3>身体を温め、心を整え、<br />新しい毎日へ。</h3><p>ハーブ蒸しは、すわるだけ。厳選した薬草の蒸気で体を芯から温め、めぐりを整えるセルフケア。ゆらいだ心と体が、本来の自分に還る時間をお届けします。</p></div>
-      <div className="aun-watermark">Warm Your Body. Bloom Your Life.</div>
-      <Link href="/concept" className="aun-concept-card"><img src="/kodawari/treatment.jpg" alt="ON:Uのコンセプト" /><span><small>BRAND CONCEPT</small><strong>揺らぎを知るから、寄り添える。</strong><em>詳しく見る →</em></span></Link>
+      <div className="aun-wordmark" aria-hidden="true"><div>{Array.from({ length: 8 }, (_, i) => <span key={i}>ON:U</span>)}</div></div>
     </section>
 
     <section className="aun-recommend aun-section">

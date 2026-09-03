@@ -930,19 +930,16 @@ img { max-width: 100%; display: block; }
 .aun-hero__copy p { font: 400 13px/1.8 "Zen Old Mincho", serif; letter-spacing: .16em; }
 .aun-hero__mist { position: absolute; inset: auto 0 -2px; width: 100%; height: 44%; object-fit: cover; opacity: .94; mix-blend-mode: screen; z-index: 3; }
 
-.aun-about { overflow: hidden; min-height: 1000px; background: linear-gradient(145deg, #f5f6f1 25%, #dfe6dc 100%); }
-.aun-about__copy { display: grid; grid-template-columns: 1fr 1.25fr; gap: 80px; max-width: 930px; margin: 0 auto 100px; }
-.aun-about__copy h3 { margin: 0; color: #344815; font: 500 clamp(25px, 3vw, 38px)/1.75 "Zen Old Mincho", serif; letter-spacing: .1em; }
-.aun-about__copy p { margin: 0; color: #596446; font-size: 14px; line-height: 2.35; }
-.aun-watermark { position: absolute; left: -20px; top: 46%; white-space: nowrap; color: rgba(255,255,255,.7); font: 400 clamp(70px, 10vw, 160px)/1 "EB Garamond", serif; letter-spacing: .02em; }
-.aun-concept-card { position: relative; display: block; width: min(760px, 78vw); height: 290px; margin: 0 auto; overflow: hidden; border-radius: 8px; color: #fff; box-shadow: 0 24px 55px rgba(52,72,21,.2); }
-.aun-concept-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,24,23,.25), rgba(23,24,23,.7)); }
-.aun-concept-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
-.aun-concept-card:hover img { transform: scale(1.04); }
-.aun-concept-card span { position: absolute; inset: 50% 8% auto 42%; transform: translateY(-50%); display: flex; flex-direction: column; z-index: 2; }
-.aun-concept-card small { font: 400 10px/1 "EB Garamond", serif; letter-spacing: .2em; }
-.aun-concept-card strong { margin: 18px 0; font: 500 23px/1.7 "Zen Old Mincho", serif; letter-spacing: .1em; }
-.aun-concept-card em { font: normal 11px/1 "Zen Kaku Gothic Antique", sans-serif; }
+.aun-about { overflow: hidden; min-height: 760px; background: linear-gradient(145deg, #f8f8f4, #e9eee6); text-align: center; }
+.aun-about .aun-title { display: block; margin-bottom: 48px; text-align: center; }
+.aun-about .aun-title span { display: block; margin-bottom: 16px; }
+.aun-about__copy { display: block; max-width: 760px; margin: 0 auto 105px; }
+.aun-about__copy h3 { margin: 0 0 34px; color: #344815; font: 500 clamp(29px, 3.5vw, 46px)/1.7 "Zen Old Mincho", serif; letter-spacing: .12em; }
+.aun-about__copy p { max-width: 680px; margin: auto; color: #596446; font-size: 14px; line-height: 2.45; letter-spacing: .08em; }
+.aun-wordmark { width: calc(100% + 180px); margin-left: -90px; overflow: hidden; color: rgba(255,255,255,.92); }
+.aun-wordmark > div { display: flex; width: max-content; animation: onu-marquee 22s linear infinite; will-change: transform; }
+.aun-wordmark span { flex: none; padding-right: 8vw; font: 400 clamp(92px, 13vw, 200px)/.9 "EB Garamond", serif; letter-spacing: .04em; }
+@keyframes onu-marquee { to { transform: translateX(-50%); } }
 
 .aun-reasons {
   padding-block: 120px;
@@ -1113,12 +1110,10 @@ img { max-width: 100%; display: block; }
   .aun-hero__copy strong { font-size: 72px; }
   .aun-hero__copy p { padding: 0 25px; font-size: 11px; }
   .aun-about { min-height: 0; }
-  .aun-about__copy { display: block; margin-bottom: 75px; }
-  .aun-about__copy h3 { margin-bottom: 30px; font-size: 25px; }
-  .aun-watermark { top: 45%; font-size: 60px; }
-  .aun-concept-card { width: 100%; height: 280px; }
-  .aun-concept-card span { inset: 50% 25px auto; }
-  .aun-concept-card strong { font-size: 18px; }
+  .aun-about__copy { margin-bottom: 72px; }
+  .aun-about__copy h3 { margin-bottom: 28px; font-size: 26px; }
+  .aun-about__copy p { font-size: 13px; line-height: 2.25; }
+  .aun-wordmark span { font-size: 84px; padding-right: 42px; }
   .aun-reasons { padding-inline: 14px; background-attachment: scroll; }
   .aun-reasons__panel { padding: 60px 20px; }
   .aun-reasons__grid { grid-template-columns: 1fr 1fr; gap: 38px 15px; }
@@ -1144,6 +1139,7 @@ img { max-width: 100%; display: block; }
   .aun-recommend, .aun-menu { animation: none; }
   .aun-hero__slides img { animation: none; opacity: 0; transform: none; }
   .aun-hero__slides img:first-child { opacity: 1; }
+  .aun-wordmark > div { animation: none; }
 }
 
 @media (max-width: 600px) {
