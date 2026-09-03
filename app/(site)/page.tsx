@@ -1,135 +1,59 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Ph, Headline, CtaBand, Footer, TrialBanner } from "@/components/ui";
+import { Footer, ReserveLink } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
-import MobileLanding from "@/components/MobileLanding";
+import { POINTS } from "./about/page";
+import { VOICES } from "./voice/page";
+import { MENU_SECTIONS } from "@/lib/menu";
 
 const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜ハーブ蒸しサロン";
-const DESC = "福山・尾道に4店舗のよもぎ蒸し（ハーブ蒸し）サロンON:U。初回限定45分体験¥4,000。冷え・むくみ・自律神経の乱れに、体を芯から温めるセルフケアを。";
+const DESC = "福山・尾道に4店舗のよもぎ蒸し（ハーブ蒸し）サロンON:U。初回限定45分体験¥4,000。";
+export const metadata: Metadata = { title: TITLE, description: DESC, alternates: { canonical: "/" }, openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] } };
 
-export const metadata: Metadata = {
-  title: TITLE,
-  description: DESC,
-  alternates: { canonical: "/" },
-  openGraph: { title: TITLE, description: DESC, images: ["/og-image.jpg"] },
-};
+function SectionTitle({ en, children, light = false }: { en: string; children: React.ReactNode; light?: boolean }) {
+  return <header className={`aun-title ${light ? "aun-title--light" : ""}`}><span>{en}</span><h2>{children}</h2></header>;
+}
 
 export default function Home() {
-  return (
-    <>
-      {/* スマホ幅（880px以下）は全ページを集約した1枚LPを表示（globals.css の .mobile-only 参照） */}
-      <MobileLanding />
+  const campaign = MENU_SECTIONS[0].items[0];
+  return <div className="aun-home">
+    <section className="aun-hero">
+      <img src="/hero-top.jpg" alt="ハーブ蒸しで自分を整える時間" />
+      <div className="aun-hero__shade" /><div className="aun-hero__copy"><small>本格ハーブ蒸しサロン</small><strong>{SITE.brand}</strong><p>{SITE.catch.jpLines[0]}</p></div>
+      <img className="aun-hero__mist" src="/reference/smoke.webp" alt="" aria-hidden="true" />
+    </section>
 
-      {/* デスクトップ幅は従来どおりトップページ＋各ページ導線 */}
-      <div className="desktop-only">
-      <section className="hero-full home-hero">
-        <img
-          src="/hero-top.jpg"
-          alt="私を整える、わたしの時間。ハーブ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
-        />
-        <div className="home-hero__veil" />
-        <div className="home-hero__copy" aria-hidden="true">
-          <span className="home-hero__eyebrow">Herbal steam salon</span>
-          <strong>{SITE.brand}</strong>
-          <span>{SITE.catch.en}</span>
-        </div>
-        <img className="home-hero__smoke" src="/reference/smoke.webp" alt="" aria-hidden="true" />
-      </section>
+    <section className="aun-about aun-section">
+      <SectionTitle en="ABOUT US">私たちについて</SectionTitle>
+      <div className="aun-about__copy"><h3>身体を温め、心を整え、<br />新しい毎日へ。</h3><p>ハーブ蒸しは、すわるだけ。厳選した薬草の蒸気で体を芯から温め、めぐりを整えるセルフケア。ゆらいだ心と体が、本来の自分に還る時間をお届けします。</p></div>
+      <div className="aun-watermark">Warm Your Body. Bloom Your Life.</div>
+      <Link href="/concept" className="aun-concept-card"><img src="/kodawari/treatment.jpg" alt="ON:Uのコンセプト" /><span><small>BRAND CONCEPT</small><strong>揺らぎを知るから、寄り添える。</strong><em>詳しく見る →</em></span></Link>
+    </section>
 
-      <div className="container">
-        <div className="spacer" />
-        <p className="lede lede--ink lede--catch">
-          {SITE.catch.jpLines.map((l) => (
-            <span key={l}>
-              {l}
-              <br />
-            </span>
-          ))}
-        </p>
-        <div className="spacer-sm" />
-        <p className="lede">
-          ハーブ蒸しは、すわるだけ。
-          <br />
-          厳選した薬草の蒸気で体を芯から温め、
-          <br />
-          めぐりを整えるセルフケア。
-          <br />
-          ゆらいだ心と体が、本来の自分に還る時間を。
-        </p>
-      </div>
+    <section className="aun-reasons aun-section"><div className="aun-reasons__panel">
+      <SectionTitle en="REASON">{SITE.brand}が選ばれる理由</SectionTitle><p className="aun-reasons__intro">忙しい毎日の中でも、安心して立ち寄れる場所であるために。</p>
+      <div className="aun-reasons__grid">
+        {POINTS.map((p, i) => <article key={p.t}><span>0{i + 1}</span><img src={p.img} alt={p.t} /><h3>{p.t}</h3><p>{p.b}</p></article>)}
+        <article><span>04</span><img src="/stores/cocolu/cocolu-1.jpg" alt="完全個室" /><h3>心ほどける完全個室</h3><p>誰にも気兼ねなく、ゆっくりと自分の心と体に向き合えます。</p></article>
+        <article><span>05</span><img src="/staff/watanabe.jpg" alt="寄り添うスタッフ" /><h3>一人ひとりに寄り添う</h3><p>その日の体調やお悩みをうかがい、あなたに合う過ごし方をご提案します。</p></article>
+        <article><span>06</span><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸し" /><h3>気軽に続けられる</h3><p>特別な準備は必要ありません。いつもの場所で、頑張らないセルフケアを。</p></article>
+      </div><Link className="aun-more" href="/about">ハーブ蒸しについて →</Link>
+    </div></section>
 
-      <TrialBanner />
+    <section className="aun-charm aun-section"><div className="aun-charm__inner">
+      <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM" light>ハーブ蒸しの魅力</SectionTitle><p>11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
+      <div className="aun-charm__collage"><img src="/kodawari/herbs.jpg" alt="11種類のハーブ" /><img src="/kodawari/treatment.jpg" alt="ハーブ蒸しの様子" /><img src="/persona/wish.jpg" alt="整う時間" /></div>
+    </div><img className="aun-charm__mist" src="/reference/smoke-brush.webp" alt="" aria-hidden="true" /></section>
 
-      {/* 私たちの想い */}
-      <Headline en="our roots & vision" jp="揺らぎを知るから、寄り添える。" />
-      <div className="container">
-        <p className="lede">
-          このサロンの起点は、私たち自身が経験した「揺らぎ」にあります。
-          <br />
-          年齢や忙しさの中で立ち止まり、本当の健康と向き合ったこと。
-          <br />
-          だからこそ、同じように密かに悩むあなたに、深く寄り添えると信じています。
-        </p>
-        <p className="lede lede--ink">
-          4つの小さな火が交わって、この街を芯から温めていく。
-        </p>
-        <div className="center" style={{ marginTop: 30 }}>
-          <Link className="btn" href="/concept">私たちの想いを見る</Link>
-        </div>
-      </div>
+    <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid">{VOICES.slice(0, 3).map((v, i) => <article key={v.name}><span>VOICE 0{i + 1}</span><h3>{v.meta}</h3><p>{v.body}</p><small>{v.name}</small></article>)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>
 
-      {/* こだわり */}
-      <div className="eyebrow">{SITE.brand}のこだわり</div>
-      <div className="grid-2">
-        <div className="tile tile--herbs">
-          <img src="/kodawari/herbs.jpg" alt="美しさを最大限に引き出すオリジナルハーブ 全11種類配合" />
-        </div>
-        <div className="tile">
-          <img src="/kodawari/treatment.jpg" alt="ハーブ蒸しの様子" />
-        </div>
-      </div>
-      <div className="container">
-        <p className="lede">
-          国内外から厳選した薬草を、その日の体調に合わせてブレンド。
-          <br />
-          顔なじみのあなたが、誰にも気兼ねなく弱音を吐ける完全個室で。
-        </p>
-      </div>
+    <section className="aun-menu aun-section"><SectionTitle en="MENU">メニュー</SectionTitle><div className="aun-menu__cards">
+      <article><small>HERBAL STEAMING</small><h3>{campaign.name}</h3><strong>{campaign.price}<em>（税込）</em></strong><hr /><p>{campaign.desc}</p><ReserveLink eventLabel="home_menu_campaign">このメニューを予約 →</ReserveLink></article>
+    </div><Link className="aun-more" href="/menu">詳しく見る →</Link></section>
 
-      {/* メニュー誘導 */}
-      <Headline en="menu" jp="メニュー" />
-      <div className="container">
-        <p className="lede">
-          いまは初回限定の45分体験のみのシンプルなメニュー。
-          <br />
-          初めての方が安心して試せる特別価格でご用意しています。
-        </p>
-        <div className="center" style={{ marginTop: 36 }}>
-          <Link className="btn" href="/menu">メニューを見る</Link>
-        </div>
-      </div>
+    <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、3店舗合同でスタートしました</span></Link></div></section>
 
-      {/* 店舗 */}
-      <Headline en="salon" jp="店舗一覧" />
-      <div className="grid-3">
-        {STORES.map((s) => (
-          <Link key={s.id} href="/access" className="tile store-tile">
-            {s.cover ? <img src={s.cover} alt={s.name} /> : <Ph label={s.name} />}
-            <span className="store-tile__name">{s.name}</span>
-          </Link>
-        ))}
-      </div>
-      <div className="container">
-        <p className="lede">尾道・福山に4店舗。どこに行っても安心できる、いつもの拠り所へ。</p>
-        <div className="center" style={{ marginTop: 30 }}>
-          <Link className="btn" href="/access">アクセス・店舗詳細</Link>
-        </div>
-      </div>
-
-      <div className="spacer" />
-      <CtaBand />
-      <Footer />
-      </div>
-    </>
-  );
+    <section className="aun-shops aun-section"><SectionTitle en="SHOP">店舗一覧</SectionTitle><div className="aun-shops__list">{STORES.map(s => <details key={s.id}><summary>{s.name}<span>+</span></summary><div><p>{s.address}</p>{s.tel && <p>TEL: {s.tel}</p>}<Link href="/access">店舗詳細を見る →</Link></div></details>)}</div></section>
+    <Footer />
+  </div>;
 }

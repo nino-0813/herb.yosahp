@@ -777,6 +777,132 @@ img { max-width: 100%; display: block; }
   .persona { grid-template-columns: 1fr; gap: 56px; max-width: 460px; }
 }
 
+/* PDF reference composition - homepage */
+.aun-home { background: #f5f6f1; }
+.aun-section { position: relative; padding: clamp(90px, 10vw, 150px) clamp(24px, 6vw, 90px); }
+.aun-title { display: flex; align-items: flex-start; gap: 34px; max-width: 1140px; margin: 0 auto 55px; text-align: left; }
+.aun-title span { padding-top: 7px; color: #57702e; font: 500 11px/1 "EB Garamond", serif; letter-spacing: .18em; text-decoration: underline; text-underline-offset: 6px; }
+.aun-title h2 { margin: 0; color: #171817; font: 500 clamp(25px, 3vw, 39px)/1.5 "Zen Old Mincho", serif; letter-spacing: .08em; }
+.aun-title--light span, .aun-title--light h2 { color: #fdfdfd; }
+.aun-more { display: block; width: max-content; margin: 48px auto 0; color: #57702e; font: 500 12px/1.5 "Zen Old Mincho", serif; letter-spacing: .12em; border-bottom: 1px solid #bfa679; padding: 0 4px 8px; }
+
+.aun-hero { position: relative; height: min(850px, calc(100vh - 98px)); min-height: 620px; overflow: hidden; background: #344815; }
+.aun-hero > img:first-child { width: 100%; height: 100%; object-fit: cover; filter: saturate(.65) brightness(.85); }
+.aun-hero__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(35,38,26,.2), transparent 65%); }
+.aun-hero__copy { position: absolute; inset: 43% 0 auto; color: #fff; text-align: center; z-index: 2; transform: translateY(-50%); text-shadow: 0 2px 20px rgba(0,0,0,.35); }
+.aun-hero__copy small { display: block; font: 400 18px/1.5 "Zen Old Mincho", serif; letter-spacing: .18em; }
+.aun-hero__copy strong { display: block; margin: 12px 0 6px; font: 400 clamp(70px, 9vw, 126px)/.9 "EB Garamond", serif; letter-spacing: .08em; }
+.aun-hero__copy p { font: 400 13px/1.8 "Zen Old Mincho", serif; letter-spacing: .16em; }
+.aun-hero__mist { position: absolute; inset: auto 0 -2px; width: 100%; height: 44%; object-fit: cover; opacity: .94; mix-blend-mode: screen; z-index: 3; }
+
+.aun-about { overflow: hidden; min-height: 1000px; background: linear-gradient(145deg, #f5f6f1 25%, #dfe6dc 100%); }
+.aun-about__copy { display: grid; grid-template-columns: 1fr 1.25fr; gap: 80px; max-width: 930px; margin: 0 auto 100px; }
+.aun-about__copy h3 { margin: 0; color: #344815; font: 500 clamp(25px, 3vw, 38px)/1.75 "Zen Old Mincho", serif; letter-spacing: .1em; }
+.aun-about__copy p { margin: 0; color: #596446; font-size: 14px; line-height: 2.35; }
+.aun-watermark { position: absolute; left: -20px; top: 46%; white-space: nowrap; color: rgba(255,255,255,.7); font: 400 clamp(70px, 10vw, 160px)/1 "EB Garamond", serif; letter-spacing: .02em; }
+.aun-concept-card { position: relative; display: block; width: min(760px, 78vw); height: 290px; margin: 0 auto; overflow: hidden; border-radius: 8px; color: #fff; box-shadow: 0 24px 55px rgba(52,72,21,.2); }
+.aun-concept-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23,24,23,.25), rgba(23,24,23,.7)); }
+.aun-concept-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
+.aun-concept-card:hover img { transform: scale(1.04); }
+.aun-concept-card span { position: absolute; inset: 50% 8% auto 42%; transform: translateY(-50%); display: flex; flex-direction: column; z-index: 2; }
+.aun-concept-card small { font: 400 10px/1 "EB Garamond", serif; letter-spacing: .2em; }
+.aun-concept-card strong { margin: 18px 0; font: 500 23px/1.7 "Zen Old Mincho", serif; letter-spacing: .1em; }
+.aun-concept-card em { font: normal 11px/1 "Zen Kaku Gothic Antique", sans-serif; }
+
+.aun-reasons { padding-block: 120px; background: url('/kodawari/herbs.jpg') center/cover fixed; }
+.aun-reasons::before { content: ""; position: absolute; inset: 0; background: rgba(244,239,230,.7); backdrop-filter: blur(3px); }
+.aun-reasons__panel { position: relative; max-width: 1120px; margin: auto; padding: 80px clamp(30px, 6vw, 80px); border-radius: 12px; background: rgba(248,246,243,.93); box-shadow: 0 22px 60px rgba(52,72,21,.12); }
+.aun-reasons__intro { max-width: 620px; margin: -25px auto 55px; text-align: center; color: #596446; font-size: 13px; }
+.aun-reasons__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 28px; }
+.aun-reasons__grid article { position: relative; }
+.aun-reasons__grid article > span { position: absolute; top: -20px; left: 12px; z-index: 2; color: #bfa679; font: 400 42px/1 "EB Garamond", serif; }
+.aun-reasons__grid img { width: 100%; aspect-ratio: 1.25; object-fit: cover; border-radius: 6px; }
+.aun-reasons__grid h3 { margin: 17px 0 8px; color: #344815; font: 500 17px/1.55 "Zen Old Mincho", serif; letter-spacing: .08em; }
+.aun-reasons__grid p { margin: 0; color: #596446; font-size: 11px; line-height: 2; }
+
+.aun-charm { overflow: hidden; min-height: 750px; padding-block: 130px; background: radial-gradient(circle at 75% 35%, #667150, #344815 70%); color: #fdfdfd; }
+.aun-charm__inner { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 90px; max-width: 1110px; margin: auto; }
+.aun-charm__copy > span { display: block; margin-bottom: 35px; color: rgba(255,255,255,.24); font: 400 52px/1.05 "EB Garamond", serif; }
+.aun-charm .aun-title { display: block; margin-bottom: 28px; }
+.aun-charm .aun-title span { display: block; margin-bottom: 15px; }
+.aun-charm__copy p { color: rgba(255,255,255,.85); font-size: 13px; line-height: 2.2; }
+.aun-charm__copy ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin: 30px 0 0; padding: 0; list-style: none; }
+.aun-charm__copy li { display: grid; place-items: center; min-height: 70px; padding: 8px; border-radius: 5px; color: #344815; background: rgba(255,255,255,.9); font: 500 11px/1.5 "Zen Old Mincho", serif; text-align: center; }
+.aun-charm__collage { position: relative; height: 510px; }
+.aun-charm__collage img { position: absolute; object-fit: cover; border-radius: 7px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
+.aun-charm__collage img:nth-child(1) { width: 70%; height: 48%; right: 0; top: 0; }
+.aun-charm__collage img:nth-child(2) { width: 43%; height: 55%; left: 5%; top: 26%; }
+.aun-charm__collage img:nth-child(3) { width: 46%; height: 44%; right: 8%; bottom: 0; }
+.aun-charm__mist { position: absolute; right: -8%; bottom: -30%; width: 58%; opacity: .42; mix-blend-mode: screen; }
+
+.aun-voices { background: #f5f0ee; }
+.aun-voices__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1120px; margin: auto; }
+.aun-voices__grid article { position: relative; min-height: 300px; padding: 38px 32px; background: rgba(255,255,255,.82); box-shadow: 0 12px 28px rgba(114,98,78,.08); }
+.aun-voices__grid article > span { color: #bfa679; font: 500 10px/1 "EB Garamond", serif; letter-spacing: .15em; }
+.aun-voices__grid h3 { margin: 18px 0 13px; color: #344815; font: 500 16px/1.6 "Zen Old Mincho", serif; }
+.aun-voices__grid p { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 7; -webkit-box-orient: vertical; margin: 0; color: #596446; font-size: 11px; line-height: 2; }
+.aun-voices__grid small { display: block; margin-top: 16px; color: #72624e; }
+
+.aun-menu { background: linear-gradient(rgba(52,72,21,.58), rgba(52,72,21,.84)), url('/kodawari/treatment.jpg') center/cover fixed; }
+.aun-menu .aun-title span, .aun-menu .aun-title h2, .aun-menu .aun-more { color: #fff; }
+.aun-menu__cards { display: grid; grid-template-columns: minmax(280px, 390px); justify-content: center; gap: 14px; max-width: 980px; margin: auto; }
+.aun-menu__cards article { padding: 45px 30px; text-align: center; background: rgba(253,253,253,.95); }
+.aun-menu__cards small { color: #bfa679; font: 500 9px/1 "EB Garamond", serif; letter-spacing: .16em; }
+.aun-menu__cards h3 { min-height: 55px; margin: 14px 0; color: #344815; font: 500 19px/1.5 "Zen Old Mincho", serif; }
+.aun-menu__cards strong { display: block; color: #171817; font: 400 28px/1 "EB Garamond", serif; }
+.aun-menu__cards strong em { font: normal 9px/1 "Zen Kaku Gothic Antique", sans-serif; }
+.aun-menu__cards hr { width: 35px; margin: 25px auto; border: 0; border-top: 1px solid #bfa679; }
+.aun-menu__cards p { min-height: 95px; color: #596446; font-size: 10px; line-height: 1.9; }
+.aun-menu__cards a { color: #57702e; font-size: 10px; border-bottom: 1px solid #bfa679; padding-bottom: 6px; }
+
+.aun-news { background: #e8ebe6; }
+.aun-news__list { max-width: 820px; margin: auto; }
+.aun-news__list a { display: grid; grid-template-columns: 130px 1fr; gap: 30px; padding: 22px 5px; border-bottom: 1px solid #c8d4bd; color: #344815; font-size: 12px; }
+.aun-news__list time { color: #72624e; font: 400 12px/1.8 "EB Garamond", serif; }
+
+.aun-shops { background: #fdfdfd; }
+.aun-shops__list { max-width: 850px; margin: auto; }
+.aun-shops details { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
+.aun-shops summary { display: flex; justify-content: space-between; padding: 15px 22px; cursor: pointer; list-style: none; color: #fff; background: #bfa679; font: 500 13px/1.5 "Zen Old Mincho", serif; }
+.aun-shops summary::-webkit-details-marker { display: none; }
+.aun-shops details[open] summary span { transform: rotate(45deg); }
+.aun-shops summary span { transition: transform .25s; }
+.aun-shops details > div { padding: 20px 24px; border: 1px solid #d6c7a8; border-top: 0; color: #596446; font-size: 12px; }
+.aun-shops details p { margin: 0 0 4px; }
+.aun-shops details a { color: #57702e; text-decoration: underline; text-underline-offset: 4px; }
+
+@media (max-width: 880px) {
+  .aun-section { padding: 85px 22px; }
+  .aun-title { display: block; margin-bottom: 38px; }
+  .aun-title span { display: block; margin-bottom: 14px; }
+  .aun-hero { height: 690px; min-height: 0; }
+  .aun-hero > img:first-child { content: url('/hero-mobile.jpg'); object-position: center top; }
+  .aun-hero__copy { top: 30%; }
+  .aun-hero__copy small { font-size: 13px; }
+  .aun-hero__copy strong { font-size: 72px; }
+  .aun-hero__copy p { padding: 0 25px; font-size: 11px; }
+  .aun-about { min-height: 0; }
+  .aun-about__copy { display: block; margin-bottom: 75px; }
+  .aun-about__copy h3 { margin-bottom: 30px; font-size: 25px; }
+  .aun-watermark { top: 45%; font-size: 60px; }
+  .aun-concept-card { width: 100%; height: 280px; }
+  .aun-concept-card span { inset: 50% 25px auto; }
+  .aun-concept-card strong { font-size: 18px; }
+  .aun-reasons { padding-inline: 14px; background-attachment: scroll; }
+  .aun-reasons__panel { padding: 60px 20px; }
+  .aun-reasons__grid { grid-template-columns: 1fr 1fr; gap: 38px 15px; }
+  .aun-reasons__grid article > span { font-size: 30px; }
+  .aun-reasons__grid h3 { font-size: 14px; }
+  .aun-charm__inner { display: block; }
+  .aun-charm__copy > span { font-size: 42px; }
+  .aun-charm__collage { height: 430px; margin-top: 55px; }
+  .aun-voices__grid, .aun-menu__cards { grid-template-columns: 1fr; }
+  .aun-menu { background-attachment: scroll; }
+  .aun-menu__cards article { padding: 38px 25px; }
+  .aun-menu__cards p { min-height: 0; }
+  .aun-news__list a { grid-template-columns: 1fr; gap: 4px; }
+}
+
 @media (max-width: 600px) {
   /* --- 中央寄せコピー：デスクトップ用の改行を解除して自然に折り返す --- */
   .lede br { display: none; }
