@@ -11,6 +11,7 @@ import { ReserveLink } from "./ui";
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const close = () => setOpen(false);
 
@@ -22,15 +23,24 @@ export default function Sidebar() {
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <>
       {/* モバイル用ヘッダー */}
-      <div className="mobile-bar">
-        <Link href="/" className="mobile-bar__name" onClick={close}>
-          {SITE.brand}
+      <div className={`mobile-bar ${scrolled ? "is-scrolled" : ""}`}>
+        <Link href="/" className="mobile-bar__logo" onClick={close}>
+          <span className="mobile-bar__name">{SITE.brand}</span>
+          <span className="mobile-bar__caption">{SITE.brandCaption}</span>
         </Link>
         <button className="hamburger" aria-label="メニュー" onClick={() => setOpen((v) => !v)}>
           <span /><span /><span />
+          <small>MENU</small>
         </button>
       </div>
 
@@ -80,6 +90,14 @@ export default function Sidebar() {
           <span className="floating-reserve__jp">ご予約</span>
         </span>
       </ReserveLink>
+
+      <div className="mobile-reserve-bar">
+        <ReserveLink className="mobile-reserve-bar__button" eventLabel="mobile_fixed_reserve">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" /></svg>
+          <span>予約はこちら</span>
+          <b>→</b>
+        </ReserveLink>
+      </div>
     </>
   );
 }
