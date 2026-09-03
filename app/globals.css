@@ -924,8 +924,8 @@ img { max-width: 100%; display: block; }
 .aun-hero__slides img:nth-child(7) { animation-delay: 36s; object-position: center; }
 @keyframes hero-crossfade {
   0% { opacity: 0; transform: scale(1.02); }
-  2%, 12% { opacity: 1; }
-  14.5%, 100% { opacity: 0; transform: scale(1.1); }
+  2%, 14.25% { opacity: 1; }
+  16.5%, 100% { opacity: 0; transform: scale(1.1); }
 }
 .aun-hero__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(35,38,26,.2), transparent 65%); }
 .aun-hero__copy { position: absolute; inset: 43% 0 auto; color: #fff; text-align: center; z-index: 2; transform: translateY(-50%); text-shadow: 0 2px 20px rgba(0,0,0,.35); }
