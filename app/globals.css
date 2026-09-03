@@ -842,6 +842,10 @@ img { max-width: 100%; display: block; }
 .aun-voices__grid h3 { margin: 18px 0 13px; color: #344815; font: 500 16px/1.6 "Zen Old Mincho", serif; }
 .aun-voices__grid p { display: -webkit-box; overflow: hidden; -webkit-line-clamp: 7; -webkit-box-orient: vertical; margin: 0; color: #596446; font-size: 11px; line-height: 2; }
 .aun-voices__grid small { display: block; margin-top: 16px; color: #72624e; }
+.aun-voices__grid--images { grid-template-columns: repeat(4, 1fr); gap: clamp(12px, 2vw, 26px); max-width: 1280px; }
+.aun-voices__grid--images img, .voice-image-grid img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; box-shadow: 0 14px 35px rgba(78,49,31,.14); transition: transform .35s ease, box-shadow .35s ease; }
+.aun-voices__grid--images img:hover, .voice-image-grid img:hover { transform: translateY(-5px); box-shadow: 0 20px 42px rgba(78,49,31,.2); }
+.voice-image-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 3vw, 36px); max-width: 1040px; margin: 35px auto 0; padding: 0 28px; }
 
 .aun-menu { background: linear-gradient(rgba(52,72,21,.58), rgba(52,72,21,.84)), url('/kodawari/treatment.jpg') center/cover fixed; }
 .aun-menu .aun-title span, .aun-menu .aun-title h2, .aun-menu .aun-more { color: #fff; }
@@ -897,6 +901,8 @@ img { max-width: 100%; display: block; }
   .aun-charm__copy > span { font-size: 42px; }
   .aun-charm__collage { height: 430px; margin-top: 55px; }
   .aun-voices__grid, .aun-menu__cards { grid-template-columns: 1fr; }
+  .aun-voices__grid--images { grid-template-columns: 1fr 1fr; }
+  .voice-image-grid { grid-template-columns: 1fr; padding: 0 20px; }
   .aun-menu { background-attachment: scroll; }
   .aun-menu__cards article { padding: 38px 25px; }
   .aun-menu__cards p { min-height: 0; }

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Footer, ReserveLink } from "@/components/ui";
 import { SITE, STORES } from "@/site.config";
 import { POINTS } from "./about/page";
-import { VOICES } from "./voice/page";
 import { MENU_SECTIONS } from "@/lib/menu";
 
 const TITLE = "よもぎ蒸し（ハーブ蒸し） 福山・尾道｜ハーブ蒸しサロン";
@@ -45,7 +44,7 @@ export default function Home() {
       <div className="aun-charm__collage"><img src="/kodawari/herbs.jpg" alt="11種類のハーブ" /><img src="/kodawari/treatment.jpg" alt="ハーブ蒸しの様子" /><img src="/persona/wish.jpg" alt="整う時間" /></div>
     </div><img className="aun-charm__mist" src="/reference/smoke-brush.webp" alt="" aria-hidden="true" /></section>
 
-    <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid">{VOICES.slice(0, 3).map((v, i) => <article key={v.name}><span>VOICE 0{i + 1}</span><h3>{v.meta}</h3><p>{v.body}</p><small>{v.name}</small></article>)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>
+    <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid aun-voices__grid--images">{["t", "n", "k", "s"].map(name => <img key={name} src={`/voices/voice-${name}.png`} width="1080" height="1080" loading="lazy" alt={`よもぎ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>
 
     <section className="aun-menu aun-section"><SectionTitle en="MENU">メニュー</SectionTitle><div className="aun-menu__cards">
       <article><small>HERBAL STEAMING</small><h3>{campaign.name}</h3><strong>{campaign.price}<em>（税込）</em></strong><hr /><p>{campaign.desc}</p><ReserveLink eventLabel="home_menu_campaign">このメニューを予約 →</ReserveLink></article>

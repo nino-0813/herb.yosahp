@@ -55,10 +55,6 @@ export const VOICES = [
   },
 ];
 
-function Stars() {
-  return <div className="voice__stars">{"★".repeat(5)}</div>;
-}
-
 export default function Voice() {
   return (
     <>
@@ -68,13 +64,18 @@ export default function Voice() {
       </div>
 
       <div className="spacer-sm" />
-      {VOICES.map((v, i) => (
-        <div className="voice" key={i}>
-          <Stars />
-          <p className="voice__body">{v.body}</p>
-          <div className="voice__meta">{v.name}（{v.meta}）</div>
-        </div>
-      ))}
+      <div className="voice-image-grid">
+        {["t", "n", "k", "s"].map((name) => (
+          <img
+            key={name}
+            src={`/voices/voice-${name}.png`}
+            width="1080"
+            height="1080"
+            loading="lazy"
+            alt={`よもぎ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`}
+          />
+        ))}
+      </div>
 
       <div className="container">
         <p className="lede">あなたに合うメニューを見つけてください。</p>
