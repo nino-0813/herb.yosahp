@@ -1649,8 +1649,8 @@ body:not(:has(.admin-shell)):not(:has(.admin-login)) {
   }
   .mobile-bar.is-scrolled {
     top: 15px; left: 20px; right: 20px; height: 72px; padding: 0 16px 0 22px;
-    border: 1px solid rgba(255,255,255,.64); border-radius: 0;
-    box-shadow: 0 10px 26px rgba(32,46,42,.16);
+    background: transparent; border: 0; border-radius: 0;
+    box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
   }
   .mobile-bar__logo { display: flex; flex-direction: column; align-items: center; color: #171817; }
   .mobile-bar__name { font: 500 27px/.9 "EB Garamond", serif; letter-spacing: .12em; }
