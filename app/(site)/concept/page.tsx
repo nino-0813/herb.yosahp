@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Headline, CtaBand, Footer } from "@/components/ui";
+import { Headline, CtaBand, Footer, ReserveLink } from "@/components/ui";
 import { SITE } from "@/site.config";
 
 const TITLE = "コンセプト｜揺らぎを知るから、寄り添える。";
@@ -57,7 +56,7 @@ export default function Concept() {
       <div className="container">
         <p className="lede">この想いが、どんな方に寄り添えるのか。続けてご覧ください。</p>
         <div className="center" style={{ marginTop: 30 }}>
-          <Link className="btn" href="/first-time">初めての方へ</Link>
+          <ReserveLink className="btn" eventLabel="concept_reserve">予約をする</ReserveLink>
         </div>
       </div>
 
