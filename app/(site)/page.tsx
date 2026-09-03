@@ -21,9 +21,9 @@ export default function Home() {
         <img src="/hero/slides/02-herbal-steam.png" alt="ハーブの蒸気が立ち上るイメージ" />
         <img src="/hero/slides/03-tomonoura.png" alt="夕暮れの鞆の浦と常夜燈" />
         <img src="/stores/larimar/larimar-2.jpg" alt="YOSA PARK Larimar 新涯店の店内" />
-        <img src="/stores/cocolu/cocolu-1.jpg" alt="cocolu hairsalonの店内" />
-        <img src="/stores/cherie/cherie-1.jpg" alt="Cherie CoCoの店内" />
-        <img src="/stores/larimar-numakuma/larimar-numakuma-1.jpg" alt="Larimar 沼隈店の店内" />
+        <img src="/stores/cocolu/cocolu-3.jpg" alt="cocolu hairsalonの店内" />
+        <img src="/stores/cherie/cherie-5.jpg" alt="Cherie CoCoの店内" />
+        <img src="/stores/larimar-numakuma/larimar-numakuma-3.jpg" alt="Larimar 沼隈店の店内" />
       </div>
       <div className="aun-hero__shade" /><div className="aun-hero__copy"><small>本格ハーブ蒸しサロン</small><strong>{SITE.brand}</strong><p>{SITE.catch.jpLines[0]}</p></div>
       <img className="aun-hero__mist" src="/reference/smoke.webp" alt="" aria-hidden="true" />
