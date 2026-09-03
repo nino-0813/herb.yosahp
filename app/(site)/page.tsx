@@ -16,7 +16,12 @@ export default function Home() {
   const campaign = MENU_SECTIONS[0].items[0];
   return <div className="aun-home">
     <section className="aun-hero">
-      <img src="/hero-top.jpg" alt="ハーブ蒸しで自分を整える時間" />
+      <div className="aun-hero__slides" aria-label="ON:Uのハーブ蒸しとサロンの風景">
+        <img src="/hero/slides/01-steam-treatment.png" alt="蒸気に包まれてハーブ蒸しを体験する女性" />
+        <img src="/hero/slides/02-herbal-steam.png" alt="ハーブの蒸気が立ち上るイメージ" />
+        <img src="/hero/slides/03-tomonoura.png" alt="夕暮れの鞆の浦と常夜燈" />
+        <img src="/stores/larimar/larimar-2.jpg" alt="YOSA PARK Larimar 新涯店の店内" />
+      </div>
       <div className="aun-hero__shade" /><div className="aun-hero__copy"><small>本格ハーブ蒸しサロン</small><strong>{SITE.brand}</strong><p>{SITE.catch.jpLines[0]}</p></div>
       <img className="aun-hero__mist" src="/reference/smoke.webp" alt="" aria-hidden="true" />
     </section>

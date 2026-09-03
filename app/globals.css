@@ -901,7 +901,28 @@ img { max-width: 100%; display: block; }
 .aun-more { display: block; width: max-content; margin: 48px auto 0; color: #57702e; font: 500 12px/1.5 "Zen Old Mincho", serif; letter-spacing: .12em; border-bottom: 1px solid #bfa679; padding: 0 4px 8px; }
 
 .aun-hero { position: relative; height: min(850px, calc(100vh - 98px)); min-height: 620px; overflow: hidden; background: #344815; }
-.aun-hero > img:first-child { width: 100%; height: 100%; object-fit: cover; filter: saturate(.65) brightness(.85); }
+.aun-hero__slides { position: absolute; inset: 0; overflow: hidden; }
+.aun-hero__slides img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: saturate(.72) brightness(.83);
+  transform: scale(1.02);
+  animation: hero-crossfade 24s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+.aun-hero__slides img:nth-child(1) { animation-delay: 0s; object-position: center; }
+.aun-hero__slides img:nth-child(2) { animation-delay: 6s; object-position: center; }
+.aun-hero__slides img:nth-child(3) { animation-delay: 12s; object-position: center; }
+.aun-hero__slides img:nth-child(4) { animation-delay: 18s; object-position: center 58%; }
+@keyframes hero-crossfade {
+  0% { opacity: 0; transform: scale(1.02); }
+  4%, 22% { opacity: 1; }
+  26%, 100% { opacity: 0; transform: scale(1.1); }
+}
 .aun-hero__shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(35,38,26,.2), transparent 65%); }
 .aun-hero__copy { position: absolute; inset: 43% 0 auto; color: #fff; text-align: center; z-index: 2; transform: translateY(-50%); text-shadow: 0 2px 20px rgba(0,0,0,.35); }
 .aun-hero__copy small { display: block; font: 400 18px/1.5 "Zen Old Mincho", serif; letter-spacing: .18em; }
@@ -1083,7 +1104,10 @@ img { max-width: 100%; display: block; }
   .aun-title { display: block; margin-bottom: 38px; }
   .aun-title span { display: block; margin-bottom: 14px; }
   .aun-hero { height: 690px; min-height: 0; }
-  .aun-hero > img:first-child { content: url('/hero-mobile.jpg'); object-position: center top; }
+  .aun-hero__slides img:nth-child(1) { object-position: 42% center; }
+  .aun-hero__slides img:nth-child(2) { object-position: center; }
+  .aun-hero__slides img:nth-child(3) { object-position: 62% center; }
+  .aun-hero__slides img:nth-child(4) { object-position: center; }
   .aun-hero__copy { top: 30%; }
   .aun-hero__copy small { font-size: 13px; }
   .aun-hero__copy strong { font-size: 72px; }
@@ -1118,6 +1142,8 @@ img { max-width: 100%; display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .aun-recommend, .aun-menu { animation: none; }
+  .aun-hero__slides img { animation: none; opacity: 0; transform: none; }
+  .aun-hero__slides img:first-child { opacity: 1; }
 }
 
 @media (max-width: 600px) {
