@@ -56,7 +56,7 @@ export default function Home() {
       <article><small>HERBAL STEAMING</small><h3>{campaign.name}</h3><strong>{campaign.price}<em>（税込）</em></strong><hr /><p>{campaign.desc}</p><ReserveLink eventLabel="home_menu_campaign">このメニューを予約 →</ReserveLink></article>
     </div><Link className="aun-more" href="/menu">詳しく見る →</Link></section>
 
-    <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、3店舗合同でスタートしました</span></Link></div></section>
+    <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、4店舗合同でスタートしました</span></Link></div></section>
 
     <section className="aun-shops aun-section"><SectionTitle en="SHOP">店舗一覧</SectionTitle><div className="aun-shops__list">{STORES.map(s => <details key={s.id}><summary>{s.name}<span>+</span></summary><div><p>{s.address}</p>{s.tel && <p>TEL: {s.tel}</p>}<Link href="/access">店舗詳細を見る →</Link></div></details>)}</div></section>
     <Footer />
