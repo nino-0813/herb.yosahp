@@ -921,9 +921,49 @@ img { max-width: 100%; display: block; }
 .aun-concept-card strong { margin: 18px 0; font: 500 23px/1.7 "Zen Old Mincho", serif; letter-spacing: .1em; }
 .aun-concept-card em { font: normal 11px/1 "Zen Kaku Gothic Antique", sans-serif; }
 
-.aun-reasons { padding-block: 120px; background: url('/kodawari/herbs.jpg') center/cover fixed; }
-.aun-reasons::before { content: ""; position: absolute; inset: 0; background: rgba(244,239,230,.7); backdrop-filter: blur(3px); }
-.aun-reasons__panel { position: relative; max-width: 1120px; margin: auto; padding: 80px clamp(30px, 6vw, 80px); border-radius: 12px; background: rgba(248,246,243,.93); box-shadow: 0 22px 60px rgba(52,72,21,.12); }
+.aun-reasons {
+  padding-block: 120px;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 42% 35% at 4% 8%, rgba(200,212,189,.38), transparent 72%),
+    radial-gradient(ellipse 34% 30% at 96% 90%, rgba(214,199,168,.32), transparent 74%),
+    linear-gradient(135deg, #ffffff 0%, #faf9f6 48%, #f7f8f4 100%);
+}
+.aun-reasons::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .22;
+  background-image: radial-gradient(circle, #8d9a7d 0 1px, transparent 1.2px);
+  background-size: 24px 24px;
+  -webkit-mask-image: linear-gradient(115deg, #000, transparent 32%, transparent 68%, #000);
+  mask-image: linear-gradient(115deg, #000, transparent 32%, transparent 68%, #000);
+}
+.aun-reasons::after {
+  content: "";
+  position: absolute;
+  top: 60px;
+  right: 5%;
+  width: clamp(150px, 20vw, 310px);
+  aspect-ratio: 1;
+  z-index: -1;
+  border: 1px solid rgba(191,166,121,.22);
+  border-radius: 48% 52% 65% 35% / 42% 38% 62% 58%;
+  transform: rotate(18deg);
+}
+.aun-reasons__panel {
+  position: relative;
+  max-width: 1120px;
+  margin: auto;
+  padding: 80px clamp(30px, 6vw, 80px);
+  border: 1px solid rgba(214,199,168,.42);
+  border-radius: 12px;
+  background: rgba(255,255,255,.84);
+  box-shadow: 0 28px 80px rgba(52,72,21,.09), 0 2px 8px rgba(114,98,78,.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 .aun-reasons__intro { max-width: 620px; margin: -25px auto 55px; text-align: center; color: #596446; font-size: 13px; }
 .aun-reasons__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 28px; }
 .aun-reasons__grid article { position: relative; }
