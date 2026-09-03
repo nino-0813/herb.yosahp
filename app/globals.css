@@ -914,7 +914,7 @@ img { max-width: 100%; display: block; }
   animation: hero-crossfade 24s ease-in-out infinite;
   will-change: opacity, transform;
 }
-.aun-hero__slides img:nth-child(1) { animation-delay: 0s; object-position: center 48%; }
+.aun-hero__slides img:nth-child(1) { animation-delay: 0s; object-position: center top; }
 .aun-hero__slides img:nth-child(2) { animation-delay: 6s; object-position: center; }
 .aun-hero__slides img:nth-child(3) { animation-delay: 12s; object-position: center; }
 .aun-hero__slides img:nth-child(4) { animation-delay: 18s; object-position: center 58%; }
