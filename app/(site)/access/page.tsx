@@ -76,7 +76,10 @@ export default function Access() {
             />
           </div>
           <div className="store__body">
-            <h2 className="store__name">{s.name}</h2>
+            <div className="store__heading">
+              <img className="store__owner-photo" src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
+              <h2 className="store__name">{s.name}</h2>
+            </div>
             <dl>
               <div className="store__row"><dt>オーナー</dt><dd>{s.owner}</dd></div>
               <div className="store__row"><dt>住所</dt><dd>{s.address}</dd></div>

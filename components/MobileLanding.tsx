@@ -5,7 +5,6 @@ import { SITE, STORES, NAV } from "@/site.config";
 import { POINTS, HERB_TYPES, HERBS } from "@/app/(site)/about/page";
 import { STEPS, WISH, WORRY, FAQ } from "@/app/(site)/first-time/page";
 import { VOICES } from "@/app/(site)/voice/page";
-import { OWNERS } from "@/app/(site)/staff/page";
 import { MENU_SECTIONS } from "@/lib/menu";
 
 /**
@@ -266,28 +265,6 @@ export default function MobileLanding() {
       </section>
 
       {/* ── 各店舗のオーナー ───────────────────── */}
-      <section id="staff" className="lp-section">
-        <Headline en="owners" jp="各店舗のオーナー" />
-        <div className="container">
-          <p className="lede">
-            自分たちも揺らいだ経験があるから、深く寄り添える。
-            <br />
-            裏表のない言葉で、あなたが本来の自分を取り戻す時間に寄り添います。
-          </p>
-        </div>
-        <div className="grid-2 owners-grid">
-          {OWNERS.map((s) => (
-            <div className="staff-card" key={s.roman}>
-              <div className="staff-card__photo"><img src={s.photo} alt={`${s.role}／${s.name}`} /></div>
-              <div className="staff-card__name">{s.name}</div>
-              <div className="staff-card__roman">{s.roman}</div>
-              <div className="staff-card__role">{s.role}</div>
-              <div className="staff-card__bio">{s.bio}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── コンセプト ───────────────────── */}
       <section id="concept" className="lp-section">
         <Headline en="our roots & vision" jp="揺らぎを知るから、寄り添える。" />
@@ -331,7 +308,10 @@ export default function MobileLanding() {
               />
             </div>
             <div className="store__body">
-              <h2 className="store__name">{s.name}</h2>
+              <div className="store__heading">
+                <img className="store__owner-photo" src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
+                <h2 className="store__name">{s.name}</h2>
+              </div>
               <dl>
                 <div className="store__row"><dt>オーナー</dt><dd>{s.owner}</dd></div>
                 <div className="store__row"><dt>住所</dt><dd>{s.address}</dd></div>
