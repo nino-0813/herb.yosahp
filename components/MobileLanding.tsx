@@ -309,7 +309,7 @@ export default function MobileLanding() {
             </div>
             <div className="store__body">
               <div className="store__heading">
-                <img className="store__owner-photo" src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
+                <img className={`store__owner-photo store__owner-photo--${s.id}`} src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
                 <h2 className="store__name">{s.name}</h2>
               </div>
               <dl>

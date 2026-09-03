@@ -525,6 +525,8 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   object-position: center top;
 }
+.store__owner-photo--cherie-coco { object-position: center 29%; }
+.store__owner-photo--larimar { object-position: center 34%; }
 .store__name { font-size: 19px; letter-spacing: 0.16em; color: var(--accent-deep); margin: 0 0 16px; }
 .store__heading .store__name { margin: 0; }
 .store__row { display: grid; grid-template-columns: 92px 1fr; gap: 10px; font-size: 13px; padding: 7px 0; border-top: 1px solid var(--line); }
