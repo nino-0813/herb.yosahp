@@ -22,11 +22,18 @@ export default function Home() {
 
       {/* デスクトップ幅は従来どおりトップページ＋各ページ導線 */}
       <div className="desktop-only">
-      <section className="hero-full">
+      <section className="hero-full home-hero">
         <img
           src="/hero-top.jpg"
           alt="私を整える、わたしの時間。ハーブ蒸しで、新しい健康習慣を。冷え改善・温活、美肌・美髪デトックス、リラックス・安眠サポート、免疫力アップ。今日の自分を労わる30分から、未来の私をもっと輝かせる。"
         />
+        <div className="home-hero__veil" />
+        <div className="home-hero__copy" aria-hidden="true">
+          <span className="home-hero__eyebrow">Herbal steam salon</span>
+          <strong>{SITE.brand}</strong>
+          <span>{SITE.catch.en}</span>
+        </div>
+        <img className="home-hero__smoke" src="/reference/smoke.webp" alt="" aria-hidden="true" />
       </section>
 
       <div className="container">

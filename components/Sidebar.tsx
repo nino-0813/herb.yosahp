@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, SITE } from "@/site.config";
 import { ReserveLink } from "./ui";
-import Leaf from "./Leaf";
 
 /** スマホ幅では全ページを1枚のLP（トップページ）に集約しているため、
  *  ナビは別ページへ遷移せず、トップページ内の該当セクションへスクロールさせる。 */
@@ -41,7 +40,6 @@ export default function Sidebar() {
         <Link href="/" className="logo" onClick={close}>
           <span className="logo__caption">{SITE.brandCaption}</span>
           <span className="logo__mark">
-            <Leaf />
             <span className="logo__name">{SITE.brand}</span>
           </span>
         </Link>
@@ -63,8 +61,15 @@ export default function Sidebar() {
           })}
         </nav>
 
-        <ReserveLink className="sidebar__cta" eventLabel="sidebar">RESERVE</ReserveLink>
       </aside>
+
+      <ReserveLink className="floating-reserve" eventLabel="floating_reserve">
+        <img className="floating-reserve__ring" src="/reference/reserve-ring.webp" alt="" aria-hidden="true" />
+        <span className="floating-reserve__center">
+          <span className="floating-reserve__en">Reserve</span>
+          <span className="floating-reserve__jp">ご予約</span>
+        </span>
+      </ReserveLink>
     </>
   );
 }
