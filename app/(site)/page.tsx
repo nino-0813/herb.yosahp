@@ -46,8 +46,8 @@ export default function Home() {
     </section>
 
     <section className="aun-charm aun-section"><div className="aun-charm__inner">
-      <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM" light>ハーブ蒸しの魅力</SectionTitle><p>11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
-      <div className="aun-charm__collage"><img src="/kodawari/herbs.jpg" alt="11種類のハーブ" /><img src="/kodawari/treatment.jpg" alt="ハーブ蒸しの様子" /><img src="/persona/wish.jpg" alt="整う時間" /></div>
+      <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM">ハーブ蒸しの魅力</SectionTitle><p>11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
+      <div className="aun-charm__visual"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸しで期待できる冷え、むくみ、美肌、ストレスなどへのケア" /></div>
     </div><img className="aun-charm__mist" src="/reference/smoke-brush.webp" alt="" aria-hidden="true" /></section>
 
     <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid aun-voices__grid--images">{["t", "n", "k", "s"].map(name => <img key={name} src={`/voices/voice-${name}.png`} width="1080" height="1080" loading="lazy" alt={`よもぎ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>

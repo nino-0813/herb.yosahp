@@ -1034,20 +1034,17 @@ img { max-width: 100%; display: block; }
 .aun-recommend__action a:hover { color: #344815; background: transparent; transform: translateY(-2px); }
 .aun-recommend__action a span { font-family: sans-serif; font-size: 16px; }
 
-.aun-charm { overflow: hidden; min-height: 750px; padding-block: 130px; background: radial-gradient(circle at 75% 35%, #667150, #344815 70%); color: #fdfdfd; }
+.aun-charm { overflow: hidden; min-height: 750px; padding-block: 130px; background: radial-gradient(circle at 78% 30%, #fffafa, #f5ece9 72%); color: #344815; }
 .aun-charm__inner { position: relative; z-index: 2; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 90px; max-width: 1110px; margin: auto; }
-.aun-charm__copy > span { display: block; margin-bottom: 35px; color: rgba(255,255,255,.24); font: 400 52px/1.05 "EB Garamond", serif; }
+.aun-charm__copy > span { display: block; margin-bottom: 35px; color: rgba(174,88,71,.2); font: 400 52px/1.05 "EB Garamond", serif; }
 .aun-charm .aun-title { display: block; margin-bottom: 28px; }
 .aun-charm .aun-title span { display: block; margin-bottom: 15px; }
-.aun-charm__copy p { color: rgba(255,255,255,.85); font-size: 13px; line-height: 2.2; }
+.aun-charm__copy p { color: #596446; font-size: 13px; line-height: 2.2; }
 .aun-charm__copy ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin: 30px 0 0; padding: 0; list-style: none; }
-.aun-charm__copy li { display: grid; place-items: center; min-height: 70px; padding: 8px; border-radius: 5px; color: #344815; background: rgba(255,255,255,.9); font: 500 11px/1.5 "Zen Old Mincho", serif; text-align: center; }
-.aun-charm__collage { position: relative; height: 510px; }
-.aun-charm__collage img { position: absolute; object-fit: cover; border-radius: 7px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
-.aun-charm__collage img:nth-child(1) { width: 70%; height: 48%; right: 0; top: 0; }
-.aun-charm__collage img:nth-child(2) { width: 43%; height: 55%; left: 5%; top: 26%; }
-.aun-charm__collage img:nth-child(3) { width: 46%; height: 44%; right: 8%; bottom: 0; }
-.aun-charm__mist { position: absolute; right: -8%; bottom: -30%; width: 58%; opacity: .42; mix-blend-mode: screen; }
+.aun-charm__copy li { display: grid; place-items: center; min-height: 70px; padding: 8px; border: 1px solid rgba(174,88,71,.12); border-radius: 5px; color: #344815; background: rgba(255,255,255,.76); font: 500 11px/1.5 "Zen Old Mincho", serif; text-align: center; }
+.aun-charm__visual { display: flex; justify-content: center; align-items: center; }
+.aun-charm__visual img { display: block; width: min(100%, 560px); height: auto; border-radius: 48% 48% 10px 10px; box-shadow: 0 24px 60px rgba(116,76,65,.15); }
+.aun-charm__mist { position: absolute; right: -8%; bottom: -30%; width: 58%; opacity: .1; mix-blend-mode: multiply; }
 
 .aun-voices { background: #f5f0ee; }
 .aun-voices__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1120px; margin: auto; }
@@ -1132,7 +1129,7 @@ img { max-width: 100%; display: block; }
   .aun-recommend__action a { width: 100%; min-width: 0; }
   .aun-charm__inner { display: block; }
   .aun-charm__copy > span { font-size: 42px; }
-  .aun-charm__collage { height: 430px; margin-top: 55px; }
+  .aun-charm__visual { margin-top: 55px; }
   .aun-voices__grid, .aun-menu__cards { grid-template-columns: 1fr; }
   .aun-voices__grid--images { grid-template-columns: 1fr 1fr; }
   .voice-image-grid { grid-template-columns: 1fr; padding: 0 20px; }
