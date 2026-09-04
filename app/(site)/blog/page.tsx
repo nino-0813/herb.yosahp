@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
+import { SEO_ARTICLES } from "@/lib/seo-articles";
 
 const TITLE = "ブログ｜よもぎ蒸し（ハーブ蒸し）コラム・お知らせ";
 const DESC = "よもぎ蒸し（ハーブ蒸し）のコラムやサロンからのお知らせ。福山・尾道のハーブ蒸しサロンON:U。";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 };
 
 const POSTS = [
+  ...SEO_ARTICLES.map((article) => ({ date: article.date.replace(/-/g, "."), cat: article.category, title: article.heading, excerpt: article.description, href: `/blog/${article.slug}`, image: article.image })),
   { date: "2026.07.16", cat: "ハーブ蒸し", title: "福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間", excerpt: "福山市・尾道市周辺でハーブ蒸しをお探しの方へ。11種類のハーブの特徴や香り、ハーブ蒸しの流れ、初めての方への説明を分かりやすくご紹介します。", href: "/herb-steam-11-herbs-fukuyama-onomichi" },
   { date: "2026.06.10", cat: "お知らせ", title: "ON:U、4店舗合同でスタートしました", excerpt: "尾道・福山の4つのサロンが「ON:U」として、ひとつの想いのもとにスタートしました。皆さまのご来店を心よりお待ちしております。" },
   { date: "2026.05.28", cat: "ハーブ蒸し", title: "梅雨のむくみ・だるさにハーブ蒸し", excerpt: "気圧の変化で不調を感じやすい季節。温活でめぐりを整えるセルフケアをご紹介します。" },
@@ -33,7 +35,7 @@ export default function Blog() {
       {POSTS.map((p) => {
         const inner = (
           <>
-            <div className="post__thumb"><Ph label={p.cat} /></div>
+            <div className="post__thumb">{"image" in p && p.image ? <img src={p.image} alt="" loading="lazy" /> : <Ph label={p.cat} />}</div>
             <div>
               <div>
                 <span className="post__date">{p.date}</span>

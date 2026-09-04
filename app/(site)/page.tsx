@@ -56,7 +56,7 @@ export default function Home() {
       <article><small>HERBAL STEAMING</small><h3>{campaign.name}</h3><strong>{campaign.price}<em>（税込）</em></strong><hr /><p>{campaign.desc}</p><ReserveLink eventLabel="home_menu_campaign">このメニューを予約 →</ReserveLink></article>
     </div><Link className="aun-more" href="/menu">詳しく見る →</Link></section>
 
-    <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、4店舗合同でスタートしました</span></Link></div></section>
+    <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/blog/fukuyama-40s-woman-tired-not-recovering"><time>2026.09.04</time><span>40代女性の疲れが取れないときに｜福山で始める、頑張りすぎない温活習慣</span></Link><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、4店舗合同でスタートしました</span></Link></div></section>
 
     <section className="aun-shops aun-section"><SectionTitle en="SHOP">店舗一覧</SectionTitle><div className="aun-shops__list">{STORES.map(s => <details key={s.id}><summary><span className="aun-shops__summary"><b>{s.name}</b><small>{s.address}</small></span><span>+</span></summary><div><p>オーナー：{s.owner}</p>{s.tel && <p>TEL: {s.tel}</p>}<Link href={`/access#${s.id}`}>この店舗の詳細を見る →</Link></div></details>)}</div></section>
     <Footer />
