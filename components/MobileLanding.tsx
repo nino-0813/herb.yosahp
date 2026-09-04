@@ -143,7 +143,7 @@ export default function MobileLanding() {
         <Headline en="about herb steam" jp="ハーブ蒸しについて" />
         <div className="container">
           <p className="lede lede--ink">
-            ON:Uのハーブ蒸しは、11種類のハーブを配合したオリジナルブレンド。
+            ON:Uのハーブ蒸しは、基本10種類のファインハーブを配合したオリジナルブレンド。
             <br />
             よもぎをはじめとする薬草の蒸気で、体を芯から温めます。
           </p>
@@ -198,12 +198,12 @@ export default function MobileLanding() {
           ))}
         </div>
 
-        <Headline en="blended herbs" jp="配合ハーブ（全11種類）" mini />
+        <Headline en="blended herbs" jp="基本配合ハーブ（10種類）" mini />
         <div className="container">
-          <p className="lede">その日の体調やお悩みに合わせて、厳選した11種類のハーブをブレンドします。タップで詳細をご覧いただけます。</p>
+          <p className="lede">初回体験では基本10種類のファインハーブを使用します。バーニングハーブはケイヒを加えた11種類です。タップで詳細をご覧いただけます。</p>
         </div>
         <div className="herb-list">
-          {HERBS.map((h) => (
+          {HERBS.filter((h) => h.name !== "ケイヒ").map((h) => (
             <details className="herb-item" key={h.name}>
               <summary className="herb-item__name">
                 {h.name}

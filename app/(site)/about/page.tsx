@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Ph, Headline, CtaBand, Footer } from "@/components/ui";
 
-const TITLE = "ハーブ蒸し（よもぎ蒸し）について｜11種類のハーブと効果";
-const DESC = "よもぎ蒸し・ハーブ蒸しの効果と、11種類の配合ハーブをご紹介。冷え改善・めぐり・美肌に。福山・尾道のハーブ蒸しサロンON:U。";
+const TITLE = "ハーブ蒸し（よもぎ蒸し）について｜基本10種類のファインハーブ";
+const DESC = "よもぎ蒸し・ハーブ蒸しの効果と、基本10種類のファインハーブをご紹介。冷え改善・めぐり・美肌に。福山・尾道のハーブ蒸しサロンON:U。";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export const POINTS = [
-  { t: "芯から温める", b: "11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。", img: "/kodawari/shin.jpg" },
+  { t: "芯から温める", b: "基本10種類のファインハーブの蒸気を下半身から直接あてることで、体の深部までじんわりと温めます。", img: "/kodawari/shin.jpg" },
   { t: "めぐりを整える", b: "温熱でめぐりをサポート。冷えやむくみ、女性特有の揺らぎが気になる方の毎日のケアに。", img: "/kodawari/megumi.jpg" },
   { t: "厳選したハーブ", b: "リラックス・すっきり・うるおいなど、その日の気分とお悩みに合わせてブレンド。", img: "/kodawari/herbs.jpg", fit: "contain" as const },
 ];
@@ -98,7 +98,7 @@ export default function About() {
       <Headline en="about herb steam" jp="ハーブ蒸しについて" />
       <div className="container">
         <p className="lede lede--ink">
-          ON:Uのハーブ蒸しは、11種類のハーブを配合した
+          ON:Uのハーブ蒸しは、基本10種類のファインハーブを配合した
           <br />
           オリジナルブレンド。よもぎをはじめとする薬草の蒸気で、
           <br />
@@ -169,12 +169,12 @@ export default function About() {
         ))}
       </div>
 
-      <Headline en="blended herbs" jp="配合ハーブ（全11種類）" mini />
+      <Headline en="blended herbs" jp="基本配合ハーブ（10種類）" mini />
       <div className="container">
-        <p className="lede">その日の体調やお悩みに合わせて、厳選した11種類のハーブをブレンドします。</p>
+        <p className="lede">初回体験では、厳選した基本10種類のファインハーブを使用します。バーニングハーブは、ケイヒを加えた11種類です。</p>
       </div>
       <div className="herb-list">
-        {HERBS.map((h) => (
+        {HERBS.filter((h) => h.name !== "ケイヒ").map((h) => (
           <div className="herb-item" key={h.name}>
             <h3 className="herb-item__name">
               {h.name}

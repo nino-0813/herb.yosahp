@@ -7,6 +7,7 @@ import type { Store } from "@/lib/types";
 import { dateRange, genSlots, normTime, WEEKDAY_JP, ymd } from "@/lib/slots";
 import { MENU_SECTIONS } from "@/lib/menu";
 import { gaEvent } from "@/lib/gtag";
+import { STORES as STORE_DETAILS } from "@/site.config";
 
 const DAYS_AHEAD = 21;
 
@@ -40,6 +41,7 @@ export default function ReservePage() {
   const [done, setDone] = useState(false);
 
   const store = stores.find((s) => s.id === storeId);
+  const storeDetail = STORE_DETAILS.find((s) => s.id === storeId);
 
   // 店舗読み込み（販売期間外の店舗は除外）
   useEffect(() => {
@@ -197,6 +199,19 @@ export default function ReservePage() {
                   {s.name}
                 </button>
               ))}
+            </div>
+          )}
+          {storeDetail && (
+            <div className="rf-store-detail" aria-live="polite">
+              <img className="rf-store-detail__cover" src={storeDetail.cover} alt={`${storeDetail.name}の店内`} />
+              <div className="rf-store-detail__body">
+                <img className={`store__owner-photo store__owner-photo--${storeDetail.id}`} src={storeDetail.ownerPhoto} alt={`${storeDetail.name}オーナー ${storeDetail.owner}`} />
+                <div>
+                  <strong>{storeDetail.name}</strong>
+                  <span>オーナー：{storeDetail.owner}</span>
+                  <small>{storeDetail.address}</small>
+                </div>
+              </div>
             </div>
           )}
 

@@ -54,6 +54,25 @@ export default function Access() {
       <div className="spacer-sm" />
       {STORES.map((s) => (
         <section className="store" key={s.id} id={s.id}>
+          <div className="store__body">
+            <div className="store__heading">
+              <img className={`store__owner-photo store__owner-photo--${s.id}`} src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
+              <h2 className="store__name">{s.name}</h2>
+            </div>
+            <dl>
+              <div className="store__row"><dt>オーナー</dt><dd>{s.owner}</dd></div>
+              <div className="store__row"><dt>住所</dt><dd>{s.address}</dd></div>
+              {s.access && <div className="store__row"><dt>アクセス</dt><dd>{s.access}</dd></div>}
+              {s.hours && <div className="store__row"><dt>営業時間</dt><dd>{s.hours}</dd></div>}
+              {s.closed && <div className="store__row"><dt>定休日</dt><dd>{s.closed}</dd></div>}
+              {s.tel && (
+                <div className="store__row">
+                  <dt>電話</dt>
+                  <dd><TelLink className="store__tel" tel={s.tel} storeId={s.id} /></dd>
+                </div>
+              )}
+            </dl>
+          </div>
           {s.photos && s.photos.length > 0 && (
             <div className="store__section">
               <span className="store__label">店内フォト</span>
@@ -74,25 +93,6 @@ export default function Access() {
               loading="lazy"
               src={`https://maps.google.com/maps?q=${encodeURIComponent(s.mapQuery)}&output=embed`}
             />
-          </div>
-          <div className="store__body">
-            <div className="store__heading">
-              <img className={`store__owner-photo store__owner-photo--${s.id}`} src={s.ownerPhoto} alt={`${s.name}オーナー ${s.owner}`} loading="lazy" />
-              <h2 className="store__name">{s.name}</h2>
-            </div>
-            <dl>
-              <div className="store__row"><dt>オーナー</dt><dd>{s.owner}</dd></div>
-              <div className="store__row"><dt>住所</dt><dd>{s.address}</dd></div>
-              {s.access && <div className="store__row"><dt>アクセス</dt><dd>{s.access}</dd></div>}
-              {s.hours && <div className="store__row"><dt>営業時間</dt><dd>{s.hours}</dd></div>}
-              {s.closed && <div className="store__row"><dt>定休日</dt><dd>{s.closed}</dd></div>}
-              {s.tel && (
-                <div className="store__row">
-                  <dt>電話</dt>
-                  <dd><TelLink className="store__tel" tel={s.tel} storeId={s.id} /></dd>
-                </div>
-              )}
-            </dl>
           </div>
         </section>
       ))}

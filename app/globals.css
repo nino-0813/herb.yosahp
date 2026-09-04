@@ -478,6 +478,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto 34px;
   border: 1px solid var(--line);
   background: var(--bg-card);
+  scroll-margin-top: 135px;
 }
 /* 画像・地図・詳細をはっきり区切るためのセクションラベル */
 .store__section { position: relative; border-bottom: 1px solid var(--line); }
@@ -1091,8 +1092,11 @@ img { max-width: 100%; display: block; }
 .aun-shops details { margin-bottom: 10px; border-radius: 4px; overflow: hidden; }
 .aun-shops summary { display: flex; justify-content: space-between; padding: 15px 22px; cursor: pointer; list-style: none; color: #fff; background: #bfa679; font: 500 13px/1.5 "Zen Old Mincho", serif; }
 .aun-shops summary::-webkit-details-marker { display: none; }
-.aun-shops details[open] summary span { transform: rotate(45deg); }
-.aun-shops summary span { transition: transform .25s; }
+.aun-shops details[open] summary > span:last-child { transform: rotate(45deg); }
+.aun-shops summary > span:last-child { transition: transform .25s; }
+.aun-shops__summary { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
+.aun-shops__summary b { font-weight: 500; }
+.aun-shops__summary small { overflow: hidden; color: rgba(255,255,255,.82); font: 400 10px/1.5 "Zen Kaku Gothic Antique", sans-serif; letter-spacing: .04em; text-overflow: ellipsis; white-space: nowrap; }
 .aun-shops details > div { padding: 20px 24px; border: 1px solid #d6c7a8; border-top: 0; color: #596446; font-size: 12px; }
 .aun-shops details p { margin: 0 0 4px; }
 .aun-shops details a { color: #57702e; text-decoration: underline; text-underline-offset: 4px; }
@@ -1380,6 +1384,15 @@ img { max-width: 100%; display: block; }
 }
 .rf-store:hover { border-color: var(--accent); }
 .rf-store.is-on { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.rf-store-detail { margin: 14px 0 25px; overflow: hidden; border: 1px solid #d6cab2; border-radius: 10px; background: #fff; }
+.rf-store-detail__cover { display: block; width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+.rf-store-detail__body { display: flex; align-items: center; gap: 14px; padding: 15px 17px 17px; }
+.rf-store-detail__body .store__owner-photo { width: 52px; height: 52px; flex-basis: 52px; }
+.rf-store-detail__body > div { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.rf-store-detail__body strong { color: var(--accent-deep); font: 500 14px/1.5 var(--serif); letter-spacing: .08em; }
+.rf-store-detail__body span { color: var(--ink); font-size: 11.5px; }
+.rf-store-detail__body small { color: var(--ink-soft); font-size: 10.5px; line-height: 1.6; }
 
 .rf-dates {
   display: grid; grid-template-columns: repeat(7, 1fr); gap: 7px;

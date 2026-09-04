@@ -46,7 +46,7 @@ export default function Home() {
     </section>
 
     <section className="aun-charm aun-section"><div className="aun-charm__inner">
-      <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM">ハーブ蒸しの魅力</SectionTitle><p>11種類のハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
+      <div className="aun-charm__copy"><span>Inner Care with<br />Herbal Steaming</span><SectionTitle en="CHARM">ハーブ蒸しの魅力</SectionTitle><p>基本10種類のファインハーブの蒸気を下半身から直接あてることで、体の深部までじんわり。温活・美容・リラックスなど、現代女性のライフケアに寄り添います。</p><ul><li>冷え・温活</li><li>むくみ</li><li>美肌・美髪</li><li>安眠</li><li>リラックス</li><li>めぐり</li></ul></div>
       <div className="aun-charm__visual"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸しで期待できる冷え、むくみ、美肌、ストレスなどへのケア" /></div>
     </div><img className="aun-charm__mist" src="/reference/smoke-brush.webp" alt="" aria-hidden="true" /></section>
 
@@ -58,7 +58,7 @@ export default function Home() {
 
     <section className="aun-news aun-section"><SectionTitle en="NEWS">お知らせ</SectionTitle><div className="aun-news__list"><Link href="/herb-steam-11-herbs-fukuyama-onomichi"><time>2026.07.16</time><span>福山市・尾道市でハーブ蒸しをお探しの方へ｜11種類のハーブで心地よく温まる時間</span></Link><Link href="/blog"><time>2026.06.10</time><span>ON:U、4店舗合同でスタートしました</span></Link></div></section>
 
-    <section className="aun-shops aun-section"><SectionTitle en="SHOP">店舗一覧</SectionTitle><div className="aun-shops__list">{STORES.map(s => <details key={s.id}><summary>{s.name}<span>+</span></summary><div><p>{s.address}</p>{s.tel && <p>TEL: {s.tel}</p>}<Link href="/access">店舗詳細を見る →</Link></div></details>)}</div></section>
+    <section className="aun-shops aun-section"><SectionTitle en="SHOP">店舗一覧</SectionTitle><div className="aun-shops__list">{STORES.map(s => <details key={s.id}><summary><span className="aun-shops__summary"><b>{s.name}</b><small>{s.address}</small></span><span>+</span></summary><div><p>オーナー：{s.owner}</p>{s.tel && <p>TEL: {s.tel}</p>}<Link href={`/access#${s.id}`}>この店舗の詳細を見る →</Link></div></details>)}</div></section>
     <Footer />
   </div>;
 }
