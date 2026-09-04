@@ -173,7 +173,7 @@ export default function FirstTime() {
         <Link className="btn" href="/voice">もっと見る</Link>
       </div>
 
-      <div className="eyebrow">ご利用の流れ</div>
+      <div className="eyebrow footer-anchor" id="flow">ご利用の流れ</div>
       <div className="steps">
         {STEPS.map((s, i) => (
           <div className="step" key={s.t}>
@@ -186,7 +186,7 @@ export default function FirstTime() {
         ))}
       </div>
 
-      <Headline en="q & a" jp="よくあるご質問" mini />
+      <div className="footer-anchor" id="faq"><Headline en="q & a" jp="よくあるご質問" mini /></div>
       <div className="spacer-sm" />
       <div className="faq">
         {FAQ.map((f) => (

@@ -567,11 +567,42 @@ img { max-width: 100%; display: block; }
 .faq__a::before { content: "A. "; color: var(--terra); }
 
 /* footer */
+.footer-guides {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  margin-top: 130px;
+  background: #273a31;
+}
+.footer-guide { position: relative; min-height: clamp(280px, 30vw, 445px); overflow: hidden; color: #fff; }
+.footer-guide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.footer-guide__shade { position: absolute; inset: 0; background: rgba(37,46,35,.5); transition: background .35s ease; }
+.footer-guide__content { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; text-shadow: 0 2px 14px rgba(0,0,0,.28); }
+.footer-guide__content strong { font: 400 clamp(28px, 3vw, 44px)/1 "EB Garamond", serif; letter-spacing: .03em; }
+.footer-guide__content > span { margin-top: 8px; font: 400 clamp(14px, 1.4vw, 21px)/1.45 "Zen Old Mincho", serif; letter-spacing: .08em; }
+.footer-guide__content small { margin-top: clamp(35px, 5vw, 64px); font: 400 13px/1 "EB Garamond", serif; letter-spacing: .04em; }
+.footer-guide__content b { display: inline-grid; width: 25px; height: 25px; margin-left: 7px; place-items: center; border: 1px solid rgba(255,255,255,.85); border-radius: 50%; font: 400 12px/1 sans-serif; }
+.footer-guide:hover { color: #fff; }
+.footer-guide:hover img { transform: scale(1.045); }
+.footer-guide:hover .footer-guide__shade { background: rgba(37,46,35,.38); }
+.footer-guides + .footer { margin-top: 0; }
+.footer-anchor { scroll-margin-top: 130px; }
+
 .footer {
   margin-top: 130px;
   background: var(--bg-soft);
   padding: 60px 28px 40px;
   text-align: center;
+}
+
+@media (max-width: 700px) {
+  .footer-guides { grid-template-columns: repeat(2, 1fr); margin-top: 85px; }
+  .footer-guide { min-height: 170px; }
+  .footer-guide__content strong { font-size: 27px; }
+  .footer-guide__content > span { margin-top: 5px; font-size: 13px; }
+  .footer-guide__content small { margin-top: 27px; font-size: 10px; }
+  .footer-guide__content b { width: 21px; height: 21px; margin-left: 4px; font-size: 10px; }
+  .footer-anchor { scroll-margin-top: 95px; }
 }
 .footer__logo { font-family: var(--script); font-size: 30px; letter-spacing: 0.18em; }
 .footer__nav { display: flex; flex-wrap: wrap; gap: 18px 26px; justify-content: center; margin: 26px 0; }

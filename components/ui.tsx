@@ -73,15 +73,36 @@ export function CtaBand() {
 }
 
 export function Footer() {
+  const guides = [
+    { en: "FLOW", jp: "施術の流れ", href: "/first-time#flow", image: "/kodawari/treatment.jpg" },
+    { en: "PRICE", jp: "料金・メニュー", href: "/menu", image: "/hero/slides/01-steam-treatment.jpg" },
+    { en: "Q&A", jp: "よくある質問", href: "/first-time#faq", image: "/kodawari/herbs.jpg" },
+    { en: "SHOP", jp: "お近くの店舗を探す", href: "/access", image: "/stores/cocolu/cocolu-1.jpg" },
+  ];
   return (
-    <footer className="footer">
-      <div className="footer__logo">{SITE.brand}</div>
-      <nav className="footer__nav">
-        {NAV.map((n) => (
-          <Link key={n.href} href={n.href}>{n.label}</Link>
+    <>
+      <nav className="footer-guides" aria-label="サイトのご案内">
+        {guides.map((guide) => (
+          <Link className="footer-guide" href={guide.href} key={guide.en}>
+            <img src={guide.image} alt="" loading="lazy" aria-hidden="true" />
+            <span className="footer-guide__shade" />
+            <span className="footer-guide__content">
+              <strong>{guide.en}</strong>
+              <span>{guide.jp}</span>
+              <small>VIEW MORE <b>→</b></small>
+            </span>
+          </Link>
         ))}
       </nav>
-      <div className="footer__copy">© {new Date().getFullYear()} {SITE.fullName}</div>
-    </footer>
+      <footer className="footer">
+        <div className="footer__logo">{SITE.brand}</div>
+        <nav className="footer__nav">
+          {NAV.map((n) => (
+            <Link key={n.href} href={n.href}>{n.label}</Link>
+          ))}
+        </nav>
+        <div className="footer__copy">© {new Date().getFullYear()} {SITE.fullName}</div>
+      </footer>
+    </>
   );
 }
