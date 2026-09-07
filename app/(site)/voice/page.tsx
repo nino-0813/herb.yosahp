@@ -68,11 +68,11 @@ export default function Voice() {
         {["t", "n", "k", "s"].map((name) => (
           <img
             key={name}
-            src={`/voices/voice-${name}.png`}
+            src={`/voices/voice-${name}-20260907.png`}
             width="1080"
             height="1080"
             loading="lazy"
-            alt={`よもぎ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`}
+            alt={`ハーブ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`}
           />
         ))}
       </div>

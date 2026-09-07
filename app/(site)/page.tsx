@@ -50,7 +50,7 @@ export default function Home() {
       <div className="aun-charm__visual"><img src="/kodawari/yomogi-mushi.jpg" alt="ハーブ蒸しで期待できる冷え、むくみ、美肌、ストレスなどへのケア" /></div>
     </div><img className="aun-charm__mist" src="/reference/smoke-brush.webp" alt="" aria-hidden="true" /></section>
 
-    <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid aun-voices__grid--images">{["t", "n", "k", "s"].map(name => <img key={name} src={`/voices/voice-${name}.png`} width="1080" height="1080" loading="lazy" alt={`よもぎ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>
+    <section className="aun-voices aun-section"><SectionTitle en="VOICE">お客様の声</SectionTitle><div className="aun-voices__grid aun-voices__grid--images">{["t", "n", "k", "s"].map(name => <img key={name} src={`/voices/voice-${name}-20260907.png`} width="1080" height="1080" loading="lazy" alt={`ハーブ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />)}</div><Link className="aun-more" href="/voice">一覧を見る →</Link></section>
 
     <section className="aun-menu aun-section"><SectionTitle en="MENU">メニュー</SectionTitle><div className="aun-menu__cards">
       <article><small>HERBAL STEAMING</small><h3>{campaign.name}</h3><strong>{campaign.price}<em>（税込）</em></strong><hr /><p>{campaign.desc}</p><ReserveLink eventLabel="home_menu_campaign">このメニューを予約 →</ReserveLink></article>
