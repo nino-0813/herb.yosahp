@@ -37,7 +37,7 @@ export default function Home() {
 
     <section className="aun-recommend aun-section">
       <div className="aun-recommend__panel">
-        <img src="/recommend/for-first-time.png" width="1615" height="974" loading="lazy" alt="乾燥、冷え、首や肩のこり、気分の浮き沈みなどが気になる方へ" />
+        <img src="/recommend/for-first-time-20260907.png" width="1656" height="950" loading="lazy" alt="乾燥、冷え、首や肩のこり、気分の浮き沈みなどが気になる方へ" />
         <div className="aun-recommend__action">
           <p>ハーブ蒸しが初めての方も、どうぞご安心ください。</p>
           <Link href="/first-time">初めての方へ <span>→</span></Link>
