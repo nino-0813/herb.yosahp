@@ -163,13 +163,11 @@ export default function FirstTime() {
       {/* ⑤ 証明：お客様の声 */}
       <Headline en="guest voice" jp="お客様の声" mini />
       <div className="spacer-sm" />
-      {VOICES.map((v, i) => (
-        <div className="voice" key={i}>
-          <div className="voice__stars">{"★".repeat(5)}</div>
-          <p className="voice__body">{v.body}</p>
-          <div className="voice__meta">{v.name}（{v.meta}）</div>
-        </div>
-      ))}
+      <div className="voice-image-grid">
+        {["t", "n", "k", "s"].map((name) => (
+          <img key={name} src={`/voices/voice-${name}-20260915.png`} width="1080" height="1080" loading="lazy" alt={`ハーブ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />
+        ))}
+      </div>
       <div className="center" style={{ marginTop: 30 }}>
         <Link className="btn" href="/voice">もっと見る</Link>
       </div>

@@ -4,7 +4,6 @@ import TelLink from "./TelLink";
 import { SITE, STORES, NAV } from "@/site.config";
 import { POINTS, HERB_TYPES, HERBS } from "@/app/(site)/about/page";
 import { STEPS, WISH, WORRY, FAQ } from "@/app/(site)/first-time/page";
-import { VOICES } from "@/app/(site)/voice/page";
 import { MENU_SECTIONS } from "@/lib/menu";
 
 /**
@@ -255,13 +254,11 @@ export default function MobileLanding() {
           <p className="lede">実際にご来店いただいたお客様からの声をご紹介します。</p>
         </div>
         <div className="spacer-sm" />
-        {VOICES.map((v, i) => (
-          <div className="voice" key={i}>
-            <div className="voice__stars">{"★".repeat(5)}</div>
-            <p className="voice__body">{v.body}</p>
-            <div className="voice__meta">{v.name}（{v.meta}）</div>
-          </div>
-        ))}
+        <div className="voice-image-grid voice-image-grid--mobile">
+          {["t", "n", "k", "s"].map((name) => (
+            <img key={name} src={`/voices/voice-${name}-20260915.png`} width="1080" height="1080" loading="lazy" alt={`ハーブ蒸しを体験されたお客様の声 ${name.toUpperCase()}様`} />
+          ))}
+        </div>
       </section>
 
       {/* ── 各店舗のオーナー ───────────────────── */}

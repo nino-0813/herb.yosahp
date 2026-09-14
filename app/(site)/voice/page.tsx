@@ -68,7 +68,7 @@ export default function Voice() {
         {["t", "n", "k", "s"].map((name) => (
           <img
             key={name}
-            src={`/voices/voice-${name}-20260907.png`}
+            src={`/voices/voice-${name}-20260915.png`}
             width="1080"
             height="1080"
             loading="lazy"
