@@ -994,7 +994,7 @@ img { max-width: 100%; display: block; }
 .aun-about { overflow: hidden; min-height: 760px; background: linear-gradient(145deg, #f8f8f4, #e9eee6); text-align: center; }
 .aun-about .aun-title { display: block; margin-bottom: 48px; text-align: center; }
 .aun-about .aun-title span { display: block; margin-bottom: 16px; }
-.aun-about__copy { display: block; max-width: 760px; margin: 0 auto 105px; }
+.aun-about__copy { display: block; max-width: 760px; margin: 35px auto 105px; }
 .aun-about__copy h3 { margin: 0 0 34px; color: #344815; font: 500 clamp(29px, 3.5vw, 46px)/1.7 "Noto Serif JP", serif; letter-spacing: .12em; }
 .aun-about__copy p { max-width: 680px; margin: auto; color: #596446; font-size: 14px; line-height: 2.45; letter-spacing: .08em; }
 .aun-wordmark { width: calc(100% + 180px); margin-left: -90px; overflow: hidden; color: rgba(255,255,255,.92); }
@@ -1460,15 +1460,24 @@ img { max-width: 100%; display: block; }
 }
 .rf-legend { margin-left: auto; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; }
 
-.rf-stores { display: flex; flex-wrap: wrap; gap: 10px; }
+.rf-stores { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .rf-store {
-  flex: 1 1 auto; min-width: 120px;
-  padding: 12px 10px; border: 1px solid #d6cab2; border-radius: 9px;
-  background: #fff; color: var(--ink); font-family: var(--serif); font-size: 14px;
-  letter-spacing: 0.06em; cursor: pointer; transition: 0.18s;
+  position: relative; min-width: 0; min-height: 92px;
+  padding: 15px 54px 14px 15px; border: 1px solid #d6cab2; border-radius: 10px;
+  background: #fff; color: var(--ink); font-family: var(--serif); text-align: left;
+  letter-spacing: 0.04em; cursor: pointer; transition: 0.18s;
 }
 .rf-store:hover { border-color: var(--accent); }
 .rf-store.is-on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.rf-store__name { display: block; font-size: 13px; font-weight: 600; line-height: 1.55; }
+.rf-store small { display: block; margin-top: 5px; color: var(--ink-soft); font-family: "Noto Sans JP", sans-serif; font-size: 10.5px; line-height: 1.45; }
+.rf-store.is-on small { color: rgba(255,255,255,.8); }
+.rf-store__state { position: absolute; top: 50%; right: 12px; padding: 4px 7px; border: 1px solid currentColor; border-radius: 999px; font-family: "Noto Sans JP", sans-serif; font-size: 9px; transform: translateY(-50%); }
+
+@media (max-width: 520px) {
+  .rf-stores { grid-template-columns: 1fr; }
+  .rf-store { min-height: 76px; }
+}
 
 .rf-store-detail { margin: 14px 0 25px; overflow: hidden; border: 1px solid #d6cab2; border-radius: 10px; background: #fff; }
 .rf-store-detail__cover { display: block; width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }

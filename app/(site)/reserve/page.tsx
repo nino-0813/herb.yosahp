@@ -173,7 +173,9 @@ export default function ReservePage() {
         <p className="lede">
           ご希望の店舗・日時をお選びください。
           <br />
-          このフォームは仮予約です。店舗より確認のご連絡をいたします。
+          完全予約制です。このフォームから事前にご予約ください。
+          <br />
+          当日のご予約は、ご希望店舗へ直接お電話ください。
         </p>
 
         <form className="reserve-form" onSubmit={submit}>
@@ -189,16 +191,22 @@ export default function ReservePage() {
             </p>
           ) : (
             <div className="rf-stores">
-              {stores.map((s) => (
-                <button
-                  type="button"
-                  key={s.id}
-                  className={`rf-store ${storeId === s.id ? "is-on" : ""}`}
-                  onClick={() => { setStoreId(s.id); setDate(""); setTime(""); gaEvent("select_store", { store_id: s.id }); }}
-                >
-                  {s.name}
-                </button>
-              ))}
+              {stores.map((s) => {
+                const detail = STORE_DETAILS.find((item) => item.id === s.id);
+                const area = detail?.address.match(/(?:広島県)?([^市]+市[^0-9〒]+)/)?.[1]?.trim();
+                return (
+                  <button
+                    type="button"
+                    key={s.id}
+                    className={`rf-store ${storeId === s.id ? "is-on" : ""}`}
+                    onClick={() => { setStoreId(s.id); setDate(""); setTime(""); gaEvent("select_store", { store_id: s.id }); }}
+                  >
+                    <span className="rf-store__name">{s.name}</span>
+                    {area && <small>{area}</small>}
+                    <span className="rf-store__state">{storeId === s.id ? "選択中" : "選ぶ"}</span>
+                  </button>
+                );
+              })}
             </div>
           )}
           {storeDetail && (
