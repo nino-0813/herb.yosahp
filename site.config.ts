@@ -42,6 +42,8 @@ export const NAV = [
 
 /** 4店舗の情報（アクセスページ・トップで使用）
  *  ※ 営業時間・定休日は未確定のため空欄。分かり次第そのまま追記すれば表示されます。 */
+const STORE_DISPLAY_ORDER = ["larimar", "larimar-numakuma", "cherie-coco", "cocolu"];
+
 export const STORES = [
   {
     id: "cocolu",
@@ -123,4 +125,4 @@ export const STORES = [
       "/stores/larimar-numakuma/larimar-numakuma-3.jpg",
     ],
   },
-];
+].sort((a, b) => STORE_DISPLAY_ORDER.indexOf(a.id) - STORE_DISPLAY_ORDER.indexOf(b.id));

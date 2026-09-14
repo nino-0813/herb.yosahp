@@ -53,11 +53,12 @@ export default function ReservePage() {
       .order("sort_order")
       .then(({ data }) => {
         const today = ymd(new Date());
+        const displayOrder = new Map(STORE_DETAILS.map((item, index) => [item.id, index]));
         const list = ((data ?? []) as Store[]).filter((s) => {
           if (s.sale_start_date && today < s.sale_start_date) return false;
           if (s.sale_end_date && today > s.sale_end_date) return false;
           return true;
-        });
+        }).sort((a, b) => (displayOrder.get(a.id) ?? 999) - (displayOrder.get(b.id) ?? 999));
         setStores(list);
         setStoreId((prev) => prev || list[0]?.id || "");
       });
