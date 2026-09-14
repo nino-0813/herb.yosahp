@@ -19,6 +19,8 @@ export default function Schedule({ stores }: { stores: Store[] }) {
   const [rows, setRows] = useState<Reservation[]>([]);
   const [loading, setLoading] = useState(false);
   const [modalTime, setModalTime] = useState<string | null>(null);
+  const [bulkSaving, setBulkSaving] = useState(false);
+  const [notice, setNotice] = useState("");
 
   const store = stores.find((s) => s.id === storeId);
 
@@ -39,6 +41,7 @@ export default function Schedule({ stores }: { stores: Store[] }) {
   );
 
   useEffect(() => {
+    setNotice("");
     load(storeId, date);
   }, [storeId, date, load]);
 
@@ -65,6 +68,73 @@ export default function Schedule({ stores }: { stores: Store[] }) {
   const capacity = store?.capacity ?? 1;
   const entriesAt = (t: string) =>
     rows.filter((r) => normTime(r.reserved_time) === t && r.status !== "cancelled");
+
+  const reservationCount = rows.filter((r) => !r.is_block && r.status !== "cancelled").length;
+  const blockedTimes = slots.filter((t) => entriesAt(t).some((r) => r.is_block)).length;
+  const openTimes = slots.filter((t) => entriesAt(t).length < capacity).length;
+
+  async function blockWholeDay() {
+    if (!store || bulkSaving) return;
+    const payloads = slots.flatMap((time) => {
+      const remaining = Math.max(0, capacity - entriesAt(time).length);
+      return Array.from({ length: remaining }, () => ({
+        store_id: store.id,
+        customer_name: "終日休み",
+        phone: null,
+        email: null,
+        menu: null,
+        reserved_date: date,
+        reserved_time: time,
+        num_people: 0,
+        status: "confirmed",
+        is_block: true,
+        note: "終日休み",
+      }));
+    });
+
+    if (payloads.length === 0) {
+      setNotice("この日はすでに全時間帯が埋まっています。");
+      return;
+    }
+    if (!confirm(`${date.replace(/-/g, ".")} の空いている全時間帯を予約不可にします。既存予約はそのまま残ります。よろしいですか？`)) return;
+
+    setBulkSaving(true);
+    setNotice("");
+    const { error } = await supabase.from("herb_reservations").insert(payloads);
+    if (error) {
+      setNotice("一括ブロックに失敗しました：" + error.message);
+    } else {
+      await load(storeId, date);
+      setNotice(`終日休みを反映しました（${payloads.length}枠を予約不可にしました）。`);
+    }
+    setBulkSaving(false);
+  }
+
+  async function clearWholeDayBlocks() {
+    if (!store || bulkSaving) return;
+    const blockCount = rows.filter((r) => r.is_block).length;
+    if (blockCount === 0) {
+      setNotice("この日に解除できるブロックはありません。");
+      return;
+    }
+    if (!confirm(`${date.replace(/-/g, ".")} のブロック ${blockCount}件を解除します。お客様の予約は削除されません。よろしいですか？`)) return;
+
+    setBulkSaving(true);
+    setNotice("");
+    const { error } = await supabase
+      .from("herb_reservations")
+      .delete()
+      .eq("store_id", store.id)
+      .eq("reserved_date", date)
+      .eq("is_block", true);
+    if (error) {
+      setNotice("ブロック解除に失敗しました：" + error.message);
+    } else {
+      await load(storeId, date);
+      setNotice(`ブロックを解除しました（${blockCount}件）。`);
+    }
+    setBulkSaving(false);
+  }
 
   const wd = new Date(date + "T00:00:00").getDay();
 
@@ -97,6 +167,24 @@ export default function Schedule({ stores }: { stores: Store[] }) {
             営業 {store?.open_time?.slice(0, 5)}–{store?.close_time?.slice(0, 5)} / 同時 {capacity}件
           </span>
         </div>
+
+        <div className="sch-daytools">
+          <div className="sch-daytools__summary" aria-label="この日の予約状況">
+            <span><b>{reservationCount}</b>件の予約</span>
+            <span><b>{blockedTimes}</b>時間をブロック</span>
+            <span><b>{openTimes}</b>時間に空きあり</span>
+          </div>
+          <div className="sch-daytools__actions">
+            <button className="admin-btn admin-btn--primary" onClick={blockWholeDay} disabled={loading || bulkSaving || slots.length === 0}>
+              {bulkSaving ? "反映中..." : "この日を終日休みにする"}
+            </button>
+            <button className="admin-btn" onClick={clearWholeDayBlocks} disabled={loading || bulkSaving || blockedTimes === 0}>
+              終日休みを解除
+            </button>
+          </div>
+        </div>
+
+        {notice && <div className="sch-notice" role="status">{notice}</div>}
 
         {/* スロット表 */}
         <div className="admin-table-card">

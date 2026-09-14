@@ -1517,6 +1517,23 @@ img { max-width: 100%; display: block; }
 .sch-datenav { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; }
 .sch-wd { font-size: 14px; color: var(--a-soft); }
 
+.sch-daytools {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  margin-bottom: 14px; padding: 16px 18px;
+  border: 1px solid var(--a-line); border-radius: 10px; background: var(--a-card);
+}
+.sch-daytools__summary { display: flex; flex-wrap: wrap; gap: 8px; }
+.sch-daytools__summary span {
+  padding: 6px 10px; border-radius: 999px; background: #f2f4ef;
+  color: var(--a-soft); font-size: 12px; white-space: nowrap;
+}
+.sch-daytools__summary b { margin-right: 2px; color: var(--a-ink); font-size: 14px; }
+.sch-daytools__actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.sch-notice {
+  margin: 0 0 14px; padding: 11px 14px; border: 1px solid #cfd8bf; border-radius: 8px;
+  color: #53643e; background: #f4f7ef; font-size: 13px; font-weight: 500;
+}
+
 .sch-grid { display: flex; flex-direction: column; }
 .sch-slot { display: grid; grid-template-columns: 88px 1fr; border-top: 1px solid var(--a-line); }
 .sch-slot:first-child { border-top: 0; }
@@ -1577,6 +1594,11 @@ img { max-width: 100%; display: block; }
   .admin-header { flex-wrap: wrap; gap: 10px; }
   .admin-tabs { margin: 0; order: 3; width: 100%; }
   .sch-entry { flex-direction: column; align-items: flex-start; }
+  .sch-daytools { align-items: stretch; flex-direction: column; padding: 14px; }
+  .sch-daytools__summary { display: grid; grid-template-columns: 1fr 1fr; }
+  .sch-daytools__summary span:last-child { grid-column: 1 / -1; }
+  .sch-daytools__actions { display: grid; grid-template-columns: 1fr; }
+  .sch-daytools__actions .admin-btn { min-height: 44px; width: 100%; }
 }
 
 /* =======================================================
