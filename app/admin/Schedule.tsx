@@ -143,6 +143,12 @@ export default function Schedule({ stores }: { stores: Store[] }) {
       <AdminTabs />
 
       <div className="admin-wrap">
+        <div className="admin-pagehead">
+          <div>
+            <h1>空き枠・休み設定</h1>
+            <p>日付を選び、予約の追加や予約不可の時間を設定します。</p>
+          </div>
+        </div>
         {/* 店舗タブ */}
         <div className="sch-stores">
           {stores.map((s) => (

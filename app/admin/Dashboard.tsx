@@ -27,15 +27,20 @@ export default function Dashboard({
   const [statusFilter, setStatusFilter] = useState<string>("all");
   const [dateFrom, setDateFrom] = useState<string>("");
   const [keyword, setKeyword] = useState<string>("");
+  const [view, setView] = useState<"reservations" | "blocks">("reservations");
   const [showAdd, setShowAdd] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
 
   const storeName = (id: string) => stores.find((s) => s.id === id)?.name ?? id;
 
+  const reservationRows = useMemo(() => rows.filter((r) => !r.is_block), [rows]);
+  const blockRows = useMemo(() => rows.filter((r) => r.is_block), [rows]);
+
   const filtered = useMemo(() => {
-    return rows.filter((r) => {
+    const source = view === "reservations" ? reservationRows : blockRows;
+    return source.filter((r) => {
       if (storeFilter !== "all" && r.store_id !== storeFilter) return false;
-      if (statusFilter !== "all" && r.status !== statusFilter) return false;
+      if (view === "reservations" && statusFilter !== "all" && r.status !== statusFilter) return false;
       if (dateFrom && r.reserved_date < dateFrom) return false;
       if (keyword) {
         const k = keyword.toLowerCase();
@@ -44,17 +49,17 @@ export default function Dashboard({
       }
       return true;
     });
-  }, [rows, storeFilter, statusFilter, dateFrom, keyword]);
+  }, [reservationRows, blockRows, view, storeFilter, statusFilter, dateFrom, keyword]);
 
   const stats = useMemo(() => {
     const today = todayStr();
     return {
-      total: rows.length,
-      pending: rows.filter((r) => r.status === "pending").length,
-      today: rows.filter((r) => r.reserved_date === today && r.status !== "cancelled").length,
-      upcoming: rows.filter((r) => r.reserved_date >= today && r.status === "confirmed").length,
+      total: reservationRows.length,
+      pending: reservationRows.filter((r) => r.status === "pending").length,
+      today: reservationRows.filter((r) => r.reserved_date === today && r.status !== "cancelled").length,
+      upcoming: reservationRows.filter((r) => r.reserved_date >= today && r.status === "confirmed").length,
     };
-  }, [rows]);
+  }, [reservationRows]);
 
   async function changeStatus(id: string, status: ReservationStatus) {
     setBusy(id);
@@ -101,7 +106,11 @@ export default function Dashboard({
       <AdminTabs />
 
       <div className="admin-wrap">
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 16 }}>
+        <div className="admin-pagehead">
+          <div>
+            <h1>予約一覧</h1>
+            <p>お客様の予約確認と対応状況を管理します。</p>
+          </div>
           <button className="admin-btn admin-btn--primary admin-btn--sm" onClick={() => setShowAdd(true)}>
             ＋ 予約を追加
           </button>
@@ -114,6 +123,21 @@ export default function Dashboard({
           <div className="admin-stat"><div className="admin-stat__num">{stats.total}</div><div className="admin-stat__label">全予約</div></div>
         </div>
 
+        <div className="admin-viewtabs" aria-label="表示内容">
+          <button className={view === "reservations" ? "is-on" : ""} onClick={() => setView("reservations")}>
+            お客様の予約 <span>{reservationRows.length}</span>
+          </button>
+          <button className={view === "blocks" ? "is-on" : ""} onClick={() => setView("blocks")}>
+            休み・ブロック <span>{blockRows.length}</span>
+          </button>
+        </div>
+
+        {view === "blocks" && (
+          <div className="admin-info">
+            ここにはスケジュール画面で設定した予約不可の時間だけを表示しています。お客様の予約件数には含まれません。
+          </div>
+        )}
+
         {/* filters */}
         <div className="admin-toolbar">
           <div className="admin-field">
@@ -123,61 +147,58 @@ export default function Dashboard({
               {stores.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}
             </select>
           </div>
-          <div className="admin-field">
-            <label>ステータス</label>
-            <select className="admin-select" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-              <option value="all">すべて</option>
-              {STATUS_ORDER.map((s) => <option key={s} value={s}>{STATUS_LABEL[s]}</option>)}
-            </select>
-          </div>
+          {view === "reservations" && (
+            <div className="admin-field">
+              <label>ステータス</label>
+              <select className="admin-select" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+                <option value="all">すべて</option>
+                {STATUS_ORDER.map((s) => <option key={s} value={s}>{STATUS_LABEL[s]}</option>)}
+              </select>
+            </div>
+          )}
           <div className="admin-field">
             <label>この日付以降</label>
             <input type="date" className="admin-input" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
           </div>
           <div className="admin-field" style={{ flex: 1, minWidth: 160 }}>
-            <label>検索（名前・電話・メニュー）</label>
+            <label>{view === "reservations" ? "検索（名前・電話・メニュー）" : "検索（ブロック理由）"}</label>
             <input className="admin-input" style={{ width: "100%" }} value={keyword} onChange={(e) => setKeyword(e.target.value)} placeholder="キーワード" />
           </div>
         </div>
 
         {/* table */}
         <div className="admin-table-card">
-          <table className="admin-table">
+          <table className="admin-table admin-table--responsive">
             <thead>
-              <tr>
-                <th>日時</th>
-                <th>店舗</th>
-                <th>お客様</th>
-                <th>人数</th>
-                <th>メニュー</th>
-                <th>連絡先</th>
-                <th>ステータス</th>
-                <th></th>
-              </tr>
+              {view === "reservations" ? (
+                <tr><th>日時</th><th>店舗</th><th>お客様</th><th>人数</th><th>メニュー</th><th>連絡先</th><th>ステータス</th><th></th></tr>
+              ) : (
+                <tr><th>日時</th><th>店舗</th><th>ブロック理由</th><th></th></tr>
+              )}
             </thead>
             <tbody>
               {filtered.length === 0 && (
-                <tr><td colSpan={8}><div className="admin-empty">該当する予約はありません。</div></td></tr>
+                <tr><td colSpan={view === "reservations" ? 8 : 4}><div className="admin-empty">{view === "reservations" ? "該当する予約はありません。" : "該当するブロックはありません。"}</div></td></tr>
               )}
-              {filtered.map((r) => (
+              {view === "reservations" && filtered.map((r) => (
                 <tr key={r.id}>
-                  <td style={{ whiteSpace: "nowrap" }}>
+                  <td data-label="日時" style={{ whiteSpace: "nowrap" }}>
                     {r.reserved_date}<br />
                     <span style={{ color: "var(--a-soft)" }}>{r.reserved_time}</span>
                   </td>
-                  <td style={{ whiteSpace: "nowrap" }}>{storeName(r.store_id)}</td>
-                  <td>
+                  <td data-label="店舗" style={{ whiteSpace: "nowrap" }}>{storeName(r.store_id)}</td>
+                  <td data-label="お客様">
                     {r.customer_name}
                     {r.note && <div style={{ fontSize: 11, color: "var(--a-soft)" }}>📝 {r.note}</div>}
                   </td>
-                  <td>{r.num_people}名</td>
-                  <td>{r.menu ?? "—"}</td>
-                  <td style={{ fontSize: 12 }}>
+                  <td data-label="人数">{r.num_people}名</td>
+                  <td data-label="メニュー">{r.menu ?? "—"}</td>
+                  <td data-label="連絡先" style={{ fontSize: 12 }}>
                     {r.phone && <div>{r.phone}</div>}
                     {r.email && <div style={{ color: "var(--a-soft)" }}>{r.email}</div>}
                     {!r.phone && !r.email && "—"}
                   </td>
-                  <td>
+                  <td data-label="ステータス">
                     <select
                       className={`status-select badge--${r.status}`}
                       value={r.status}
@@ -187,9 +208,24 @@ export default function Dashboard({
                       {STATUS_ORDER.map((s) => <option key={s} value={s}>{STATUS_LABEL[s]}</option>)}
                     </select>
                   </td>
-                  <td>
+                  <td className="admin-table__action">
                     <button className="admin-btn admin-btn--danger admin-btn--sm" disabled={busy === r.id} onClick={() => remove(r.id)}>
                       削除
+                    </button>
+                  </td>
+                </tr>
+              ))}
+              {view === "blocks" && filtered.map((r) => (
+                <tr key={r.id} className="admin-block-row">
+                  <td data-label="日時" style={{ whiteSpace: "nowrap" }}>
+                    {r.reserved_date}<br />
+                    <strong>{r.reserved_time}</strong>
+                  </td>
+                  <td data-label="店舗" style={{ whiteSpace: "nowrap" }}>{storeName(r.store_id)}</td>
+                  <td data-label="理由">{r.note || r.customer_name || "予約不可"}</td>
+                  <td className="admin-table__action">
+                    <button className="admin-btn admin-btn--danger admin-btn--sm" disabled={busy === r.id} onClick={() => remove(r.id)}>
+                      ブロック解除
                     </button>
                   </td>
                 </tr>
@@ -198,7 +234,7 @@ export default function Dashboard({
           </table>
         </div>
         <p style={{ fontSize: 12, color: "var(--a-soft)", marginTop: 12 }}>
-          {filtered.length} 件を表示中（全 {rows.length} 件）
+          {filtered.length} 件を表示中（{view === "reservations" ? `予約 全${reservationRows.length}件` : `ブロック 全${blockRows.length}件`}）
         </p>
       </div>
 

@@ -1286,6 +1286,10 @@ img { max-width: 100%; display: block; }
 .admin-header__title span { color: var(--a-soft); font-weight: 400; margin-left: 10px; font-size: 12px; }
 .admin-wrap { max-width: 1100px; margin: 0 auto; padding: 28px 26px 80px; }
 
+.admin-pagehead { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 22px; }
+.admin-pagehead h1 { margin: 0; font-size: 21px; line-height: 1.4; }
+.admin-pagehead p { margin: 5px 0 0; color: var(--a-soft); font-size: 12px; }
+
 .admin-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   padding: 9px 16px; border-radius: 8px; border: 1px solid var(--a-line);
@@ -1313,6 +1317,12 @@ img { max-width: 100%; display: block; }
 .admin-stat__num { font-size: 24px; font-weight: 700; }
 .admin-stat__label { font-size: 11px; color: var(--a-soft); margin-top: 2px; }
 
+.admin-viewtabs { display: flex; gap: 6px; margin-bottom: 14px; padding: 4px; width: fit-content; border-radius: 10px; background: #e9ece6; }
+.admin-viewtabs button { padding: 9px 15px; border: 0; border-radius: 7px; color: var(--a-soft); background: transparent; font: inherit; font-size: 13px; cursor: pointer; }
+.admin-viewtabs button.is-on { color: var(--a-ink); background: #fff; box-shadow: 0 1px 4px rgba(47,53,48,.1); font-weight: 600; }
+.admin-viewtabs span { display: inline-grid; min-width: 22px; height: 22px; margin-left: 5px; padding: 0 6px; place-items: center; border-radius: 999px; background: #eef0eb; font-size: 11px; }
+.admin-info { margin-bottom: 16px; padding: 11px 14px; border-left: 3px solid var(--a-accent); border-radius: 0 8px 8px 0; color: #59614f; background: #eef1e9; font-size: 12px; }
+
 .admin-table-card { background: var(--a-card); border: 1px solid var(--a-line); border-radius: 12px; overflow: hidden; }
 .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .admin-table th {
@@ -1321,6 +1331,8 @@ img { max-width: 100%; display: block; }
 }
 .admin-table td { padding: 12px 14px; border-top: 1px solid var(--a-line); vertical-align: middle; }
 .admin-table tr:hover td { background: #fafbfa; }
+.admin-block-row td { background: #fbf7f5; }
+.admin-block-row strong { color: #9a6256; }
 .admin-empty { padding: 50px; text-align: center; color: var(--a-soft); font-size: 13px; }
 
 .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
@@ -1349,8 +1361,25 @@ img { max-width: 100%; display: block; }
 .admin-modal__actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 22px; }
 
 @media (max-width: 640px) {
-  .admin-table-card { overflow-x: auto; }
-  .admin-table { min-width: 720px; }
+  .admin-pagehead { align-items: stretch; flex-direction: column; }
+  .admin-pagehead .admin-btn { min-height: 44px; }
+  .admin-stats { display: grid; grid-template-columns: 1fr 1fr; }
+  .admin-stat { min-width: 0; padding: 12px 14px; }
+  .admin-viewtabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .admin-viewtabs button { min-height: 44px; padding-inline: 8px; }
+  .admin-toolbar .admin-field { width: 100%; }
+  .admin-toolbar .admin-input, .admin-toolbar .admin-select { width: 100%; min-height: 44px; }
+  .admin-table-card { overflow: visible; border: 0; background: transparent; }
+  .admin-table--responsive { display: block; min-width: 0; }
+  .admin-table--responsive thead { display: none; }
+  .admin-table--responsive tbody { display: grid; gap: 12px; }
+  .admin-table--responsive tr { display: block; overflow: hidden; border: 1px solid var(--a-line); border-radius: 12px; background: var(--a-card); }
+  .admin-table--responsive td { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 10px 14px; border-top: 1px solid var(--a-line); }
+  .admin-table--responsive td:first-child { border-top: 0; }
+  .admin-table--responsive td::before { content: attr(data-label); color: var(--a-soft); font-size: 11px; font-weight: 600; }
+  .admin-table--responsive .admin-table__action { display: flex; justify-content: flex-end; }
+  .admin-table--responsive .admin-table__action::before { display: none; }
+  .admin-table--responsive .admin-empty { display: block; padding: 32px 18px; }
 }
 
 /* 予約フォーム（公開） */
@@ -1592,7 +1621,12 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 640px) {
   .admin-header { flex-wrap: wrap; gap: 10px; }
-  .admin-tabs { margin: 0; order: 3; width: 100%; }
+  .admin-header { padding: 12px 16px 0; }
+  .admin-header__title span { display: none; }
+  .admin-tabs { margin: 0 -16px; padding: 8px 16px 10px; order: 3; width: calc(100% + 32px); overflow-x: auto; scrollbar-width: none; }
+  .admin-tabs::-webkit-scrollbar { display: none; }
+  .admin-tab { flex: 0 0 auto; min-height: 42px; display: inline-flex; align-items: center; }
+  .admin-wrap { padding: 22px 16px 72px; }
   .sch-entry { flex-direction: column; align-items: flex-start; }
   .sch-daytools { align-items: stretch; flex-direction: column; padding: 14px; }
   .sch-daytools__summary { display: grid; grid-template-columns: 1fr 1fr; }

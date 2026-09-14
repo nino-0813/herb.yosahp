@@ -67,6 +67,12 @@ export default function Stores({ stores }: { stores: Store[] }) {
       <AdminTabs />
 
       <div className="admin-wrap">
+        <div className="admin-pagehead">
+          <div>
+            <h1>店舗設定</h1>
+            <p>営業時間・予約枠・定休日など、予約受付の基本設定を変更します。</p>
+          </div>
+        </div>
         {rows.length === 0 && (
           <div className="admin-empty">
             店舗データがありません。Supabaseの herb_stores テーブルを確認してください。

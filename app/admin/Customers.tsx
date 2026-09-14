@@ -90,6 +90,12 @@ export default function Customers({
     <div className="admin">
       <AdminTabs />
       <div className="admin-wrap">
+        <div className="admin-pagehead">
+          <div>
+            <h1>お客様</h1>
+            <p>来店状況を確認し、フォローが必要なお客様を見つけられます。</p>
+          </div>
+        </div>
         <div className="admin-stats">
           <div className="admin-stat">
             <div className="admin-stat__num">{stats.total}</div>
@@ -141,7 +147,7 @@ export default function Customers({
         </div>
 
         <div className="admin-table-card">
-          <table className="admin-table">
+          <table className="admin-table admin-table--responsive">
             <thead>
               <tr>
                 <th>お客様</th>
@@ -160,9 +166,9 @@ export default function Customers({
               )}
               {filtered.map((c) => (
                 <tr key={c.line_user_id}>
-                  <td>{c.display_name ?? "（名前未取得）"}</td>
-                  <td>{c.main_purpose ?? "—"}</td>
-                  <td>
+                  <td data-label="お客様">{c.display_name ?? "（名前未取得）"}</td>
+                  <td data-label="目的">{c.main_purpose ?? "—"}</td>
+                  <td data-label="タグ">
                     {c.tags.length === 0 ? (
                       <span style={{ color: "var(--a-soft)" }}>—</span>
                     ) : (
@@ -173,16 +179,16 @@ export default function Customers({
                       </span>
                     )}
                   </td>
-                  <td style={{ whiteSpace: "nowrap" }}>{storeName(c.store_id)}</td>
-                  <td style={{ whiteSpace: "nowrap" }}>{c.visit_count}回</td>
-                  <td style={{ whiteSpace: "nowrap" }}>
+                  <td data-label="店舗" style={{ whiteSpace: "nowrap" }}>{storeName(c.store_id)}</td>
+                  <td data-label="来店" style={{ whiteSpace: "nowrap" }}>{c.visit_count}回</td>
+                  <td data-label="最終来店" style={{ whiteSpace: "nowrap" }}>
                     {c.last_visit ?? "—"}
                     {c.days_since_last != null && (
                       <div style={{ fontSize: 11, color: "var(--a-soft)" }}>{c.days_since_last}日前</div>
                     )}
                   </td>
-                  <td><Badge status={c.status} /></td>
-                  <td style={{ fontSize: 12 }}>{c.next_action}</td>
+                  <td data-label="状態"><Badge status={c.status} /></td>
+                  <td data-label="次アクション" style={{ fontSize: 12 }}>{c.next_action}</td>
                 </tr>
               ))}
             </tbody>
