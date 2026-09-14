@@ -108,7 +108,7 @@ export const STORES = [
   {
     id: "larimar-numakuma",
     name: "Larimar（沼隈店）",
-    owner: "高戸 真理",
+    owner: "高戸 真里",
     ownerPhoto: "/staff/takato.jpg",
     address: "〒720-0311 広島県福山市沼隈町草深2156-7",
     access: "",
