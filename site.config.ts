@@ -14,6 +14,7 @@ export const SITE = {
   siteUrl: "https://www.yomogimushi-onu.jp",
   /** トップのキャッチ */
   catch: {
+    en: "",
     jpLines: ["身体を温め、心を整え、新しい毎日へ。", "あなたを優しく温める、ハーブ蒸しサロン。"],
   },
   /** 予約導線（共通ボタンのリンク先）。自サイト予約フォームは "/reserve"。
