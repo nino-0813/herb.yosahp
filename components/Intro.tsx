@@ -55,7 +55,6 @@ export default function Intro() {
           <Leaf className="intro__leaf" />
           <span className="intro__name">{SITE.brand}</span>
         </span>
-        <span className="intro__tag">{SITE.catch.en}</span>
       </div>
     </div>
   );

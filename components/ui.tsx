@@ -65,7 +65,6 @@ export function TrialBanner() {
 export function CtaBand() {
   return (
     <section className="cta-band">
-      <div className="cta-band__en">warm your body, bloom your life</div>
       <div className="cta-band__jp">ご予約・お問い合わせはお気軽にどうぞ</div>
       <ReserveLink className="btn btn--solid" eventLabel="cta_band">{SITE.reserveLabel}</ReserveLink>
     </section>
